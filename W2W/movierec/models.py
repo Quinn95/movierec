@@ -7,7 +7,7 @@ from django.utils.encoding import python_2_unicode_compatible
 # Create your models here.
 
 @python_2_unicode_compatible
-class Person(model.Model):
+class Person(models.Model):
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=15)
 
@@ -15,14 +15,14 @@ class Person(model.Model):
         return self.first_name
 
 @python_2_unicode_compatible
-class Genre(model.Model):
+class Genre(models.Model):
     name = models.CharField(max_length=15)
 
     def __str__(self):
         return self.name
 
 @python_2_unicode_compatible
-class Movie(model.Model):
+class Movie(models.Model):
     title = models.CharField(max_length=30)
     genre = models.ManyToManyField(Genre)
     actors = models.ManyToManyField(Person)
