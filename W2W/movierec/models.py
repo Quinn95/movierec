@@ -23,12 +23,25 @@ class Genre(models.Model):
 
 @python_2_unicode_compatible
 class Movie(models.Model):
+    id = models.IntegerField()
+    themoviedb = models.IntegerField()
+    imdb = models.IntegerField()
+    rating = models.CharField(max_length=7)
+    rottentomatoes = models.IntegerField()
+    wikipedia_id = models.IntegerField()
+    metacritice = models.CharField()
+    common_sense_media = models.CharField()
+    poster = models.CharField()
     title = models.CharField(max_length=30)
     genre = models.ManyToManyField(Genre)
     actors = models.ManyToManyField(Person)
     directors = models.ManyToManyField(Person)
     date = models.DateField()
     language = models.CharField(max_length=2) #may change
+    netflix_link = models.CharField()
+    amazon_link = models.CharField()
+    hulu_link = models.CharField()
+
 
     def __str__(self):
         return self.title
