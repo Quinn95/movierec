@@ -34,7 +34,6 @@
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -70,18 +69,6 @@
         <!-- /.container -->
     </nav>
 
-
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <div id="my-slider" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="item active"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
   <div class="container-fluid">
     <button class="pull-right right right1 arrow" data-arrow="right 1">
       <span class="fa fa-chevron-right pull-right"></span>
@@ -92,7 +79,7 @@
 
     <div class="row__inner c1">
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalTintin">
         <div class="tile__media">
           <img class="tile__img" src="http://www.movienewz.com/img/films/adventures_of_tintin_movie_poster_2.jpg" alt=""  />
         </div>
@@ -103,23 +90,7 @@
         </div>
       </div>
 
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body">
-        <iframe src="http://www.youtube.com/embed/dP15zlyra3c?html5=1"></iframe>
-      </div>
-      </div>
-
-  </div>
-</div>
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalHappyFeet2">
         <div class="tile__media">
           <img class="tile__img" src="http://www.movienewz.com/img/films/happy_feet_two_movie_poster.jpg" alt=""  />
         </div>
@@ -130,7 +101,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalHiddenFigures">
         <div class="tile__media">
           <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/736x/c3/ab/67/c3ab67327e9f2d577b95fee3a1767245.jpg" alt=""  />
         </div>
@@ -141,7 +112,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalThor">
         <div class="tile__media">
           <img class="tile__img" src="http://www.movienewz.com/img/films/thor_movie_poster.jpg" alt=""  />
         </div>
@@ -152,7 +123,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalBirdman">
         <div class="tile__media">
           <img class="tile__img" src="http://i.ebayimg.com/images/g/WZMAAOSwDN1UMMoA/s-l298.jpg" alt=""  />
         </div>
@@ -163,7 +134,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalLionKing">
         <div class="tile__media">
           <img class="tile__img" src="http://www.movienewz.com/img/films/lion_king_3d_movie_poster.jpg" alt=""  />
         </div>
@@ -174,7 +145,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalJourney2">
         <div class="tile__media">
           <img class="tile__img" src="http://www.movienewz.com/img/films/journey_2_the_mysterious_island_movie_poster.jpg" alt=""  />
         </div>
@@ -185,7 +156,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalHungerGamesCatchingFire">
         <div class="tile__media">
           <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/236x/a8/c1/57/a8c1572b24467328cda6a08755415cca.jpg" alt=""  />
         </div>
@@ -196,7 +167,7 @@
         </div>
       </div>
 
-      <div class="tile">
+      <div class="tile" data-toggle="modal" data-target="#myModalIndependenceDay">
         <div class="tile__media">
           <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/236x/81/bb/5e/81bb5ee2fd8da71c01ff6098929c2b2e.jpg" alt=""  />
         </div>
@@ -770,6 +741,125 @@
 
     </div>
   </div>
+
+
+  <!-- Modal -->
+<div id="myModalTintin" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/xz3j8gKRUTg" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalHappyFeet2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/gKWNUyTGqss" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalHiddenFigures" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/RK8xHq6dfAo" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalThor" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/JOddp-nlNvQ" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalBirdman" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/uJfLoE6hanc" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalLionKing" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/jOIu472cCq0" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalJourney2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/qdFCjwcK8IE" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalHungerGamesCatchingFire" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/EAzGXqJSDJ8" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalIndependenceDay" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/kA2WzBi2grE" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
   
 
 

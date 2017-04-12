@@ -44,4 +44,41 @@ $( document ).ready(function() {
 		}
 
 	});
+
+
+  // $("body").on('hidden.bs.modal', function (e) {
+  //   var $iframes = $(e.target).find("iframe");
+  //   $iframes.each(function(index, iframe){
+  //     $(iframe).attr("src", $(iframe).attr("src"));
+  //   });
+  // });
+
+
+  $(".tile").on("click", function(){
+  	var title = $(this).find(".tile__title").text().trim().replace(":", "").replace(";", "").split(" ");
+  	console.log(title);
+  	var realTitle;
+  	if(title.length != 1){
+  		for (var i = 0; i < title.length; i++) {
+  			if(realTitle == undefined){
+  				realTitle = title[i];
+  			}
+  			else{
+  				realTitle = realTitle + title[i];
+  			}
+  		}
+  	}
+  	else{
+  		realTitle = title;
+  	}
+  	console.log(realTitle);
+	$('#myModal' + realTitle).on('hidden.bs.modal', function(e) {
+	    $(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
+	    // $(this).find('iframe').attr('src', rawVideoURL);
+	});
+  })
+
+
+
+
 });
