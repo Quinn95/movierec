@@ -29,7 +29,7 @@ class Movie(models.Model):
     rating = models.CharField(max_length=7)
     rottentomatoes = models.IntegerField()
     wikipedia_id = models.IntegerField()
-    metacritice = models.CharField()
+    metacritic = models.CharField()
     common_sense_media = models.CharField()
     poster = models.CharField()
     title = models.CharField(max_length=30)
