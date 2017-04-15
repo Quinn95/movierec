@@ -1,0 +1,647 @@
+{
+  "alternate_titles": [
+    "Tucker and Dale vs Evil", 
+    "Tucker & Dale vs Evil", 
+    "Tucker and Dale vs. Evil"
+  ], 
+  "cast": [
+    {
+      "character_name": "Tucker", 
+      "id": 274142, 
+      "imdb": "nm0876138", 
+      "name": "Alan Tudyk"
+    }, 
+    {
+      "character_name": "Dale", 
+      "id": 410786, 
+      "imdb": "nm0479527", 
+      "name": "Tyler Labine"
+    }, 
+    {
+      "character_name": "Allison", 
+      "id": 491991, 
+      "imdb": "nm2197298", 
+      "name": "Katrina Bowden"
+    }, 
+    {
+      "character_name": "Chad", 
+      "id": 167127, 
+      "imdb": "nm1536605", 
+      "name": "Jesse Moss"
+    }, 
+    {
+      "character_name": "Sheriff", 
+      "id": 288726, 
+      "imdb": "nm0335073", 
+      "name": "Philip Granger"
+    }, 
+    {
+      "character_name": "Jason", 
+      "id": 245325, 
+      "imdb": "nm1564963", 
+      "name": "Brandon Jay McLaren"
+    }, 
+    {
+      "character_name": "Naomi", 
+      "id": 232388, 
+      "imdb": "nm1682392", 
+      "name": "Christie Laing"
+    }, 
+    {
+      "character_name": "Chloe", 
+      "id": 485490, 
+      "imdb": "nm0799706", 
+      "name": "Chelan Simmons"
+    }, 
+    {
+      "character_name": "Chuck", 
+      "id": 467938, 
+      "imdb": "nm3303404", 
+      "name": "Travis Nelson"
+    }, 
+    {
+      "character_name": "Todd", 
+      "id": 134613, 
+      "imdb": "nm1604007", 
+      "name": "Alex Arsenault"
+    }, 
+    {
+      "character_name": "Mitch", 
+      "id": 498989, 
+      "imdb": "nm3351574", 
+      "name": "Adam Beauchesne"
+    }, 
+    {
+      "character_name": "Mike", 
+      "id": 171066, 
+      "imdb": "nm2383730", 
+      "name": "Joseph Allan Sutherland"
+    }, 
+    {
+      "character_name": "Cheryl", 
+      "id": 180419, 
+      "imdb": "nm3492975", 
+      "name": "Karen Reigh"
+    }, 
+    {
+      "character_name": "Chad's Dad", 
+      "id": 556824, 
+      "imdb": "nm3363390", 
+      "name": "Tye Evans"
+    }, 
+    {
+      "character_name": "BJ Hillbilly", 
+      "id": 384718, 
+      "imdb": "nm1488988", 
+      "name": "Bill Baksa"
+    }
+  ], 
+  "common_sense_media": "https://www.commonsensemedia.org/movie-reviews/tucker-dale-vs-evil", 
+  "directors": [
+    {
+      "id": 87222, 
+      "imdb": "nm0185848", 
+      "name": "Eli Craig"
+    }
+  ], 
+  "duration": 5340, 
+  "free_android_sources": [], 
+  "free_ios_sources": [], 
+  "free_web_sources": [], 
+  "freebase": "/m/0b73yfl", 
+  "genres": [
+    {
+      "id": 6, 
+      "title": "Comedy"
+    }, 
+    {
+      "id": 15, 
+      "title": "Horror"
+    }
+  ], 
+  "id": 5108, 
+  "imdb": "tt1465522", 
+  "in_theaters": false, 
+  "metacritic": "http://www.metacritic.com/movie/tucker-dale-vs-evil", 
+  "original_title": "Tucker & Dale vs. Evil", 
+  "other_sources": [], 
+  "overview": "Tucker and Dale, two best friends on vacation at their dilapidated mountain house, are mistaken for murderous backwoods hillbillies by a group of obnoxious, preppy college kids. When one of the students gets separated from her friends, the boys try to lend a hand, but as the misunderstanding grows, so does the body count.", 
+  "poster_120x171": "http://static-api.guidebox.com/thumbnails_movies_small/5108-8599296971-7456677938-3042430091-small-120x171.jpg", 
+  "poster_240x342": "http://static-api.guidebox.com/thumbnails_movies_medium/5108-3928387659-323397746-9473212636-medium-240x342.jpg", 
+  "poster_400x570": "http://static-api.guidebox.com/thumbnails_movies/5108-4023650312-3074776284-1785834418-large-400x570.jpg", 
+  "pre_order": false, 
+  "purchase_android_sources": [
+    {
+      "app_download_link": "https://play.google.com/store/apps/details?id=air.com.vudu.air.DownloaderTablet", 
+      "app_link": 1, 
+      "app_name": "VUDU", 
+      "app_required": 1, 
+      "display_name": "VUDU", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "7.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HDX", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HDX", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "vuduapp://206264", 
+      "source": "vudu"
+    }, 
+    {
+      "app_download_link": "https://play.google.com/store", 
+      "app_link": 0, 
+      "app_name": "Google Play", 
+      "app_required": 0, 
+      "display_name": "Google Play", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "12.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "https://play.google.com/store/movies/details/Tucker_Dale_vs_Evil?id=VuzlCk1xRqA", 
+      "source": "google_play"
+    }
+  ], 
+  "purchase_ios_sources": [
+    {
+      "app_download_link": "itms-apps://", 
+      "app_link": 1, 
+      "app_name": "iTunes", 
+      "app_required": 1, 
+      "display_name": "iTunes", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "12.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "itms://itunes.apple.com/us/movie/tucker-dale-vs-evil/id454056532?uo=4&at=10laHb", 
+      "source": "itunes"
+    }, 
+    {
+      "app_download_link": "itms-apps://itunes.apple.com/app/vudu-player-movies-tv/id487285735", 
+      "app_link": 0, 
+      "app_name": "VUDU", 
+      "app_required": 0, 
+      "display_name": "VUDU", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "7.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HDX", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HDX", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "http://click.linksynergy.com/fs-bin/click?id=Pz66xbzAbFo&subid=&offerid=251672.1&type=10&tmpid=9417&RD_PARM1=http%3A%2F%2Fwww.vudu.com%2Fmovies%2F%23%21content%2F206264%2FTucker-and-Dale-vs-Evil", 
+      "source": "vudu"
+    }
+  ], 
+  "purchase_web_sources": [
+    {
+      "display_name": "iTunes", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "12.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "https://itunes.apple.com/us/movie/tucker-dale-vs-evil/id454056532?uo=4&at=10laHb", 
+      "source": "itunes"
+    }, 
+    {
+      "display_name": "Amazon", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "7.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "http://www.amazon.com/gp/product/B005JE7XW0", 
+      "source": "amazon_buy"
+    }, 
+    {
+      "display_name": "VUDU", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "7.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HDX", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HDX", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "http://click.linksynergy.com/fs-bin/click?id=Pz66xbzAbFo&subid=&offerid=251672.1&type=10&tmpid=9417&RD_PARM1=http%3A%2F%2Fwww.vudu.com%2Fmovies%2F%23%21content%2F206264%2FTucker-and-Dale-vs-Evil", 
+      "source": "vudu"
+    }, 
+    {
+      "display_name": "Google Play", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "12.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "https://play.google.com/store/movies/details/Tucker_Dale_vs_Evil?id=VuzlCk1xRqA", 
+      "source": "google_play"
+    }, 
+    {
+      "display_name": "YouTube", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "9.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "12.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "http://www.youtube.com/watch?v=VuzlCk1xRqA", 
+      "source": "youtube_purchase"
+    }, 
+    {
+      "display_name": "Sony Entertainment Network", 
+      "formats": [
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "2.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "SD", 
+          "pre_order": false, 
+          "price": "6.99", 
+          "type": "purchase"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "3.99", 
+          "type": "rent"
+        }, 
+        {
+          "format": "HD", 
+          "pre_order": false, 
+          "price": "6.99", 
+          "type": "purchase"
+        }
+      ], 
+      "link": "https://store.sonyentertainmentnetwork.com/#!/en-us/movies/cid=UV0035-NPVA46574_CN-0000000000101040", 
+      "source": "sony"
+    }
+  ], 
+  "rating": "R", 
+  "release_date": "2010-01-22", 
+  "release_year": 2010, 
+  "rottentomatoes": 770812374, 
+  "social": {
+    "facebook": {
+      "facebook_id": 415311005116, 
+      "link": "https://www.facebook.com/tuckeranddalevsevil"
+    }
+  }, 
+  "subscription_android_sources": [
+    {
+      "app_download_link": "https://play.google.com/store/apps/details?id=com.hulu.plus", 
+      "app_link": 1, 
+      "app_name": "Hulu", 
+      "app_required": 1, 
+      "display_name": "Hulu", 
+      "link": "hulu://w/645954", 
+      "source": "hulu_plus"
+    }, 
+    {
+      "app_download_link": "https://play.google.com/store/apps/details?id=com.netflix.mediaclient&hl=en", 
+      "app_link": 1, 
+      "app_name": "Netflix", 
+      "app_required": 1, 
+      "display_name": "Netflix", 
+      "link": "nflx://www.netflix.com/Browse?q=action%3Dplay%26source%3Ddevice%26movieid%3Dhttp%3A%2F%2Fapi-public.netflix.com%2Fcatalog%2Ftitles%2Fmovies%2F70129463", 
+      "source": "netflix"
+    }, 
+    {
+      "app_download_link": "http://amazon.com/GetAndroidVideo", 
+      "app_link": 0, 
+      "app_name": "Amazon Prime", 
+      "app_required": 1, 
+      "display_name": "Shudder (Via Amazon Prime)", 
+      "link": "http://www.amazon.com/piv-apk-play?asin=B017VDDCGM", 
+      "source": "shudder_amazon_prime"
+    }, 
+    {
+      "app_download_link": "http://amazon.com/GetAndroidVideo", 
+      "app_link": 0, 
+      "app_name": "Amazon Prime", 
+      "app_required": 1, 
+      "display_name": "Monsters and Nightmares (Via Amazon Prime)", 
+      "link": "http://www.amazon.com/piv-apk-play?asin=B017VDDCGM", 
+      "source": "monstersnightmares_amazon_prime"
+    }
+  ], 
+  "subscription_ios_sources": [
+    {
+      "app_download_link": "itms-apps://itunes.apple.com/app/hulu-plus/id376510438", 
+      "app_link": 1, 
+      "app_name": "Hulu", 
+      "app_required": 1, 
+      "display_name": "Hulu", 
+      "link": "hulu://w/645954", 
+      "source": "hulu_plus"
+    }, 
+    {
+      "app_download_link": "itms-apps://itunes.apple.com/app/netflix/id363590051", 
+      "app_link": 1, 
+      "app_name": "Netflix", 
+      "app_required": 1, 
+      "display_name": "Netflix", 
+      "link": "nflx://www.netflix.com/watch/70129463", 
+      "source": "netflix"
+    }, 
+    {
+      "app_download_link": "itms-apps://itunes.apple.com/app/amazon-instant-video/id5455193", 
+      "app_link": 1, 
+      "app_name": "Amazon Prime", 
+      "app_required": 1, 
+      "display_name": "Shudder (Via Amazon Prime)", 
+      "link": "aiv://aiv/play?asin=B017VDDCGM", 
+      "source": "shudder_amazon_prime"
+    }, 
+    {
+      "app_download_link": "itms-apps://itunes.apple.com/app/amazon-instant-video/id5455193", 
+      "app_link": 1, 
+      "app_name": "Amazon Prime", 
+      "app_required": 1, 
+      "display_name": "Monsters and Nightmares (Via Amazon Prime)", 
+      "link": "aiv://aiv/play?asin=B017VDDCGM", 
+      "source": "monstersnightmares_amazon_prime"
+    }
+  ], 
+  "subscription_web_sources": [
+    {
+      "display_name": "Hulu", 
+      "link": "http://www.hulu.com/watch/645954", 
+      "source": "hulu_plus"
+    }, 
+    {
+      "display_name": "Netflix", 
+      "link": "http://movies.netflix.com/Movie/70129463", 
+      "source": "netflix"
+    }, 
+    {
+      "display_name": "Shudder", 
+      "link": "https://www.shudder.com/watch/movie/2327323/1?autoplay=1", 
+      "source": "shudder"
+    }, 
+    {
+      "display_name": "Shudder (Via Amazon Prime)", 
+      "link": "http://www.amazon.com/gp/product/B017VDDCGM?spp=shuddertv", 
+      "source": "shudder_amazon_prime"
+    }, 
+    {
+      "display_name": "Monsters and Nightmares (Via Amazon Prime)", 
+      "link": "http://www.amazon.com/gp/product/B017VDDCGM?spp=mandn", 
+      "source": "monstersnightmares_amazon_prime"
+    }
+  ], 
+  "tags": [
+    {
+      "id": 13738, 
+      "tag": "college kid"
+    }, 
+    {
+      "id": 8375, 
+      "tag": "cabin"
+    }, 
+    {
+      "id": 1266, 
+      "tag": "hillbilly"
+    }, 
+    {
+      "id": 5893, 
+      "tag": "chainsaw"
+    }, 
+    {
+      "id": 1105, 
+      "tag": "role reversal"
+    }
+  ], 
+  "themoviedb": 46838, 
+  "title": "Tucker & Dale vs. Evil", 
+  "trailers": {
+    "android": [
+      {
+        "display_name": "Guidebox", 
+        "embed": "http://api-widget.guidebox.com/embed.php?video=17923", 
+        "link": "http://demo.guidebox.com/watch-now.php?video=17923", 
+        "source": "guidebox", 
+        "type": "Main Trailer"
+      }
+    ], 
+    "ios": [
+      {
+        "display_name": "Guidebox", 
+        "embed": "http://api-widget.guidebox.com/embed.php?video=17923", 
+        "link": "http://demo.guidebox.com/watch-now.php?video=17923", 
+        "source": "guidebox", 
+        "type": "Main Trailer"
+      }
+    ], 
+    "web": [
+      {
+        "display_name": "Guidebox", 
+        "embed": "http://api-widget.guidebox.com/embed.php?video=17923", 
+        "link": "http://demo.guidebox.com/watch-now.php?video=17923", 
+        "source": "guidebox", 
+        "type": "Main Trailer"
+      }
+    ]
+  }, 
+  "tv_everywhere_android_sources": [], 
+  "tv_everywhere_ios_sources": [], 
+  "tv_everywhere_web_sources": [], 
+  "wikipedia_id": 26255812, 
+  "writers": [
+    {
+      "id": 87222, 
+      "imdb": "nm0185848", 
+      "name": "Eli Craig"
+    }, 
+    {
+      "id": 316099, 
+      "imdb": "nm1549853", 
+      "name": "Morgan Jurgenson"
+    }
+  ]
+}

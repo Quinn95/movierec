@@ -8,8 +8,9 @@ guidebox.Region = "US"
 #movies = guidebox.Movie.list()
 
 source = guidebox.Movie.retrieve(id='5108')
-print source
-
+test = json.loads(source.__str__())
+for each in test['cast']:
+    print each['character_name'] + ': ' + each['name']
 #print movies
 
 
