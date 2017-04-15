@@ -36,7 +36,7 @@ class Movie(models.Model):
     genre = models.ManyToManyField(Genre)
     actors = models.ManyToManyField(Person)
     directors = models.ManyToManyField(Person)
-    date = models.DateField()
+    date = models.IntegerField()
     language = models.CharField(max_length=2) #may change
 
     def __str__(self):
