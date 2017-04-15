@@ -11,6 +11,8 @@ m.identifier = 1
 m.themoviedb = "link"
 m.save()
 """
+def testing():
+    populateMovies(guidebox.Movie.list(limit=5))
 
 def populateMovies(movies):
 

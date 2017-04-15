@@ -25,17 +25,17 @@ class Genre(models.Model):
 class Movie(models.Model):
     identifier = models.IntegerField()
     themoviedb = models.IntegerField()
-    imdb = models.IntegerField()
+    imdb = models.CharField(max_length=200)
     rating = models.CharField(max_length=7)
     rottentomatoes = models.IntegerField()
     wikipedia_id = models.IntegerField()
-    metacritic = models.CharField()
-    common_sense_media = models.CharField()
-    poster = models.CharField()
+    metacritic = models.CharField(max_length=200)
+    common_sense_media = models.CharField(max_length=200)
+    poster = models.CharField(max_length=200)
     title = models.CharField(max_length=30)
     genre = models.ManyToManyField(Genre)
     actors = models.ManyToManyField(Person)
-    directors = models.ManyToManyField(Person)
+    #directors = models.ManyToManyField(Person)
     date = models.IntegerField()
     language = models.CharField(max_length=2) #may change
 
