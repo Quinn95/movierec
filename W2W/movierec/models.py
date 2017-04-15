@@ -23,7 +23,7 @@ class Genre(models.Model):
 
 @python_2_unicode_compatible
 class Movie(models.Model):
-    id = models.IntegerField()
+    identifier = models.IntegerField()
     themoviedb = models.IntegerField()
     imdb = models.IntegerField()
     rating = models.CharField(max_length=7)
@@ -38,10 +38,6 @@ class Movie(models.Model):
     directors = models.ManyToManyField(Person)
     date = models.DateField()
     language = models.CharField(max_length=2) #may change
-    netflix_link = models.CharField()
-    amazon_link = models.CharField()
-    hulu_link = models.CharField()
-
 
     def __str__(self):
         return self.title
