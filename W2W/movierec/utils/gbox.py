@@ -31,23 +31,28 @@ def populateMovies(movies):
             detail = json.loads(movie_detail.__str__())
             genre_list = []
             for genre in detail['genres']:
-                if len(Genre.objects.filter(name=genre['title'])) == 0:
-                    g = Genre(identifier=genre['id'], name=genre['title'])
+                if len(Genre.objects.filter(identifier=int(genre['id']))) == 0:
+                    g = Genre(identifier=int(genre['id']), name=genre['title'])
                     genre_list.append(g)
                     g.save()
+                else:
+                    genre_list.append(genre['title'])
 
             person_list = []
             for actor in detail['cast']:
-                if len(Person.objects.filter(name=actor['name'])) == 0:
-                    p = Person(identifier=actor['id'], name=actor['name'])
+                if len(Person.objects.filter(identifier=int(actor['id']))) == 0:
+                    p = Person(identifier=int(actor['id']), name=actor['name'])
                     person_list.append(p)
                     p.save()
+                else:
+                    person_list.append(actor['name'])
             for director in detail['directors']:
-                if len(Person.objects.filter(name=director['name'])) == 0:
-                    d = Person(identifier=director['id'], name=director['name'])
+                if len(Person.objects.filter(identifier=int(director['id']))) == 0:
+                    d = Person(identifier=int(director['id']), name=director['name'])
                     person_list.append(d)
                     d.save()
-
+                else:
+                    person_list.append(director['name'])
             for each in detail['subscription_web_sources']:
                 if each['source'] == 'hulu_plus':
                     hulu_link = each['link']
