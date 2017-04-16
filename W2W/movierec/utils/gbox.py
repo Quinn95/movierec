@@ -25,6 +25,9 @@ def populateMovies(movies):
 
         e = Movie.objects.filter(identifier=int(movie['id']))
         if len(e) == 0:
+            hulu_link = None
+            netflix_link = None
+            amazon_link = None
             movie_detail = guidebox.Movie.retrieve(movie['id'])
             detail = json.loads(movie_detail.__str__())
             for each in detail['subscription_web_sources']:
