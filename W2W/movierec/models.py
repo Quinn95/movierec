@@ -38,6 +38,9 @@ class Movie(models.Model):
     #directors = models.ManyToManyField(Person)
     date = models.IntegerField()
     language = models.CharField(max_length=2) #may change
+    netflix = models.CharField(max_length=200, null=True)
+    amazon = models.CharField(max_length=200, null=True)
+    hulu = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.title
