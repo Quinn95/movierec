@@ -23,7 +23,7 @@ class Genre(models.Model):
 
 @python_2_unicode_compatible
 class Movie(models.Model):
-    identifier = models.IntegerField()
+    identifier = models.IntegerField(unique=True)
     themoviedb = models.IntegerField()
     imdb = models.CharField(max_length=200)
     rating = models.CharField(max_length=7)
