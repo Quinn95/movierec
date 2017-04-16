@@ -14,8 +14,8 @@ m.themoviedb = "link"
 m.save()
 """
 def testing():
-    populateMovies(guidebox.Movie.list(limit=10))
-    #populateMovies(guidebox.Movie.list(limit=100))
+    #populateMovies(guidebox.Movie.list(limit=10))
+    populateMovies(guidebox.Movie.list(limit=100))
 
 def populateMovies(movies):
 
