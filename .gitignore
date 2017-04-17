@@ -1,4 +1,7 @@
-.DS_Store
 *.pyc
-*.swp
-db.sqlite3
+.DS_Store
+node_modules/
+_build/
+dev.db
+site_media/
+env/
