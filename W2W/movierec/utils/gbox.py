@@ -15,7 +15,7 @@ m.save()
 """
 def testing():
     #populateMovies(guidebox.Movie.list(limit=10))
-    populateMovies(guidebox.Movie.list(limit=100))
+    populateMovies(guidebox.Movie.list(limit=10))
 
 def populateMovies(movies):
 
@@ -36,7 +36,7 @@ def populateMovies(movies):
                     genre_list.append(g)
                     g.save()
                 else:
-                    genre_list.append(genre['title'])
+                    genre_list.append(Genre.objects.filter(name=genre['title'])[0])
 
             person_list = []
             for actor in detail['cast']:
@@ -45,14 +45,24 @@ def populateMovies(movies):
                     person_list.append(p)
                     p.save()
                 else:
-                    person_list.append(actor['name'])
+                    person_list.append(Person.objects.filter(name=actor['name'])[0])
             for director in detail['directors']:
                 if len(Person.objects.filter(identifier=int(director['id']))) == 0:
                     d = Person(identifier=int(director['id']), name=director['name'])
                     person_list.append(d)
                     d.save()
                 else:
-                    person_list.append(director['name'])
+                    person_list.append(Person.objects.filter(name=director['name'])[0])
+            for writer in detail['writers']:
+                if len(Person.objects.filter(identifier=int(writer['id']))) == 0:
+                    w = Person(identifier=int(writer['id']), name=writer['name'])
+                    person_list.append(w)
+                    w.save()
+                else:
+                    person_list.append(Person.objects.filter(name=writer['name'])[0])
+
+            main_trailer = detail['trailers']['web'][0]['embed']
+
             for each in detail['subscription_web_sources']:
                 if each['source'] == 'hulu_plus':
                     hulu_link = each['link']
@@ -74,7 +84,8 @@ def populateMovies(movies):
                       date=movie['release_year'],
                       netflix=netflix_link,
                       amazon=amazon_link,
-                      hulu=hulu_link)
+                      hulu=hulu_link,
+                      trailer=main_trailer)
             m.save()
             m.genre.add(*genre_list)
             m.people.add(*person_list)
