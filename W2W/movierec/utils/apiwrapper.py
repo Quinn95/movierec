@@ -15,7 +15,7 @@ def processRequest(request):
     ###
     for k, v in request.items():
         if k == 'streaming_services':
-            for stream in request[k]:
+            for stream in v:
                 if stream == u'netflix':
                     results = results.exclude(netflix__isnull=True)
                 elif stream == u'amazon':
@@ -23,9 +23,9 @@ def processRequest(request):
                 elif stream == u'hulu':
                     results = results.exclude(hulu__isnull=True)
         elif k == 'title':
-            results = results.filter(title__contains=request[k])
+            results = results.filter(title__contains=v)
         elif k == 'people':
-            for person in request[k].split(','):
+            for person in v.split(','):
                 print person
 
     return results

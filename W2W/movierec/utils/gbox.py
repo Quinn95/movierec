@@ -89,5 +89,5 @@ def populateMovies(movies):
             m.save()
             m.genre.add(*genre_list)
             m.people.add(*person_list)
-            m.save()
+           # m.save()
 
