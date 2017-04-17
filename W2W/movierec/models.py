@@ -41,6 +41,7 @@ class Movie(models.Model):
     netflix = models.CharField(max_length=200, null=True)
     amazon = models.CharField(max_length=200, null=True)
     hulu = models.CharField(max_length=200, null=True)
+    trailer = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.title
