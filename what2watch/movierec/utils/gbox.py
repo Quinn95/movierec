@@ -1,11 +1,12 @@
 import guidebox
 import json
-from movierec.models import Movie, Genre, Person
+from movierec.models import Movie, Genre, Person, Language
 from django.db import models
-from tmdbv3api import TMDb
+import tmdbsimple as tmdb
 
 guidebox.api_key = "e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5"
 guidebox.Region = "US"
+tmdb.API_KEY = "f2eee9cde7536b5ef17767e4e9a97239"
 
 """
 m = Movie()
@@ -19,12 +20,14 @@ def testing():
     # g = Genre.objects.get(name='Action')
     # print g.movie_set.all()
 
+
 def populateMovies(movies):
 
     list = json.loads(movies.__str__())
 
     for movie in list['results']:
         e = Movie.objects.filter(identifier=int(movie['id']))
+        tmdb_data = tmdb.Movies(movie['themoviedb']).info()
         if len(e) == 0:
             hulu_link = None
             netflix_link = None
@@ -63,6 +66,15 @@ def populateMovies(movies):
                 else:
                     person_list.append(Person.objects.filter(name=writer['name'])[0])
 
+            language_list = []
+            for language in tmdb_data['spoken_languages']:
+                if len(Language.objects.filter(name=language['iso_639_1'])) == 0:
+                    l = Language(name=language['iso_639_1'])
+                    language_list.append(l)
+                    l.save()
+                else:
+                    language_list.append(Language.objects.filter(name=language['iso_639_1'])[0])
+
             main_trailer = detail['trailers']['web'][0]['embed']
 
             for each in detail['subscription_web_sources']:
@@ -84,6 +96,11 @@ def populateMovies(movies):
                       poster=movie['poster_400x570'],
                       title=movie['title'],
                       summary=detail['overview'],
+                      runtime=tmdb_data['runtime'],
+                      budget=tmdb_data['budget'],
+                      vote_count=tmdb_data['vote_count'],
+                      vote_average=tmdb_data['vote_average'],
+                      popularity=tmdb_data['popularity'],
                       date=movie['release_year'],
                       netflix=netflix_link,
                       amazon=amazon_link,
@@ -92,5 +109,6 @@ def populateMovies(movies):
             m.save()
             m.genre.add(*genre_list)
             m.people.add(*person_list)
+            m.languages.add(*language_list)
             m.save()
 

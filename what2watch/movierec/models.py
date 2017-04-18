@@ -23,6 +23,13 @@ class Genre(models.Model):
         return self.name
 
 @python_2_unicode_compatible
+class Language(models.Model):
+    name = models.CharField(max_length=2, default='N/A')
+
+    def __str__(self):
+        return self.name
+
+@python_2_unicode_compatible
 class Movie(models.Model):
     identifier = models.IntegerField(unique=True)
     themoviedb = models.IntegerField(null=True)
@@ -35,10 +42,15 @@ class Movie(models.Model):
     poster = models.CharField(max_length=200, null=True)
     title = models.CharField(max_length=200, null=True)
     summary = models.CharField(max_length=2500, null=True, blank=True)
+    runtime = models.IntegerField(null=True, blank=True)
+    budget = models.IntegerField(null=True, blank=True)
+    vote_count = models.IntegerField(null=True, blank=True)
+    vote_average = models.DecimalField(decimal_places=2, max_digits=4, null=True, blank=True)
+    popularity = models.DecimalField(decimal_places=2, max_digits=4, null=True, blank=True)
     genre = models.ManyToManyField(Genre)
     people = models.ManyToManyField(Person)
     date = models.IntegerField(null=True)
-    language = models.CharField(max_length=2, null=True, blank=True) #may change
+    languages = models.ManyToManyField(Language) #may change
     netflix = models.CharField(max_length=200, null=True,blank=True)
     amazon = models.CharField(max_length=200, null=True,blank=True)
     hulu = models.CharField(max_length=200, null=True,blank=True)
@@ -48,8 +60,6 @@ class Movie(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        if not self.language:
-            self.language = None
         if not self.netflix:
             self.netflix = None
         if not self.amazon:
