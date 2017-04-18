@@ -16,8 +16,8 @@ m.save()
 def testing():
     #populateMovies(guidebox.Movie.list(limit=10))
     populateMovies(guidebox.Movie.list(limit=10))
-    g = Genre.objects.get(name='Action')
-    print g.movie_set.all()
+    # g = Genre.objects.get(name='Action')
+    # print g.movie_set.all()
 
 def populateMovies(movies):
 
@@ -83,6 +83,7 @@ def populateMovies(movies):
                       common_sense_media=movie['common_sense_media'],
                       poster=movie['poster_400x570'],
                       title=movie['title'],
+                      summary=detail['overview'],
                       date=movie['release_year'],
                       netflix=netflix_link,
                       amazon=amazon_link,
