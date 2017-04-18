@@ -30,6 +30,13 @@ class Language(models.Model):
         return self.name
 
 @python_2_unicode_compatible
+class Keyword(models.Model):
+    name = models.CharField(max_length=200, default='')
+
+    def __str__(self):
+        return self.name
+
+@python_2_unicode_compatible
 class Movie(models.Model):
     identifier = models.IntegerField(unique=True)
     themoviedb = models.IntegerField(null=True)
@@ -55,6 +62,7 @@ class Movie(models.Model):
     amazon = models.CharField(max_length=200, null=True,blank=True)
     hulu = models.CharField(max_length=200, null=True,blank=True)
     trailer = models.CharField(max_length=200, null=True)
+    keywords = models.ManyToManyField(Keyword)
 
     def __str__(self):
         return self.title

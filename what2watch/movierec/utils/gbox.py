@@ -1,6 +1,6 @@
 import guidebox
 import json
-from movierec.models import Movie, Genre, Person, Language
+from movierec.models import Movie, Genre, Person, Language, Keyword
 from django.db import models
 import tmdbsimple as tmdb
 
@@ -19,6 +19,8 @@ def testing():
     populateMovies(guidebox.Movie.list(limit=10))
     # g = Genre.objects.get(name='Action')
     # print g.movie_set.all()
+    # k = Keyword.objects.get(name='robot')
+    # print k.movie_set.all()
 
 
 def populateMovies(movies):
@@ -27,9 +29,12 @@ def populateMovies(movies):
 
     for movie in list['results']:
         e = Movie.objects.filter(identifier=int(movie['id']))
-        tmdb_data = tmdb.Movies(movie['themoviedb']).info()
-        tmdb_videos = tmdb.Movies(movie['themoviedb']).videos()
+
         if len(e) == 0:
+            tmdb_data = tmdb.Movies(movie['themoviedb']).info()
+            tmdb_videos = tmdb.Movies(movie['themoviedb']).videos()
+            tmdb_keywords = tmdb.Movies(movie['themoviedb']).keywords()
+
             hulu_link = None
             netflix_link = None
             amazon_link = None
@@ -76,6 +81,15 @@ def populateMovies(movies):
                 else:
                     language_list.append(Language.objects.filter(name=language['iso_639_1'])[0])
 
+            keywords_list = []
+            for keyword in tmdb_keywords['keywords']:
+                if len(Keyword.objects.filter(name=keyword['name'])) == 0:
+                    k = Keyword(name=keyword['name'])
+                    keywords_list.append(k)
+                    k.save()
+                else:
+                    keywords_list.append(Keyword.objects.filter(name=keyword['name'])[0])
+
             if tmdb_videos['results'][0]['site'] == 'YouTube':
                 main_trailer = 'https://www.youtube.com/embed/' + tmdb_videos['results'][0]['key']
             else:
@@ -114,5 +128,6 @@ def populateMovies(movies):
             m.genre.add(*genre_list)
             m.people.add(*person_list)
             m.languages.add(*language_list)
+            m.keywords.add(*keywords_list)
             m.save()
 
