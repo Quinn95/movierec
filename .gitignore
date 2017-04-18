@@ -5,3 +5,4 @@ _build/
 dev.db
 site_media/
 env/
+.idea/

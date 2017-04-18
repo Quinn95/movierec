@@ -1,26 +1,34 @@
-{% load i18n %}
-{% load account_tags %}
-
-
-<ul class="nav navbar-nav pull-right">
-    {% if request.user.is_authenticated %}
-        <p class="navbar-text">
-            <i class="fa fa-user"></i> {% user_display request.user %}
-        </p>
-        <li>
-            <a href="{% url 'account_settings' %}"><i class="fa fa-cog"></i> {% trans "Settings" %}</a>
-        </li>
-        <li>
-            <a id="account_logout" href="{% url 'account_logout' %}"><i class="fa fa-power-off"></i> {% trans "Log out" %}</a>
-        </li>
-    {% else %}
-        <li><a href="{% url 'account_login' %}">{% trans "Log in" %}</a></li>
-        {% if ACCOUNT_OPEN_SIGNUP %}
-            <li><a href="{% url 'account_signup' %}">{% trans "Sign up" %}</a></li>
-        {% endif %}
-    {% endif %}
-</ul>
-
-<form id="accountLogOutForm" style="display: none;" action="{% url 'account_logout' %}" method="POST">
-    {% csrf_token %}
-</form>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-left" href="#">WhatToWatch</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a href="recommendations.html">Recommendations</a>
+                    </li>
+                    <li>
+                        <a href="#">Forums</a>
+                    </li>
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
