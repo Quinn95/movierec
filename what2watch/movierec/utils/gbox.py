@@ -2,7 +2,7 @@ import guidebox
 import json
 from movierec.models import Movie, Genre, Person
 from django.db import models
-
+from tmdbv3api import TMDb
 
 guidebox.api_key = "e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5"
 guidebox.Region = "US"
@@ -16,6 +16,8 @@ m.save()
 def testing():
     #populateMovies(guidebox.Movie.list(limit=10))
     populateMovies(guidebox.Movie.list(limit=10))
+    g = Genre.objects.get(name='Action')
+    print g.movie_set.all()
 
 def populateMovies(movies):
 

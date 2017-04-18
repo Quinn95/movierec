@@ -34,6 +34,7 @@ class Movie(models.Model):
     common_sense_media = models.CharField(max_length=200, null=True)
     poster = models.CharField(max_length=200, null=True)
     title = models.CharField(max_length=200, null=True)
+    summary = models.CharField(max_length=2500, null=True, blank=True)
     genre = models.ManyToManyField(Genre)
     people = models.ManyToManyField(Person)
     date = models.IntegerField(null=True)
