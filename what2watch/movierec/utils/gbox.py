@@ -28,6 +28,7 @@ def populateMovies(movies):
     for movie in list['results']:
         e = Movie.objects.filter(identifier=int(movie['id']))
         tmdb_data = tmdb.Movies(movie['themoviedb']).info()
+        tmdb_videos = tmdb.Movies(movie['themoviedb']).videos()
         if len(e) == 0:
             hulu_link = None
             netflix_link = None
@@ -75,7 +76,10 @@ def populateMovies(movies):
                 else:
                     language_list.append(Language.objects.filter(name=language['iso_639_1'])[0])
 
-            main_trailer = detail['trailers']['web'][0]['embed']
+            if tmdb_videos['results'][0]['site'] == 'YouTube':
+                main_trailer = 'https://www.youtube.com/embed/' + tmdb_videos['results'][0]['key']
+            else:
+                main_trailer = detail['trailers']['web'][0]['embed']
 
             for each in detail['subscription_web_sources']:
                 if each['source'] == 'hulu_plus':
