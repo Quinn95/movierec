@@ -27,6 +27,13 @@ def populateMovies(movies):
 
     list = json.loads(movies.__str__())
 
+    genres = tmdb.Genres().list()
+
+    for genre in genres['genres']:
+        if len(Genre.objects.filter(identifier=int(genre['id']))) == 0:
+            g = Genre(identifier=int(genre['id']), name=genre['name'])
+            g.save()
+
     for movie in list['results']:
         e = Movie.objects.filter(identifier=int(movie['id']))
 
@@ -38,16 +45,13 @@ def populateMovies(movies):
             hulu_link = None
             netflix_link = None
             amazon_link = None
+
             movie_detail = guidebox.Movie.retrieve(movie['id'])
             detail = json.loads(movie_detail.__str__())
+
             genre_list = []
-            for genre in detail['genres']:
-                if len(Genre.objects.filter(identifier=int(genre['id']))) == 0:
-                    g = Genre(identifier=int(genre['id']), name=genre['title'])
-                    genre_list.append(g)
-                    g.save()
-                else:
-                    genre_list.append(Genre.objects.filter(name=genre['title'])[0])
+            for genre in tmdb_data['genres']:
+                genre_list.append(Genre.objects.get(identifier=genre['id']))
 
             person_list = []
             for actor in detail['cast']:
