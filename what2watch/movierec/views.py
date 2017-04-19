@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from utils import gbox
+from utils import gbox, heist
 from utils import apiwrapper
 
 from . import forms
@@ -13,8 +13,8 @@ def home(request):
     return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
 
 def test(request):
-    gbox.testing()
-    return HttpResponse("You got 10 movies")
+    heist.test()
+    return HttpResponse("You got movies")
 
 def recView(request):
     if request.method == 'POST':
