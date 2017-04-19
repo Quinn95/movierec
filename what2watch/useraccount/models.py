@@ -15,6 +15,9 @@ from django.dispatch import receiver
 @python_2_unicode_compatible
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    display_name = models.CharField(max_length=25)
+
     liked_movies = models.ManyToManyField('movierec.Movie',
                                           related_name='liked')
     disliked_movies = models.ManyToManyField('movierec.Movie',
