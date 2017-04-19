@@ -89,8 +89,8 @@ a:hover {
   cursor: pointer;
   -webkit-transition: 450ms all;
   transition: 450ms all;
-  -webkit-transform-origin: center left;
-          transform-origin: center left;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 .tile__img {
   width: 201px;
@@ -118,7 +118,7 @@ a:hover {
   position: absolute;
   top: 50%;
   left: 51.5%;
-  display: #000;
+/*  display: #000;*/
 }
 .tile__details:after {
   margin-top: -25px;
@@ -193,7 +193,7 @@ a:hover {
 .modal-open .modal {
   padding-left: 0px !important;
   padding-right: 0px !important;
-  overflow-y: scroll;
+  overflow: visible;
 }
 
 .modal-content{
@@ -230,10 +230,9 @@ a:hover {
 
 .video-container {
   position:relative;
-  padding-bottom:56.25%;
 /*  padding-top:30px;*/
-  height:0;
-  overflow:hidden;
+  height:1%;
+  overflow-y: scroll;
 }
 
 .video-container iframe, .video-container object, .video-container embed {
@@ -246,10 +245,64 @@ a:hover {
 
 .text-col{
   padding-top: 15%;
-
 }
 .col-lg-8{
     position: relative;
     top: 0;
     padding-bottom:60%;
+}
+
+.search {
+  font-family: 'FontAwesome';
+  margin-bottom: 10px;
+  width: 10%;
+  border-radius: 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.search:focus {
+  font-family: 'FontAwesome';
+  border: 2px solid orange;
+  width: 25%;
+}
+
+.streaming{
+  color: white !important;
+}
+
+.text{
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    margin-left: 10px;
+    outline: none;
+    padding: 0;
+    font-style: italic;
+}
+
+.text:focus{
+  border-bottom: 1px dashed #D9FFA9;
+}
+
+@media (max-width: 1199px){
+  .text-col{
+    padding-top: 0;
+  }
+  .search {
+    width: 20%;
+  }
+  .search:focus{
+    width: 35%;
+  }
+}
+@media (max-width: 650px){
+  .search {
+    width: 30%;
+  }
+  .search:focus{
+    width: 45%;
+  }
 }
