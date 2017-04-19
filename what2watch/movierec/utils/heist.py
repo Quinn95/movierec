@@ -21,8 +21,9 @@ def getNetflixMovies():
     movie_offset = 0
     while netflix_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='netflix')
-        movies = guidebox.Movie.list(offset=movie_offset, limit=10, source='netflix')
-        list = json.loads(movies)
+        movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='netflix')
+        list = json.loads(movies.__str__())
+        print list
         movie_offset += 250
         #netflix_movie_count = list['total_results'] - movie_offset
         netflix_movie_count -= movie_offset
@@ -55,8 +56,8 @@ def getAmazonMovies():
     movie_offset = 0
     while amazon_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='amazon_prime')
-        movies = guidebox.Movie.list(offset=movie_offset, limit=10, source='amazon_prime')
-        list = json.loads(movies)
+        movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='amazon_prime')
+        list = json.loads(movies.__str__())
         movie_offset += 250
         #amazon_movie_count = list['total_results'] - movie_offset
         amazon_movie_count -= movie_offset
@@ -89,8 +90,8 @@ def getHuluMovies():
     movie_offset = 0
     while hulu_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='hulu_plus')
-        movies = guidebox.Movie.list(offset=movie_offset, limit=10, source='hulu_plus')
-        list = json.loads(movies)
+        movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='hulu_plus')
+        list = json.loads(movies.__str__())
         movie_offset += 250
         #hulu_movie_count = list['total_results'] - movie_offset
         hulu_movie_count -= movie_offset
@@ -121,7 +122,7 @@ def getHuluMovies():
 def populateMovieDetails():
     movie_set = Movie.objects.filter()
     for movie in movie_set:
-        if movie.tmdb_get:
+        if not movie.tmdb_get:
             tmdb_data = tmdb.Movies(movie.themoviedb).info(append_to_response='credits,videos,keywords')
 
             genre_list = []
@@ -129,7 +130,7 @@ def populateMovieDetails():
                 genre_list.append(Genre.objects.get(identifier=genre['id']))
 
             keywords_list = []
-            for keyword in tmdb_data['keywords']:
+            for keyword in tmdb_data['keywords']['keywords']:
                 if len(Keyword.objects.filter(name=keyword['name'])) == 0:
                     k = Keyword(name=keyword['name'])
                     keywords_list.append(k)
@@ -178,6 +179,7 @@ def populateMovieDetails():
             movie.popularity=tmdb_data['popularity']
             movie.trailer='https://www.youtube.com/embed/'+tmdb_data['videos']['results'][0]['key']
             movie.tmdb_get=True
+            movie.save()
 
 
 
