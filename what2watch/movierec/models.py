@@ -59,10 +59,14 @@ class Movie(models.Model):
     date = models.IntegerField(null=True)
     languages = models.ManyToManyField(Language) #may change
     netflix = models.CharField(max_length=200, null=True,blank=True)
+    netflix_available = models.BooleanField(default=False)
     amazon = models.CharField(max_length=200, null=True,blank=True)
+    amazon_available = models.BooleanField(default=False)
     hulu = models.CharField(max_length=200, null=True,blank=True)
+    hulu_available = models.BooleanField(default=False)
     trailer = models.CharField(max_length=200, null=True)
     keywords = models.ManyToManyField(Keyword)
+    tmdb_get = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

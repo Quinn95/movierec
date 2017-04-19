@@ -1,4 +1,5 @@
 import guidebox
+import json
 
 # from tmdbv3api import TMDb
 #
@@ -28,6 +29,11 @@ guidebox.Region = "US"
 #     print movie['title']
 #     print movie['common_sense_media']
 #     print ''
+
+movies = guidebox.Movie.list(limit=250, sources='netflix')
+# detail = guidebox.Movie.retrieve(id=149712)
+list = json.loads(movies.__str__())
+print list
 
 print guidebox.Quota.retrieve()
 
