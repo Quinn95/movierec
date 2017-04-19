@@ -32,6 +32,8 @@ $( document ).ready(function() {
 		} 
 		else{
 			carousel[id] = carousel[id] + numTiles * tile;
+			// console.log("Carousel is: " + carousel[id] + " max should be: " + ((tile - 26) * numberOfTiles[id]));
+			// console.log("Number of tiles " + numberOfTiles[id]);
 			if(carousel[id] != 0){
 				$('.left' + id).show();
 			}
@@ -47,27 +49,58 @@ $( document ).ready(function() {
 
 
 
-  $(".tile").on("click", function(){
-  	var title = $(this).find(".tile__title").text().trim().replace(":", "").replace(";", "").split(" ");
-  	var realTitle;
-  	if(title.length != 1){
-  		for (var i = 0; i < title.length; i++) {
-  			if(realTitle == undefined){
-  				realTitle = title[i];
-  			}
-  			else{
-  				realTitle = realTitle + title[i];
+  	$(".tile").on("click", function(){
+  		var title = $(this).find(".tile__title").text().trim().replace(":", "").replace(";", "").split(" ");
+  		var realTitle;
+  		if(title.length != 1){
+  			for (var i = 0; i < title.length; i++) {
+  				if(realTitle == undefined){
+  					realTitle = title[i];
+  				}
+  				else{
+  					realTitle = realTitle + title[i];
+  				}
   			}
   		}
-  	}
-  	else{
-  		realTitle = title;
-  	}
-	$('#myModal' + realTitle).on('hidden.bs.modal', function(e) {
-	    $(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
-	    // $(this).find('iframe').attr('src', rawVideoURL);
-	});
-  })
+  		else{
+  			realTitle = title;
+  		}
+		$('#myModal' + realTitle).on('hidden.bs.modal', function(e) {
+	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
+	    	// $(this).find('iframe').attr('src', rawVideoURL);
+		});
+ 	})
 
+  	var from = $("#from");
+	var to = $("#to");
+	for (i = new Date().getFullYear(); i > 1877; i--) {
+		if(i == new Date().getFullYear()){
+	    	from.append($('<option />').val(i).html("-----"));
+	    	to.append($('<option />').val(i).html("-----"));
+	    }
+	    from.append($('<option />').val(i).html(i));
+	    to.append($('<option />').val(i).html(i));
+	}
+	from.change(function(){
+		var op = from.val();
+		$('#to option').filter(function() {
+		    return $(this).val() < op;
+		}).prop('disabled', true);
+		$('#to option').filter(function() {
+		    return $(this).val() >= op;
+		}).prop('disabled', false);
+	});
+	to.change(function(){
+		var op = to.val();
+		$('#from option').filter(function() {
+		    return $(this).val() > op;
+		}).prop('disabled', true);
+		$('#from option').filter(function() {
+		    return $(this).val() <= op;
+		}).prop('disabled', false);
+	});
+
+    var data = ["Boston Celtics", "Chicago Bulls", "Miami Heat", "Orlando Magic", "Atlanta Hawks", "Philadelphia Sixers", "New York Knicks", "Indiana Pacers", "Charlotte Bobcats", "Milwaukee Bucks", "Detroit Pistons", "New Jersey Nets", "Toronto Raptors", "Washington Wizards", "Cleveland Cavaliers"];
+    $("#people").autocomplete({source:data});
 
 });
