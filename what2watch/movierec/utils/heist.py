@@ -51,7 +51,7 @@ def getNetflixMovies():
                 obj = Movie.objects.get(identifier=int(result['id']))
                 obj.netflix_available = True
                 obj.save()
-    logging.debug('Added ' + added_count.__str__() + ' movies to the database from NetFlix')
+    logging.debug('Added ' + added_count.__str__() + ' new movies to the database from NetFlix')
 
 
 # This function populates the database with Amazon movies
@@ -88,7 +88,7 @@ def getAmazonMovies():
                 obj = Movie.objects.get(identifier=int(result['id']))
                 obj.amazon_available = True
                 obj.save()
-    logging.debug('Added ' + added_count.__str__() + ' movies to the database from Amazon Prime')
+    logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Amazon Prime')
 
 # This function populates the database with Hulu movies
 def getHuluMovies():
@@ -124,11 +124,12 @@ def getHuluMovies():
                 obj = Movie.objects.get(identifier=int(result['id']))
                 obj.hulu_available = True
                 obj.save()
-    logging.debug('Added ' + added_count.__str__() + ' movies to the database from Hulu Plus')
+    logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Hulu Plus')
 
 # This function uses the TMDb api to retrieve movie details
 def populateMovieDetails():
     movie_set = Movie.objects.filter()
+    logging.info('There are currently ' + len(movie_set).__str__() + ' total movies in the database')
     movie_retrieve_count = 0
     for movie in movie_set:
         if not movie.tmdb_get:

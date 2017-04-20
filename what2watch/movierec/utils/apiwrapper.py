@@ -29,11 +29,11 @@ def filterStreamingServices(queryset, services):
     if len(services) != 0:
         for stream in services:
             if stream == u'netflix':
-                resultsn = queryset.exclude(netflix__isnull=True)
+                resultsn = queryset.exclude(netflix_available=False)
             elif stream == u'amazon':
-                resultsa = queryset.exclude(amazon__isnull=True)
+                resultsa = queryset.exclude(amazon_available=False)
             elif stream == u'hulu':
-                resultsh = queryset.exclude(hulu__isnull=True)
+                resultsh = queryset.exclude(hulu_available=False)
         queryset = resultsn | resultsa | resultsh
     return queryset
 
