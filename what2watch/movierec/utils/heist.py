@@ -20,6 +20,14 @@ def test():
 
 # This function populates the database with NetFlix movies
 def getNetflixMovies():
+    """
+    Get a list of Netflix movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     netflix_movie_count = 250
     movie_offset = 0
     added_count = 0
@@ -57,6 +65,14 @@ def getNetflixMovies():
 
 # This function populates the database with Amazon movies
 def getAmazonMovies():
+    """
+    Get a list of Amazon Prime movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     amazon_movie_count = 250
     movie_offset = 0
     added_count = 0
@@ -93,6 +109,14 @@ def getAmazonMovies():
 
 # This function populates the database with Hulu movies
 def getHuluMovies():
+    """
+    Get a list of Hulu Plus movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     hulu_movie_count = 250
     movie_offset = 0
     added_count = 0
@@ -129,6 +153,14 @@ def getHuluMovies():
 
 # This function uses the TMDb api to retrieve movie details
 def populateMovieDetails():
+    """
+    Gets details for all movies in the database using the TMDb API and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     movie_set = Movie.objects.filter()
     logging.info('There are currently ' + len(movie_set).__str__() + ' total movies in the database')
     movie_retrieve_count = 0
@@ -199,6 +231,15 @@ def populateMovieDetails():
 
 
 def createGenres():
+    """
+    Should be called only once!!!
+    Creates all genres for movies using the TMDb API
+
+    Args:
+        None
+    Returns:
+        None
+    """
     genres = tmdb.Genres().list()
 
     genre_count = 0
@@ -211,6 +252,15 @@ def createGenres():
 
 
 def getStreamingLinks(identifier):
+    """
+    Gets links for streaming services from GuideBox API for a specific
+    movie identifier and updates the movie entry in the database.
+
+    Args:
+        identifier: movie identifier, i.e. the GuideBox movie id
+    Returns:
+        None
+    """
     if identifier is not None and type(identifier) == int:
         movie_id = int(identifier)
         detail = guidebox.Movie.retrieve(movie_id)
