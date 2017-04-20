@@ -1,19 +1,15 @@
 from django import forms
 from movierec.models import Movie
 
-LANGUAGE_CHOICES = (("English", "en"))
+from . import models
 
-class ProfileForm(forms.Form):
-    display_name = forms.CharField(label="Display name", max_length=20,
-                                   required=True)
-    languages = forms.MultipleChoiceField(
-        required=True,
-        widget=forms.CheckboxSelectedMultiple,
-        choices=LANGUAGE_CHOICES
-    )
-    liked_movies = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectedMultiple,
-        queryset=Movie.object.all()
-    )
+LANGUAGE_CHOICES = (("english", "en"), ("test", "ts"))
 
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = models.Profile
+        fields = ("display_name", "liked_movies", "disliked_movies")
+
+def bound_form(profile):
+    form = ProfileForm(instance=profile)
+    return form
