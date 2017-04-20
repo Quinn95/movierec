@@ -16,9 +16,18 @@ def test():
     getHuluMovies()
     createGenres()
     populateMovieDetails()
+    #getStreamingLinks(identifier=128834)
 
-# This function populates the database with NetFlix movies
+
 def getNetflixMovies():
+    """
+    Get a list of Netflix movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     netflix_movie_count = 250
     movie_offset = 0
     added_count = 0
@@ -54,8 +63,16 @@ def getNetflixMovies():
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from NetFlix')
 
 
-# This function populates the database with Amazon movies
+
 def getAmazonMovies():
+    """
+    Get a list of Amazon Prime movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     amazon_movie_count = 250
     movie_offset = 0
     added_count = 0
@@ -90,8 +107,16 @@ def getAmazonMovies():
                 obj.save()
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Amazon Prime')
 
-# This function populates the database with Hulu movies
+
 def getHuluMovies():
+    """
+    Get a list of Hulu Plus movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     hulu_movie_count = 250
     movie_offset = 0
     added_count = 0
@@ -126,13 +151,21 @@ def getHuluMovies():
                 obj.save()
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Hulu Plus')
 
-# This function uses the TMDb api to retrieve movie details
+
 def populateMovieDetails():
+    """
+    Gets details for all movies in the database using the TMDb API and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
     movie_set = Movie.objects.filter()
     logging.info('There are currently ' + len(movie_set).__str__() + ' total movies in the database')
     movie_retrieve_count = 0
     for movie in movie_set:
-        if not movie.tmdb_get:
+        if (not movie.tmdb_get) and (movie.themoviedb is not None):
             tmdb_data = tmdb.Movies(movie.themoviedb).info(append_to_response='credits,videos,keywords')
 
             genre_list = []
@@ -191,11 +224,22 @@ def populateMovieDetails():
             movie.tmdb_get=True
             movie.save()
             movie_retrieve_count += 1
+        else:
+            logging.debug('Either ' + movie.title + ' already has movie details retrieved or no TMDb id exists')
     logging.debug('Details for ' + movie_retrieve_count.__str__() + ' movies retrieved successfully')
 
 
 
 def createGenres():
+    """
+    Should be called only once!!!
+    Creates all genres for movies using the TMDb API
+
+    Args:
+        None
+    Returns:
+        None
+    """
     genres = tmdb.Genres().list()
 
     genre_count = 0
@@ -208,10 +252,23 @@ def createGenres():
 
 
 def getStreamingLinks(identifier):
+    """
+    Gets links for streaming services from GuideBox API for a specific
+    movie identifier and updates the movie entry in the database.
+
+    Args:
+        identifier: movie identifier, i.e. the GuideBox movie id
+    Returns:
+        None
+    """
     if identifier is not None and type(identifier) == int:
         movie_id = int(identifier)
         detail = guidebox.Movie.retrieve(movie_id)
         movie = Movie.objects.get(identifier=movie_id)
+
+        hulu_link = None
+        netflix_link = None
+        amazon_link = None
 
         for each in detail['subscription_web_sources']:
             if each['source'] == 'hulu_plus':

@@ -12,6 +12,8 @@ from django.dispatch import receiver
 # https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 
 
+
+
 @python_2_unicode_compatible
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -19,9 +21,15 @@ class Profile(models.Model):
     display_name = models.CharField(max_length=25)
 
     liked_movies = models.ManyToManyField('movierec.Movie',
-                                          related_name='liked')
+                                          related_name='liked_movies')
     disliked_movies = models.ManyToManyField('movierec.Movie',
-                                             related_name='disliked')
+                                             related_name='disliked_movies')
+    liked_genres = models.ManyToManyField('movierec.Genre',
+                                          related_name='liked_genres')
+    disliked_genres = models.ManyToManyField('movierec.Genre',
+                                             related_name="disliked_genres")
+    preference_list = models.CharField(max_length=2000, null=True)
+
     def __str__(self):
         return self.user.username
 
