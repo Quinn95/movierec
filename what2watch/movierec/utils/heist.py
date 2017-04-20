@@ -18,7 +18,7 @@ def test():
     populateMovieDetails()
     #getStreamingLinks(identifier=128834)
 
-# This function populates the database with NetFlix movies
+
 def getNetflixMovies():
     """
     Get a list of Netflix movies from GuideBox and populates the database
@@ -63,7 +63,7 @@ def getNetflixMovies():
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from NetFlix')
 
 
-# This function populates the database with Amazon movies
+
 def getAmazonMovies():
     """
     Get a list of Amazon Prime movies from GuideBox and populates the database
@@ -107,7 +107,7 @@ def getAmazonMovies():
                 obj.save()
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Amazon Prime')
 
-# This function populates the database with Hulu movies
+
 def getHuluMovies():
     """
     Get a list of Hulu Plus movies from GuideBox and populates the database
@@ -151,7 +151,7 @@ def getHuluMovies():
                 obj.save()
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Hulu Plus')
 
-# This function uses the TMDb api to retrieve movie details
+
 def populateMovieDetails():
     """
     Gets details for all movies in the database using the TMDb API and populates the database
