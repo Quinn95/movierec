@@ -117,6 +117,7 @@ ROOT_URLCONF = "what2watch.urls"
 WSGI_APPLICATION = "what2watch.wsgi.application"
 
 INSTALLED_APPS = [
+    "useraccount.apps.UseraccountConfig",
     "movierec.apps.MovierecConfig",
     "django.contrib.admin",
     "django.contrib.auth",
