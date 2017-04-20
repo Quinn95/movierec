@@ -100,7 +100,72 @@ $( document ).ready(function() {
 		}).prop('disabled', false);
 	});
 
-    var data = ["Boston Celtics", "Chicago Bulls", "Miami Heat", "Orlando Magic", "Atlanta Hawks", "Philadelphia Sixers", "New York Knicks", "Indiana Pacers", "Charlotte Bobcats", "Milwaukee Bucks", "Detroit Pistons", "New Jersey Nets", "Toronto Raptors", "Washington Wizards", "Cleveland Cavaliers"];
-    $("#people").autocomplete({source:data});
+	$('body #netflix').on('click', function() {
+	    if($('#netflix').css('border') == '0px none rgb(255, 255, 255)'){
+	    	$('#netflix').css({"border": "2px solid orange"});
+	    }
+	    else if($('#netflix').css('border') == '2px solid rgb(255, 165, 0)'){
+	    	$('#netflix').css({"border": "0px none rgb(255, 255, 255)"});
+	    }
+	}); 
+
+	$('body #amazon').on('click', function() {
+	    if($('#amazon').css('border') == '0px none rgb(255, 255, 255)'){
+	    	$('#amazon').css({"border": "2px solid orange"});
+	    }
+	    else if($('#amazon').css('border') == '2px solid rgb(255, 165, 0)'){
+	    	$('#amazon').css({"border": "0px none rgb(255, 255, 255)"});
+	    }
+	}); 
+
+	$('body #hulu').on('click', function() {
+	    if($('#hulu').css('border') == '0px none rgb(255, 255, 255)'){
+	    	$('#hulu').css({"border": "2px solid orange"});
+	    }
+	    else if($('#hulu').css('border') == '2px solid rgb(255, 165, 0)'){
+	    	$('#hulu').css({"border": "0px none rgb(255, 255, 255)"});
+	    }
+	}); 
+
+	$(function() {
+		var items = [ 'France', 'Italy', 'Malta', 'England', 
+		'Australia', 'Spain', 'Scotland', "eat, pray, love" ];
+		var flag = false;
+
+		function split( val ) {
+			return val.split( /,\s*/ );
+		}
+		function extractLast( term ) {
+			return split( term ).pop();
+		}
+
+		$( "#people" ).autocomplete({
+			minLength: 0,
+			source: function( request, response ) {
+				response( $.ui.autocomplete.filter(
+					items, extractLast( request.term ) 
+				));
+			},
+			focus: function() {
+				return false;
+			},
+			select: function( event, ui ) {
+				$(".tag").each(function(index){
+					if($(this).text() === ui.item.value){
+						flag = true;
+					}
+				});
+				if(!flag){
+					$(this).val("");
+					$('#people').before('<span class="tag">' + ui.item.value + '</span>');
+				}
+				flag = false;
+				return false;
+			}
+		});
+		$(document).on('click', '.tag', function(){
+			$(this).remove();
+	    });
+	});
 
 });

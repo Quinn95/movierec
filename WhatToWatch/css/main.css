@@ -9,6 +9,11 @@ a.active{
   color: #C0B283 !important;
 }
 
+h4, h3, label{
+  color: #DCD0C0;
+  display: inline-block;
+}
+
 h1,
 p {
   text-align: center;
@@ -270,21 +275,106 @@ a:hover {
 
 .streaming{
   color: white !important;
+  cursor: pointer;
 }
 
 .text{
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed #83A4C5;
     width: 275px;
-    margin-left: 10px;
-    outline: none;
     padding: 0;
     font-style: italic;
 }
 
-.text:focus{
-  border-bottom: 1px dashed #D9FFA9;
+
+
+select {
+
+  border: 1px solid #111;
+  background: transparent;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+}
+
+select::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+.form{
+  color: #DCD0C0 !important;
+}
+
+.logo__img {
+  width: 100px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.recommendation{
+  text-align: center;
+}
+
+.year select{
+  color:; black;
+}
+.rec_title{
+  margin-top: -10px;
+}
+.left_col, .right_col{
+  border: 1px solid white;
+}
+
+.year{
+  border: 1px solid white;
+  border-top: none;
+  margin: 0 -15px;
+  margin-top: -15px;
+}
+.year select{
+  margin: 0 15px;
+  margin-bottom: 25px;
+}
+.year_title{
+  display: block;
+  text-align: center;
+}
+.choice{
+  margin-top: 15px;
+}
+.choice select{
+  margin: 15px;
+}
+.people{
+  margin-bottom: 15px;
+}
+.tag
+{
+    margin-right:2px;
+    background:green;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+.peeps{
+  margin-top: -20px;
+}
+.logo{
+  position: relative;
+  left: -18vh;
+  top: -5vh;
+}
+.navbar{
+  height: 70px;
+}
+.nav{
+  position: relative;
+  top: 12px;
 }
 
 @media (max-width: 1199px){
@@ -305,4 +395,11 @@ a:hover {
   .search:focus{
     width: 45%;
   }
+}
+
+@media screen and (min-width:0\0) {
+    select {
+        background-image:none\9;
+        padding: 5px\9;
+    } 
 }
