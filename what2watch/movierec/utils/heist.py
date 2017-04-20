@@ -26,7 +26,6 @@ def getNetflixMovies():
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='netflix')
         movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='netflix')
         list = json.loads(movies.__str__())
-        print list
         movie_offset += 250
         #netflix_movie_count = list['total_results'] - movie_offset
         netflix_movie_count -= movie_offset
@@ -190,6 +189,7 @@ def populateMovieDetails():
             movie.trailer='https://www.youtube.com/embed/'+tmdb_data['videos']['results'][0]['key']
             movie.tmdb_get=True
             movie.save()
+            movie_retrieve_count += 1
     logging.debug('Details for ' + movie_retrieve_count.__str__() + ' movies retrieved successfully')
 
 
@@ -204,3 +204,26 @@ def createGenres():
             g.save()
             genre_count += 1
     logging.debug('Genres added to database: ' + genre_count.__str__())
+
+
+def getStreamingLinks(identifier):
+    if identifier is not None and type(identifier) == int:
+        movie_id = int(identifier)
+        detail = guidebox.Movie.retrieve(movie_id)
+        movie = Movie.objects.get(identifier=movie_id)
+
+        for each in detail['subscription_web_sources']:
+            if each['source'] == 'hulu_plus':
+                hulu_link = each['link']
+            elif each['source'] == 'netflix':
+                netflix_link = each['link']
+            elif each['source'] == 'shudder_amazon_prime':
+                amazon_link = each['link']
+
+        movie.hulu=hulu_link
+        movie.netflix=netflix_link
+        movie.amazon=amazon_link
+        movie.save()
+        logging.info('Links to subscription services added for ' + movie.title.__str__())
+    else:
+        logging.warning('No movie identifier was passed or the movie identifier is not an integer')
