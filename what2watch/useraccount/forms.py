@@ -2,7 +2,10 @@ from django import forms
 from movierec.models import Movie
 
 from . import models
-
+# Read this:
+#
+# https://docs.djangoproject.com/en/1.11/ref/forms/validation/
+#
 LANGUAGE_CHOICES = (("english", "en"), ("test", "ts"))
 
 class ProfileForm(forms.ModelForm):
