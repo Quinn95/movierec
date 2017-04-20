@@ -190,6 +190,7 @@ def populateMovieDetails():
             movie.trailer='https://www.youtube.com/embed/'+tmdb_data['videos']['results'][0]['key']
             movie.tmdb_get=True
             movie.save()
+            movie_retrieve_count += 1
     logging.debug('Details for ' + movie_retrieve_count.__str__() + ' movies retrieved successfully')
 
 
