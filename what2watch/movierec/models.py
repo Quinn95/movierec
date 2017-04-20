@@ -43,7 +43,6 @@ class Movie(models.Model):
     imdb = models.CharField(max_length=200, null=True)
     rating = models.CharField(max_length=7)
     rottentomatoes = models.IntegerField(null=True)
-    wikipedia_id = models.IntegerField(null=True)
     metacritic = models.CharField(max_length=200, null=True)
     common_sense_media = models.CharField(max_length=200, null=True)
     poster = models.CharField(max_length=200, null=True)

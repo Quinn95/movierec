@@ -2,10 +2,12 @@ import guidebox
 import json
 from movierec.models import Movie, Genre, Person, Language, Keyword
 import tmdbsimple as tmdb
+import logging
 
 guidebox.api_key = "e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5"
 guidebox.Region = "US"
 tmdb.API_KEY = "f2eee9cde7536b5ef17767e4e9a97239"
+logging.basicConfig(filename='heist.log',level=logging.DEBUG)
 
 
 def test():
@@ -19,6 +21,7 @@ def test():
 def getNetflixMovies():
     netflix_movie_count = 250
     movie_offset = 0
+    added_count = 0
     while netflix_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='netflix')
         movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='netflix')
@@ -44,16 +47,19 @@ def getNetflixMovies():
                           date=result['release_year'],
                           netflix_available=True)
                 m.save()
+                added_count += 1
             else:
                 obj = Movie.objects.get(identifier=int(result['id']))
                 obj.netflix_available = True
                 obj.save()
+    logging.debug('Added ' + added_count.__str__() + ' movies to the database from NetFlix')
 
 
 # This function populates the database with Amazon movies
 def getAmazonMovies():
     amazon_movie_count = 250
     movie_offset = 0
+    added_count = 0
     while amazon_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='amazon_prime')
         movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='amazon_prime')
@@ -78,16 +84,18 @@ def getAmazonMovies():
                           date=result['release_year'],
                           amazon_available=True)
                 m.save()
+                added_count += 1
             else:
                 obj = Movie.objects.get(identifier=int(result['id']))
                 obj.amazon_available = True
                 obj.save()
-
+    logging.debug('Added ' + added_count.__str__() + ' movies to the database from Amazon Prime')
 
 # This function populates the database with Hulu movies
 def getHuluMovies():
     hulu_movie_count = 250
     movie_offset = 0
+    added_count = 0
     while hulu_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='hulu_plus')
         movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='hulu_plus')
@@ -112,15 +120,17 @@ def getHuluMovies():
                           date=result['release_year'],
                           hulu_available=True)
                 m.save()
+                added_count += 1
             else:
                 obj = Movie.objects.get(identifier=int(result['id']))
                 obj.hulu_available = True
                 obj.save()
-
+    logging.debug('Added ' + added_count.__str__() + ' movies to the database from Hulu Plus')
 
 # This function uses the TMDb api to retrieve movie details
 def populateMovieDetails():
     movie_set = Movie.objects.filter()
+    movie_retrieve_count = 0
     for movie in movie_set:
         if not movie.tmdb_get:
             tmdb_data = tmdb.Movies(movie.themoviedb).info(append_to_response='credits,videos,keywords')
@@ -180,13 +190,17 @@ def populateMovieDetails():
             movie.trailer='https://www.youtube.com/embed/'+tmdb_data['videos']['results'][0]['key']
             movie.tmdb_get=True
             movie.save()
+    logging.debug('Details for ' + movie_retrieve_count.__str__() + ' movies retrieved successfully')
 
 
 
 def createGenres():
     genres = tmdb.Genres().list()
 
+    genre_count = 0
     for genre in genres['genres']:
         if len(Genre.objects.filter(identifier=int(genre['id']))) == 0:
             g = Genre(identifier=int(genre['id']), name=genre['name'])
             g.save()
+            genre_count += 1
+    logging.debug('Genres added to database: ' + genre_count.__str__())

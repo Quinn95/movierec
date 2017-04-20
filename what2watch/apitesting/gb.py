@@ -32,8 +32,7 @@ guidebox.Region = "US"
 
 movies = guidebox.Movie.list(limit=250, sources='netflix')
 # detail = guidebox.Movie.retrieve(id=149712)
-list = json.loads(movies.__str__())
-print list
+print movies
 
 print guidebox.Quota.retrieve()
 
