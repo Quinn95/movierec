@@ -1,0 +1,71 @@
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /movierec/forms
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10550
+DEBUG:root:Added 10 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9923
+DEBUG:root:Added 10 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 5 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 19
+INFO:root:There are currently 25 total movies in the database
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/271110?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 11098
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/7446?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6877
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/424?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4210
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/269149?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5341
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/223702?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5157
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/278927?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5020
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/294272?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5114
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/127380?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4688
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/4951?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4800
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/318846?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 10380
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/365942?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8085
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/157336?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8286
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/334533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4960
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/150689?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8240
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/258489?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3725
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/333371?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4092
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/295699?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5075
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/264644?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3738
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/339533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1809
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/300671?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6034
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9323?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3635
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/14?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 7807
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9377?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1691
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/87101?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8465
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/273481?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6376
+DEBUG:root:Details for 25 movies retrieved successfully
+WARNING:django.request:Not Found: /movierec/forms
+WARNING:django.request:Not Found: /account
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico

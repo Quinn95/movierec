@@ -1,5 +1,6 @@
 *.pyc
 *.swn
+*.swp
 .DS_Store
 node_modules/
 _build/
@@ -7,3 +8,5 @@ dev.db
 site_media/
 env/
 .idea/
+*.sqlite3
+

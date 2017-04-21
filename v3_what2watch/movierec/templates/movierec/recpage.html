@@ -1,0 +1,100 @@
+{% load static %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WhatToWatch</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'movierec/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'movierec/css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+
+<form action="/movierec/form/" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit" />
+</form>
+<div class="container-fluid center">
+ <div class="row__inner_recommendation">
+
+{% if results %}
+  {% for item in results %}
+  <div class="tile" data-toggle="modal" data-target="#myModal{{item.identifier}}">
+    <div class="tile__media">
+      <img class="tile__img" src="{{ item.poster }}" alt=""  />
+    </div>
+    <div class="tile__details">
+     <div class="tile__title">
+       {{ item }}
+     </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
+  </div>
+</div>
+
+{% if results %}
+  {% for item in results %}  
+  <!-- Modal -->
+<div id="myModal{{item.identifier}}" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body  video-container">
+        <div class="row">
+          <div class="col-lg-8">
+            <iframe src="{{ item.trailer }}" allowfullscreen></iframe>
+          </div>
+          <div class="col-lg-4 text-col">
+            <p> {{ item.summary }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+{% endif %}
+
+    <!-- jQuery Version 1.11.1 -->
+
+    <script src="{% static 'movierec/js/jquery.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'movierec/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'movierec/js/main.js' %}"></script>
+
+
