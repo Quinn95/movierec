@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'useraccount',
     'account',
     'movierec.apps.MovierecConfig',
     'django.contrib.admin',
@@ -113,6 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+
+SITE_ID = int(os.environ.get("SITE_ID", 1))
 
 USE_I18N = True
 
