@@ -8,3 +8,5 @@ dev.db
 site_media/
 env/
 .idea/
+*.sqlite3
+
