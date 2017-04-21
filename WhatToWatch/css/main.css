@@ -209,25 +209,14 @@ a:hover {
   background-color: #373737;
   color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-
-  .modal-header{
-    border-bottom: none;
-    padding: 0 15px;
-    font-weight: 400;
-  }
-  .modal-body{
-    position: relative;
-    padding: 0 15px !important;
-  }
-  .modal-footer{
-    border-top: none;
-    padding: 0 15px;
-    text-align: right;
-  }
+}
+.modal-header{
+  text-align: center;
 }
 
 .modal-body{
   padding-top: 0;
+  padding-bottom: 0;
 }
 .modal-title {
   font-weight: bold;
@@ -236,7 +225,7 @@ a:hover {
 .video-container {
   position:relative;
 /*  padding-top:30px;*/
-  height:1%;
+  height:100%;
   overflow-y: scroll;
 }
 
