@@ -9,7 +9,7 @@ num_genres = 19
 
 # define the number of users in our 'database'
 
-num_users = 2000
+num_users = 20
 
 
 # randomly initialize some genre ratings
