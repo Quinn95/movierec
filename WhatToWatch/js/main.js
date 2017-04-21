@@ -128,7 +128,7 @@ $( document ).ready(function() {
 	}); 
 
 	$(function() {
-		var items = [ 'France', 'Italy', 'Malta', 'England', 
+		var items = [ 'Germany', 'Brazil', 'Portugal', 'Morocco', 'New Zealand', 'France', 'Italy', 'Malta', 'England', 
 		'Australia', 'Spain', 'Scotland', "eat, pray, love" ];
 		var flag = false;
 
