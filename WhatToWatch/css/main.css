@@ -6,7 +6,7 @@ body{
   background-color: #F4F4F4;
 }
 a.active{
-  color: #C0B283 !important;
+  color: #ea372e !important;
 }
 
 h4, h3, label{
@@ -33,7 +33,7 @@ a:visited {
   text-decoration: none;
 }
 a:hover {
-  color: #DCD0C0 !important;
+  color: #ea372e !important;
   text-decoration: underline;
 }
 .contain {
@@ -319,11 +319,11 @@ select::-ms-expand {
 }
 .left_col, .right_col{
   border: 1px solid white;
+  width: 50%;
 }
 
 .year{
-  border: 1px solid white;
-  border-top: none;
+  border-bottom: 2px solid white;
   margin: 0 -15px;
   margin-top: -15px;
 }
@@ -360,28 +360,36 @@ select::-ms-expand {
     color:black;
     text-align:center;
     display: inline-block;
+    cursor: pointer;
 }
 .peeps{
   margin-top: -20px;
+  max-width: 100%;
 
 }
-.logo{
-  position: relative;
-  left: -18vh;
-  top: -5vh;
+.navbar-left{
+  margin-top: -8px;
 }
 .navbar{
   height: 70px;
 }
 .nav{
+  margin-right: 10px;
   position: relative;
   top: 12px;
 }
 .__down{
   margin-top: 25px;
 }
+.sort_by{
+  margin-right: 10px;
+}
 .submit{
+  position: absolute;
+  bottom: 0;
+  right: 0;
   margin-right: 30px;
+  margin-bottom: 20px;
   font: bold 17px Arial,sans-serif;
 
   display: inline-block;
