@@ -279,9 +279,10 @@ a:hover {
 }
 
 .text{
-    width: 275px;
+    width: 100%;
     padding: 0;
     font-style: italic;
+    outline: none;
 }
 
 
@@ -344,7 +345,7 @@ select::-ms-expand {
   display: block;
   text-align: center;
 }
-.choice{
+.choice, .down{
   margin-top: 15px;
 }
 .choice select{
@@ -352,17 +353,24 @@ select::-ms-expand {
 }
 .people{
   margin-bottom: 15px;
+  background-color: white;
+  overflow: visible;
+  text-align: left;
 }
-.tag
-{
-    margin-right:2px;
-    background:green;
-    color:white;
+
+.people input:focus{
+  outline: none;
+}
+.tag {
+    margin-right:4px;
+    background:lightblue;
+    color:black;
     text-align:center;
     padding:5px;
 }
 .peeps{
   margin-top: -20px;
+
 }
 .logo{
   position: relative;
@@ -375,6 +383,27 @@ select::-ms-expand {
 .nav{
   position: relative;
   top: 12px;
+}
+.__down{
+  margin-top: 25px;
+}
+.submit{
+  margin-right: 30px;
+  font: bold 17px Arial,sans-serif;
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.3em;
+  border: 1px solid;
+  background-color: #eee;
+
+}
+
+.submit:hover {
+  -moz-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
+  -webkit-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
+  box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 200), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
 }
 
 @media (max-width: 1199px){

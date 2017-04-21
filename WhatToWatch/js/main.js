@@ -163,7 +163,7 @@ $( document ).ready(function() {
 				return false;
 			}
 		});
-		$(document).on('click', '.tag', function(){
+		$(document).on('click', '.white', function(){
 			$(this).remove();
 	    });
 	});
