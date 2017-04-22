@@ -38,7 +38,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -47,7 +47,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand navbar-left logo" href="index.html"><img src="images/What2Watch.svg"></a>
+              <a class="navbar-brand navbar-left" href="index.html"><img src="images/What2Watch.svg"></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -97,7 +97,7 @@
           <option value="fantasy">Fantasy</option>
         </select>
 
-        <h4>imdb Rating:</h4>
+        <h4>User Rating:</h4>
         <select name="imdb" id="imdb">
           <option value="great">&gt 8</option>
           <option value="good">6-8</option>
@@ -117,7 +117,7 @@
           <option value="Evil">Evil</option>
         </select>
     
-        <h4>Ranking:</h4>
+        <h4>MPAA Rating:</h4>
         <select name="rating" id="rating">
           <option value="all">all</option>
           <option value="G">G</option>
@@ -163,7 +163,7 @@
 
   <div class="container-fluid center">
     <div class="container-fluid sorting pull-right">
-      <h4>Sort by:</h4>
+      <h4 class="sort_by">Sort by:</h4>
       <select class="rounded" name="sort" id="sort">
         <option value="great">popular first</option>
         <option value="good">unpopular first</option>

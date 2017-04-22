@@ -130,6 +130,7 @@ $( document ).ready(function() {
 	$(function() {
 		var items = [ 'Germany', 'Brazil', 'Portugal', 'Morocco', 'New Zealand', 'France', 'Italy', 'Malta', 'England', 
 		'Australia', 'Spain', 'Scotland', "eat, pray, love" ];
+		var input = $('#people');
 		var flag = false;
 
 		function split( val ) {
@@ -139,7 +140,7 @@ $( document ).ready(function() {
 			return split( term ).pop();
 		}
 
-		$( "#people" ).autocomplete({
+		input.autocomplete({
 			minLength: 0,
 			source: function( request, response ) {
 				response( $.ui.autocomplete.filter(
@@ -150,7 +151,7 @@ $( document ).ready(function() {
 				return false;
 			},
 			select: function( event, ui ) {
-				$(".tag").each(function(index){
+				$(".people").children(".tag").each(function(index){
 					if($(this).text() === ui.item.value){
 						flag = true;
 					}
@@ -160,12 +161,30 @@ $( document ).ready(function() {
 					$('#people').before('<span class="tag">' + ui.item.value + '</span>');
 				}
 				flag = false;
+
+				if($(".people").find(".tag").length !== 0){
+					input.removeAttr('placeholder');
+				}
 				return false;
 			}
 		});
-		$(document).on('click', '.white', function(){
+		$(document).on('click', '.tag', function(){
 			$(this).remove();
 	    });
+		input.on('keydown', function() {
+			var key = event.keyCode || event.charCode;
+
+			if( key == 8 || key == 46 ){
+				if(!input.val()){
+					$(".people").children(".tag").last().remove();
+					if($(".people").find(".tag").length === 0){
+						input.attr("placeholder", "Will Smith");
+					}
+					return false;
+				}
+			}
+		});
 	});
+
 
 });
