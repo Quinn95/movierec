@@ -225,7 +225,7 @@ a:hover {
 .video-container {
   position:relative;
 /*  padding-top:30px;*/
-  height:100%;
+  height:auto;
   overflow-y: scroll;
 }
 
@@ -237,8 +237,13 @@ a:hover {
   height:100%;
 }
 
+.row{
+  margin-bottom: 0;
+}
+
 .text-col{
   padding-top: 15%;
+  background-color: #373737;
 }
 .col-lg-8{
     position: relative;

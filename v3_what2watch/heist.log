@@ -509,3 +509,197 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(name, tried=tried)
 TemplateDoesNotExist: navbar.html
 WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
