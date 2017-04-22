@@ -6,7 +6,7 @@ body{
   background-color: #F4F4F4;
 }
 a.active{
-  color: #C0B283 !important;
+  color: #ea372e !important;
 }
 
 h4, h3, label{
@@ -33,7 +33,7 @@ a:visited {
   text-decoration: none;
 }
 a:hover {
-  color: #DCD0C0 !important;
+  color: #ea372e !important;
   text-decoration: underline;
 }
 .contain {
@@ -225,7 +225,7 @@ a:hover {
 .video-container {
   position:relative;
 /*  padding-top:30px;*/
-  height:100%;
+  height:auto;
   overflow-y: scroll;
 }
 
@@ -237,8 +237,13 @@ a:hover {
   height:100%;
 }
 
+.row{
+  margin-bottom: 0;
+}
+
 .text-col{
   padding-top: 15%;
+  background-color: #373737;
 }
 .col-lg-8{
     position: relative;
@@ -319,11 +324,11 @@ select::-ms-expand {
 }
 .left_col, .right_col{
   border: 1px solid white;
+  width: 50%;
 }
 
 .year{
-  border: 1px solid white;
-  border-top: none;
+  border-bottom: 2px solid white;
   margin: 0 -15px;
   margin-top: -15px;
 }
@@ -334,6 +339,9 @@ select::-ms-expand {
 .year_title{
   display: block;
   text-align: center;
+}
+.choice{
+  display: inline-block;
 }
 .choice, .down{
   margin-top: 15px;
@@ -360,28 +368,35 @@ select::-ms-expand {
     color:black;
     text-align:center;
     display: inline-block;
+    cursor: pointer;
 }
 .peeps{
-  margin-top: -20px;
+  max-width: 100%;
 
 }
-.logo{
-  position: relative;
-  left: -18vh;
-  top: -5vh;
+.navbar-left{
+  margin-top: -8px;
 }
 .navbar{
   height: 70px;
 }
 .nav{
+  margin-right: 10px;
   position: relative;
   top: 12px;
 }
 .__down{
   margin-top: 25px;
 }
+.sort_by{
+  margin-right: 10px;
+}
 .submit{
+  position: absolute;
+  bottom: 0;
+  right: 0;
   margin-right: 30px;
+  margin-bottom: 20px;
   font: bold 17px Arial,sans-serif;
 
   display: inline-block;
@@ -399,6 +414,10 @@ select::-ms-expand {
   box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 200), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
 }
 
+.hide_name{
+  display: none;
+}
+
 @media (max-width: 1199px){
   .text-col{
     padding-top: 0;
@@ -409,6 +428,7 @@ select::-ms-expand {
   .search:focus{
     width: 35%;
   }
+
 }
 @media (max-width: 650px){
   .search {
@@ -420,8 +440,23 @@ select::-ms-expand {
 }
 
 @media screen and (min-width:0\0) {
-    select {
-        background-image:none\9;
-        padding: 5px\9;
-    } 
+  select {
+      background-image:none\9;
+      padding: 5px\9;
+  } 
+}
+
+@media (min-width: 1280px){
+  .choice div{
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1280px){
+  .choice h4{
+    display: block !important;
+  }
+  .peeps{
+    margin-top: 10px;
+  }
 }

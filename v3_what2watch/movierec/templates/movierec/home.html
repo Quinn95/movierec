@@ -1,2 +1,815 @@
 
 {{ user }}
+<body>
+    <label class="hide_name">home.html</label>
+{% include 'navbar.html' %}
+
+    <div class="container-fluid down">
+      <input class="search pull-right" type="text" name="search" placeholder=" &#xF002;  Search...">
+    </div>
+  <div class="container-fluid">
+    <button class="pull-right right right1 arrow" data-arrow="right 1">
+      <span class="fa fa-chevron-right pull-right"></span>
+    </button>
+    <button type="button" class="pull-right left left1 arrow" data-arrow="left 1">
+      <span class="fa fa-chevron-left pull-right"></span>
+    </button>
+
+    <h4 class="pull-left">Trending</h4>
+    <div class="row__inner c1">
+
+      <div class="tile" data-toggle="modal" data-target="#myModalTintin">
+        <div class="tile__media">
+          <img class="tile__img" src="http://www.movienewz.com/img/films/adventures_of_tintin_movie_poster_2.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Tintin
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalHappyFeet2">
+        <div class="tile__media">
+          <img class="tile__img" src="http://www.movienewz.com/img/films/happy_feet_two_movie_poster.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Happy Feet 2
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalHiddenFigures">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/736x/c3/ab/67/c3ab67327e9f2d577b95fee3a1767245.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Hidden Figures
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalThor">
+        <div class="tile__media">
+          <img class="tile__img" src="http://www.movienewz.com/img/films/thor_movie_poster.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Thor
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalBirdman">
+        <div class="tile__media">
+          <img class="tile__img" src="http://i.ebayimg.com/images/g/WZMAAOSwDN1UMMoA/s-l298.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Birdman
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalLionKing">
+        <div class="tile__media">
+          <img class="tile__img" src="http://www.movienewz.com/img/films/lion_king_3d_movie_poster.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Lion King
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalJourney2">
+        <div class="tile__media">
+          <img class="tile__img" src="http://www.movienewz.com/img/films/journey_2_the_mysterious_island_movie_poster.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Journey 2
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalHungerGamesCatchingFire">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/236x/a8/c1/57/a8c1572b24467328cda6a08755415cca.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Hunger Games: Catching Fire
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" data-toggle="modal" data-target="#myModalIndependenceDay">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/236x/81/bb/5e/81bb5ee2fd8da71c01ff6098929c2b2e.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Independence Day
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s-media-cache-ak0.pinimg.com/736x/e2/59/ca/e259cab12b1e8b051f9d888851e0d401.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="http://graphicdesignjunction.com/wp-content/uploads/2011/12/grey-movie-poster.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-12.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-13.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-14.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-15.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-16.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-17.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-18.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-19.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-19.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid">
+    <button type="submit" class="pull-right right right2 arrow" data-arrow="right 2">
+      <span class="fa fa-chevron-right pull-right"></span>
+    </button>
+    <button type="button" class="pull-right left left2 arrow" data-arrow="left 2">
+      <span class="fa fa-chevron-left pull-right"></span>
+    </button>
+    <div class="row__inner c2">
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-1.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-2.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-3.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-4.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-5.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-6.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-8.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-9.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-10.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-11.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-12.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-13.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-14.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-15.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-16.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-17.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-18.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-19.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="container-fluid">
+    <button type="submit" class="pull-right right right3 arrow" data-arrow="right 3">
+      <span class="fa fa-chevron-right pull-right"></span>
+    </button>
+    <button type="button" class="pull-right left left3 arrow" data-arrow="left 3">
+      <span class="fa fa-chevron-left pull-right"></span>
+    </button>
+    <div class="row__inner c3">
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-1.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-2.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-3.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-4.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-5.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-6.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-8.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-9.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-10.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-11.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-12.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-13.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-14.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-15.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-16.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-17.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-18.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-19.jpg" alt=""  />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Top Gear
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<!-- Modal -->
+<div id="myModalTintin" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Tintin</h4>
+      </div>
+      <div class="modal-body  video-container">
+        <div class="row">
+          <div class="col-lg-8">
+            <iframe src="https://www.youtube.com/embed/xz3j8gKRUTg" allowfullscreen></iframe>
+          </div>
+          <div class="col-lg-4 text-col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor gravida ligula vitae commodo. Mauris ac mauris suscipit, auctor ante nec, efficitur risus. Maecenas hendrerit nisi eu egestas accumsan. Nulla ut turpis eget velit porta consectetur. Nullam non diam fringilla, vehicula ipsum a, sagittis libero. Sed id congue justo. Praesent mattis lorem sed scelerisque commodo. Vivamus semper felis volutpat libero luctus porttitor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="myModalHappyFeet2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/gKWNUyTGqss" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalHiddenFigures" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/RK8xHq6dfAo" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalThor" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/JOddp-nlNvQ" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalBirdman" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/uJfLoE6hanc" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalLionKing" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/jOIu472cCq0" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalJourney2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/qdFCjwcK8IE" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalHungerGamesCatchingFire" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/EAzGXqJSDJ8" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModalIndependenceDay" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body video-container">
+        <iframe src="https://www.youtube.com/embed/kA2WzBi2grE" allowfullscreen></iframe>
+      </div>
+      </div>
+
+  </div>
+</div>
+</body>

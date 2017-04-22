@@ -16,7 +16,7 @@ def test():
     getHuluMovies()
     createGenres()
     populateMovieDetails()
-    #getStreamingLinks(identifier=128834)
+    getStreamingLinks(identifier=128834)
 
 
 def getNetflixMovies():
