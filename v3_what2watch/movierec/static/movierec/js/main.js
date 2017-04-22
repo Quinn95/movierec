@@ -185,6 +185,4 @@ $( document ).ready(function() {
 			}
 		});
 	});
-
-
 });
