@@ -9,6 +9,11 @@ a.active{
   color: #C0B283 !important;
 }
 
+h4, h3, label{
+  color: #DCD0C0;
+  display: inline-block;
+}
+
 h1,
 p {
   text-align: center;
@@ -204,26 +209,14 @@ a:hover {
   background-color: #373737;
   color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-
-  .modal-header{
-    border-bottom: none;
-    padding: 0 15px;
-    font-weight: 400;
-  }
-  .modal-body{
-    position: relative;
-    padding: 0 15px !important;
-  }
-  .modal-footer{
-    border-top: none;
-    padding: 0 15px;
-    text-align: right;
-  }
+}
+.modal-header{
+  text-align: center;
 }
 
 .modal-body{
   padding-top: 0;
-  height: 500px;
+  padding-bottom: 0;
 }
 .modal-title {
   font-weight: bold;
@@ -232,8 +225,8 @@ a:hover {
 .video-container {
   position:relative;
 /*  padding-top:30px;*/
+  height:100%;
   overflow-y: scroll;
-  height: 50%;
 }
 
 .video-container iframe, .video-container object, .video-container embed {
@@ -271,21 +264,139 @@ a:hover {
 
 .streaming{
   color: white !important;
+  cursor: pointer;
 }
 
 .text{
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed #83A4C5;
-    width: 275px;
-    margin-left: 10px;
-    outline: none;
+    width: auto;
     padding: 0;
     font-style: italic;
+    outline: none;
 }
 
-.text:focus{
-  border-bottom: 1px dashed #D9FFA9;
+
+
+select {
+
+  border: 1px solid #111;
+  background: transparent;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+}
+
+select::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+.form{
+  color: #DCD0C0 !important;
+}
+
+.logo__img {
+  width: 100px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.recommendation{
+  text-align: center;
+  width: 100%;
+}
+
+.year select{
+  color:; black;
+}
+.rec_title{
+  margin-top: -10px;
+}
+.left_col, .right_col{
+  border: 1px solid white;
+}
+
+.year{
+  border: 1px solid white;
+  border-top: none;
+  margin: 0 -15px;
+  margin-top: -15px;
+}
+.year select{
+  margin: 0 15px;
+  margin-bottom: 25px;
+}
+.year_title{
+  display: block;
+  text-align: center;
+}
+.choice, .down{
+  margin-top: 15px;
+}
+.choice select{
+  margin: 15px;
+}
+.people{
+  margin-bottom: 15px;
+  background-color: white;
+  text-align: left;
+}
+
+.people input{
+  border: none;
+}
+.people input:focus{
+  outline: none;
+}
+
+.tag {
+    margin:2px;
+    background:lightblue;
+    color:black;
+    text-align:center;
+    display: inline-block;
+}
+.peeps{
+  margin-top: -20px;
+
+}
+.logo{
+  position: relative;
+  left: -18vh;
+  top: -5vh;
+}
+.navbar{
+  height: 70px;
+}
+.nav{
+  position: relative;
+  top: 12px;
+}
+.__down{
+  margin-top: 25px;
+}
+.submit{
+  margin-right: 30px;
+  font: bold 17px Arial,sans-serif;
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.3em;
+  border: 1px solid;
+  background-color: #eee;
+
+}
+
+.submit:hover {
+  -moz-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
+  -webkit-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
+  box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 200), 0 0.1em 0.2em rgba(0, 0, 0, 255), 0 -0.1em 0.07em rgba(0, 0, 0, 255) inset, 0 0.1em 0.07em rgba(255, 255, 255, 255) inset;
 }
 
 @media (max-width: 1199px){
@@ -306,4 +417,11 @@ a:hover {
   .search:focus{
     width: 45%;
   }
+}
+
+@media screen and (min-width:0\0) {
+    select {
+        background-image:none\9;
+        padding: 5px\9;
+    } 
 }
