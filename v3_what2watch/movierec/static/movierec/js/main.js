@@ -185,4 +185,19 @@ $( document ).ready(function() {
 			}
 		});
 	});
+
+	$(window).load(function(){
+		$(".nav").find("a").each(function(){
+			if($(this).attr("href") === $(".hide_name").text()){
+				$(this).addClass("active");
+			}
+			else if($(this).hasClass("active")){
+				$(this).removeClass("active");
+			}
+		});
+
+    	return false;
+
+	});
+
 });

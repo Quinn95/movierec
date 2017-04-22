@@ -58,7 +58,7 @@ ROOT_URLCONF = 'v3_what2watch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'movierec/templates/movierec')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
