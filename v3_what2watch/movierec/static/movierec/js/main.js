@@ -50,22 +50,8 @@ $( document ).ready(function() {
 
 
   	$(".tile").on("click", function(){
-  		var title = $(this).find(".tile__title").text().trim().replace(":", "").replace(";", "").split(" ");
-  		var realTitle;
-  		if(title.length != 1){
-  			for (var i = 0; i < title.length; i++) {
-  				if(realTitle == undefined){
-  					realTitle = title[i];
-  				}
-  				else{
-  					realTitle = realTitle + title[i];
-  				}
-  			}
-  		}
-  		else{
-  			realTitle = title;
-  		}
-		$('#myModal' + realTitle).on('hidden.bs.modal', function(e) {
+  		var title = $(this).attr("data-target");
+		$(title).on('hidden.bs.modal', function(e) {
 	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
 	    	// $(this).find('iframe').attr('src', rawVideoURL);
 		});
