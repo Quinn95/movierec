@@ -45,7 +45,7 @@
 
 {% if results %}
   {% for item in results %}
-  <div class="tile" data-toggle="modal" data-target="#myModalTintin">
+  <div class="tile" data-toggle="modal" data-target="#myModal{{ item.identifier }}">
     <div class="tile__media">
       <img class="tile__img" src="{{ item.poster }}" alt=""  />
     </div>
@@ -55,13 +55,9 @@
      </div>
     </div>
   </div>
-  {% endfor %}
-{% endif %}
   </div>
-</div>
-
-<!-- Modal -->
-<div id="myModalTintin" class="modal fade" role="dialog">
+  <!-- Modal -->
+  <div id="myModal{{ item.identifier }}" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
@@ -78,6 +74,11 @@
       </div>
     </div>
   </div>
+</div>
+
+
+  {% endfor %}
+{% endif %}
 </div>
 
     <!-- jQuery Version 1.11.1 -->
