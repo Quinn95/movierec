@@ -20,6 +20,7 @@
         <div class="choice">
           <h4>Genre:</h4>
           <select name="genre" id="genre">
+            <option value="Any">Any</option>
             <option value="Horror">Horror</option>
             <option value="Thriller">Thriller</option>
             <option value="Western">Western</option>
@@ -36,6 +37,7 @@
 
           <h4>User Rating:</h4>
           <select name="imdb" id="imdb">
+            <option value="Any">Any</option>
             <option value="great">&gt 8</option>
             <option value="good">6-8</option>
             <option value="meh">4-6</option>
@@ -46,6 +48,7 @@
         <div class="choice">
           <h4>Current Mood:</h4>
           <select name="mood" id="mood">
+            <option value="Any">Any</option>
             <option value="happy">Happy</option>
             <option value="sad">Sad</option>
             <option value="Angry">Angry</option>
@@ -56,6 +59,7 @@
       
           <h4>MPAA Rating:</h4>
           <select name="rating" id="rating">
+            <option value="Any">Any</option>
             <option value="all">all</option>
             <option value="G">G</option>
             <option value="PG">PG</option>
@@ -148,6 +152,7 @@
 </div>
   {% endfor %}
 {% endif %}
+
 
 {% include 'movierec/scripts.html' %}
 
