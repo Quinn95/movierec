@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from utils import gbox, heist
 from utils import apiwrapper
+from .models import Person
 
 from . import forms
 
@@ -18,15 +19,6 @@ def test(request):
 
 def recView(request):
     if request.method == 'POST':
-        request.POST['from']
-        request.POST['to']
-        request.POST['genre']
-        request.POST['imdb']
-        request.POST['mood']
-        request.POST['rating']
-        request.POST['people']
-        request.POST['keywords']
-        request.POST['netflix']
 
         return render(request, 'movierec/recpage.html',
                       {'results': results,
@@ -36,5 +28,5 @@ def recView(request):
         form = forms.RecForm
 
     return render(request, 'movierec/recpage.html', {'form': form, 'user':
-                                                    request.user})
+                                                    request.user, 'people': Person.objects.all()})
 
