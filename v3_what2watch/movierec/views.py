@@ -18,16 +18,23 @@ def test(request):
 
 def recView(request):
     if request.method == 'POST':
-        form = forms.RecForm(request.POST)
-        if form.is_valid():
-            results = apiwrapper.processRequest(form.cleaned_data)
-            return render(request, 'movierec/recpage.html',
-                          {'results': results,
-                           'form': form,
-                           'user': request.user})
+        request.POST['from']
+        request.POST['to']
+        request.POST['genre']
+        request.POST['imdb']
+        request.POST['mood']
+        request.POST['rating']
+        request.POST['people']
+        request.POST['keywords']
+        request.POST['netflix']
+
+        return render(request, 'movierec/recpage.html',
+                      {'results': results,
+                       'form': form,
+                       'user': request.user})
     else:
         form = forms.RecForm
 
-    return render(request, 'movierec/getrec.html', {'form': form, 'user':
+    return render(request, 'movierec/recpage.html', {'form': form, 'user':
                                                     request.user})
 
