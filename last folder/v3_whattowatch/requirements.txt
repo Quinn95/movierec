@@ -1,0 +1,10 @@
+django-user-accounts
+pinax-webanalytics==2.0.4
+pinax-eventlog==1.1.2
+
+Django
+pinax-theme-bootstrap
+
+guidebox
+tmdbsimple
+
