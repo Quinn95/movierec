@@ -24,12 +24,6 @@ class Profile(models.Model):
                                           related_name='liked_movies')
     disliked_movies = models.ManyToManyField('movierec.Movie',
                                              related_name='disliked_movies')
-    liked_genres = models.ManyToManyField('movierec.Genre',
-                                          related_name='liked_genres')
-    disliked_genres = models.ManyToManyField('movierec.Genre',
-                                             related_name="disliked_genres")
-    preference_list = models.CharField(max_length=2000, null=True)
-
     def __str__(self):
         return self.user.username
 
