@@ -26,11 +26,11 @@ def recView(request):
         imdb = request.POST['imdb']
         #request.POST['mood']
         maxrating = request.POST['rating']
-        people = request.POST['people']
         keywords = request.POST.getlist('keywords')
 
         query = Movie.objects.all()
-
+        if "people" in request.POST:
+            people = request.POST.getlist('people')
         if timerange[0] != "-----": #we need to change
             query = query.filter(date__gt=int(timerange[0]))
         if timerange[1] != "-----": #we need to change
