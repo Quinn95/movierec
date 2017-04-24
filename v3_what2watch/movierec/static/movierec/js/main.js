@@ -89,27 +89,33 @@ $( document ).ready(function() {
 	$('body #netflix').on('click', function() {
 	    if($('#netflix').css('border') == '0px none rgb(255, 255, 255)'){
 	    	$('#netflix').css({"border": "2px solid orange"});
+	    	$( "input[name='netflix']" ).prop("checked", true);
 	    }
 	    else if($('#netflix').css('border') == '2px solid rgb(255, 165, 0)'){
 	    	$('#netflix').css({"border": "0px none rgb(255, 255, 255)"});
+	    	$( "input[name='netflix']" ).prop("checked", false);
 	    }
 	}); 
 
 	$('body #amazon').on('click', function() {
 	    if($('#amazon').css('border') == '0px none rgb(255, 255, 255)'){
 	    	$('#amazon').css({"border": "2px solid orange"});
+	    	$( "input[name='amazon']" ).prop("checked", true);
 	    }
 	    else if($('#amazon').css('border') == '2px solid rgb(255, 165, 0)'){
 	    	$('#amazon').css({"border": "0px none rgb(255, 255, 255)"});
+	    	$( "input[name='amazon']" ).prop("checked", false);
 	    }
 	}); 
 
 	$('body #hulu').on('click', function() {
 	    if($('#hulu').css('border') == '0px none rgb(255, 255, 255)'){
 	    	$('#hulu').css({"border": "2px solid orange"});
+	    	$( "input[name='hulu']" ).prop("checked", true);
 	    }
 	    else if($('#hulu').css('border') == '2px solid rgb(255, 165, 0)'){
 	    	$('#hulu').css({"border": "0px none rgb(255, 255, 255)"});
+	    	$( "input[name='hulu']" ).prop("checked", false);
 	    }
 	}); 
 
@@ -145,6 +151,7 @@ $( document ).ready(function() {
 				if(!flag){
 					$(this).val("");
 					$('#people').before('<span class="tag">' + ui.item.value + '</span>');
+					$(".people").append('<input class="hide_name" type="text" name"people" value="' + ui.item.value + '">');
 				}
 				flag = false;
 

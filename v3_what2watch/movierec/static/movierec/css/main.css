@@ -350,16 +350,16 @@ select::-ms-expand {
 .choice select{
   margin: 15px;
 }
-.people{
+.people, .keywords{
   margin-bottom: 15px;
   background-color: white;
   text-align: left;
 }
 
-.people input{
+.people input, .keywords input{
   border: none;
 }
-.people input:focus{
+.people input:focus, .keywords input:focus{
   outline: none;
 }
 
