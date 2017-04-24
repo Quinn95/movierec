@@ -157,7 +157,7 @@ $( document ).ready(function() {
 				if(!flag){
 					$(this).val("");
 					$('#people').before('<span class="tag">' + ui.item.value + '</span>');
-					$(".people").append('<input class="hide_name" type="text" name"people" value="' + ui.item.value + '">');
+					$(".people").append('<input type="hidden" name="people" value="' + ui.item.value + '">');
 				}
 				flag = false;
 
@@ -171,7 +171,7 @@ $( document ).ready(function() {
 			$(this).remove();
 	    });
 		input.on('keydown', function() {
-			var key = event.keyCode || event.charCode;
+			var key = event.keyCode || event.chadrCode;
 
 			if( key == 8 || key == 46 ){
 				if(!input.val()){
