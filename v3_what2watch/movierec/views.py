@@ -50,6 +50,6 @@ def recView(request):
                        'user': request.user,
                        'people': Person.objects.all()})
 
-    return render(request, 'movierec/recpage.html', {'form': form, 'user':
-                                                    request.user, 'people': Person.objects.all()})
+    return render(request, 'movierec/recpage.html', {'user': request.user,
+                           'people': Person.objects.all()})
 

@@ -1617,3 +1617,29 @@ Traceback (most recent call last):
     (self.model._meta.object_name, num)
 MultipleObjectsReturned: get() returned more than one Person -- it returned 949!
 >>>>>>> 6410c9f095475ca91b0a8f1822d07e9334fb8efd
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 53, in recView
+    return render(request, 'movierec/recpage.html', {'form': form, 'user':
+NameError: global name 'form' is not defined
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 53, in recView
+    return render(request, 'movierec/recpage.html', {'form': form, 'user':
+NameError: global name 'form' is not defined
