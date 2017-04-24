@@ -199,4 +199,8 @@ $( document ).ready(function() {
 
 	});
 
+	// var people = $("#django").val().replace("<QuerySet", "").replace(/\<Person: /g, "").replace(/\>/g, "").replace(/\[/g, "").replace(/\]/g, "");
+	// console.log($("#django").val());
+	// console.log(people);
+
 });

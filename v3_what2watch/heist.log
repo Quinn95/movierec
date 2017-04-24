@@ -1392,3 +1392,284 @@ Traceback (most recent call last):
   File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/db/models/query.py", line 383, in get
     (self.model._meta.object_name, num)
 MultipleObjectsReturned: get() returned more than one Person -- it returned 949!
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 156: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 156: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 156: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 156: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 156: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 156: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 157: 'interest'. Did you forget to register or load this tag?
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.all()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 157: 'interest'. Did you forget to register or load this tag?
