@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from utils import gbox, heist
 from utils import apiwrapper
 
-from . import forms
+
+from .models import Movie, Genre, Person, Keyword
 
 # Create your views here.
 
@@ -18,23 +19,34 @@ def test(request):
 
 def recView(request):
     if request.method == 'POST':
-        request.POST['from']
-        request.POST['to']
-        request.POST['genre']
-        request.POST['imdb']
-        request.POST['mood']
-        request.POST['rating']
-        request.POST['people']
-        request.POST['keywords']
-        request.POST['netflix']
+        timerange = (request.POST['from'], request.POST['to'])
 
+        genre = request.POST['genre']
+        imdb = request.POST['imdb']
+        #request.POST['mood']
+        maxrating = request.POST['rating']
+        people = request.POST.getlist('people')
+        keywords = request.POST.getlist('keywords')
+#        netflix = request.POST['netflix']
+#        amazon = request.POST['amazon']
+#        hulu = request.POST['hulu']
+
+        query = Movie.objects.all()
+
+        if timerange[0] != "-----":
+            query = query.filter(date__gte=int(timerange[0]))
+        if timerange[1] != "-----":
+            query = query.filter(date__lte=int(timerange[1]))
+
+        if genre != "Horror":
+            genreQ = Genre.objects.get(name=genre)
+            query = query.filter(genreQ__in[genre])
+
+        results = query
         return render(request, 'movierec/recpage.html',
                       {'results': results,
-                       'form': form,
                        'user': request.user})
-    else:
-        form = forms.RecForm
 
-    return render(request, 'movierec/recpage.html', {'form': form, 'user':
+    return render(request, 'movierec/recpage.html', {'user':
                                                     request.user})
 

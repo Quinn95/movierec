@@ -1374,3 +1374,225 @@ MultiValueDictKeyError: "'from'"
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /movierec
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 51, in recView
+    return render(request, 'movierec/recpage.html', {'form': form, 'user':
+NameError: global name 'form' is not defined
+WARNING:django.request:Not Found: /movierec
+WARNING:django.security.csrf:Forbidden (CSRF token missing or incorrect.): /movierec/form/
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 30, in recView
+    netflix = request.POST['netflix']
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'netflix'"
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 30, in recView
+    netflix = request.POST['netflix']
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'netflix'"
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 37, in recView
+    query = query.filter(data__gte=int(timerange[0]))
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 781, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 799, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1260, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1286, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1164, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1044, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1362, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+FieldError: Cannot resolve keyword 'data' into field. Choices are: amazon, amazon_available, budget, common_sense_media, date, disliked_movies, genre, hulu, hulu_available, id, identifier, imdb, keywords, languages, liked_movies, metacritic, netflix, netflix_available, people, popularity, poster, rating, rottentomatoes, runtime, summary, themoviedb, title, tmdb_get, trailer, vote_average, vote_count
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 42, in recView
+    genre = Genre.object.get(name=genre)
+AttributeError: type object 'Genre' has no attribute 'object'
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 42, in recView
+    genre = Genre.objects.get(name=genre)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Genre matching query does not exist.
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 47, in recView
+    {'results': results,
+NameError: global name 'results' is not defined
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 47, in recView
+    {'results': results,
+NameError: global name 'results' is not defined
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9720
+DEBUG:root:Added 10 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9627
+DEBUG:root:Added 10 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9912
+DEBUG:root:Added 7 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 19
+INFO:root:There are currently 27 total movies in the database
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/419700?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4439
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/397442?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1806
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/267935?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3689
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/313297?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3419
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/271110?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 11094
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/269149?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5340
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/223702?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5158
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/424?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4210
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/7446?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6875
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/340584?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1589
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/615?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5357
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/290098?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1948
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/157336?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8286
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/365942?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8084
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/334533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4959
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/258489?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3751
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/333371?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4087
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/150689?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8238
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/264644?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3737
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/339533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1810
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9323?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3637
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/14?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 7810
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/295699?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5079
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/300671?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6035
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/273481?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6383
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/371645?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 2874
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/629?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4606
+DEBUG:root:Details for 27 movies retrieved successfully
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies/128834?api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5 HTTP/1.1" 200 12057
+ERROR:django.request:Internal Server Error: /movierec/testing
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 17, in test
+    heist.test()
+  File "/home/quinn/461L/v3_what2watch/movierec/utils/heist.py", line 19, in test
+    getStreamingLinks(identifier=128834)
+  File "/home/quinn/461L/v3_what2watch/movierec/utils/heist.py", line 267, in getStreamingLinks
+    movie = Movie.objects.get(identifier=movie_id)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Movie matching query does not exist.
+WARNING:django.request:Not Found: /favicon.ico

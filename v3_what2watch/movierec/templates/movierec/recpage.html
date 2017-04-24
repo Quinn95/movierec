@@ -6,7 +6,8 @@
 {% include 'navbar.html' %}
 
 
-<form action="/movierec" method="post">
+<form action="{% url 'recommendations' %}" method="post">
+      {% csrf_token %}
   <div class="container recommendation __down">
     <h3 class="rec_title"> Welcome to our Recommendations Page: <br>(make sure to complete all fields)</h3><br>
     <div class="row row-eq-height">
