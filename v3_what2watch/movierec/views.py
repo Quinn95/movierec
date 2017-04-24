@@ -28,19 +28,33 @@ def recView(request):
         maxrating = request.POST['rating']
         people = request.POST.getlist('people[]')
         keywords = request.POST.getlist('keywords')
-        netflix = request.POST['netflix']
-#        amazon = request.POST['amazon']
-#        hulu = request.POST['hulu']
 
         query = Movie.objects.all()
 
-        if timerange[0] != "2017":
+        if timerange[0] != "2017": #we need to change
             query = query.filter(date__gte=int(timerange[0]))
-        if timerange[1] != "2017":
+        if timerange[1] != "2017": #we need to change
             query = query.filter(date__lte=int(timerange[1]))
         if genre != "Horror":
             genreQ = Genre.objects.get(name=genre)
             query = query.filter(genre__in=[genreQ])
+        querynetflix = Movie.objects.none()
+        queryamazon = Movie.objects.none()
+        queryhulu = Movie.objects.none()
+        anychecked = False;
+        if "netflix" in request.POST:
+            querynetflix = query.filter(netflix_available=True)
+            anychecked = True
+        if "amazon" in request.POST:
+            queryamazon = query.filter(amazon_available=True)
+            anychecked = True
+        if "hulu" in request.POST:
+            queryhulu = query.filter(hulu_available=True)
+            anychecked = True
+
+        if anychecked:
+            query = querynetflix | queryamazon | queryhulu
+
         results = query
 
         print people

@@ -2331,3 +2331,35 @@ Traceback (most recent call last):
   File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
     raise MultiValueDictKeyError(repr(key))
 MultiValueDictKeyError: "'people'"
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 31, in recView
+    netflix = request.POST['netflix']
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'netflix'"
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 49, in recView
+    query = querynetflix | queryamazon | queryhulu
+UnboundLocalError: local variable 'querynetflix' referenced before assignment
+WARNING:django.request:Not Found: /movierec
+WARNING:django.request:Not Found: /account
+WARNING:django.request:Not Found: /account/
