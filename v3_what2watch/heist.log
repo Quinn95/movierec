@@ -2363,3 +2363,7 @@ UnboundLocalError: local variable 'querynetflix' referenced before assignment
 WARNING:django.request:Not Found: /movierec
 WARNING:django.request:Not Found: /account
 WARNING:django.request:Not Found: /account/
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /movierec/form/home.html
+WARNING:django.request:Not Found: /movierec/form/recpage.html
+WARNING:django.request:Not Found: /movierec/form/recpage.html
