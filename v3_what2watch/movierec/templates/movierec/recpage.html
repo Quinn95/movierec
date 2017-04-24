@@ -88,9 +88,9 @@
           <h4 class="form">Choose your streaming service</h4>
           <div>
             <input class="hide_name" type="checkbox" name="netflix">
-            <img id="netflix" class="streaming logo__img" src="https://img.clipartfest.com/4f607a97d75e39168a3744dbc5c8cc61_netflix-logo-vector-netflix-clipart-transparent_400-400.png"/>
+            <img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/>
             <input class="hide_name" type="checkbox" name="amazon">
-            <img id="amazon" class="streaming logo__img" src="https://h2savecom.files.wordpress.com/2016/04/amazon-logo-400x200_white_fin.png">
+            <img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}">
             <input class="hide_name" type="checkbox" name="hulu">
             <img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
           </div>
@@ -149,18 +149,6 @@
   {% endfor %}
 {% endif %}
 
-    <!-- jQuery Version 1.11.1 -->
-
-    <script src="{% static 'movierec/js/jquery.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'movierec/js/bootstrap.min.js' %}"></script>
-
-    <script src="{% static 'movierec/js/main.js' %}?v=00001"></script>
-
+{% include 'scripts.html' %}
 
 </body>

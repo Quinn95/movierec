@@ -1374,6 +1374,7 @@ MultiValueDictKeyError: "'from'"
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /movierec
+<<<<<<< HEAD
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /favicon.ico
 ERROR:django.request:Internal Server Error: /movierec/form/
@@ -1596,3 +1597,23 @@ Traceback (most recent call last):
     self.model._meta.object_name
 DoesNotExist: Movie matching query does not exist.
 WARNING:django.request:Not Found: /favicon.ico
+=======
+WARNING:django.request:Not Found: /movierec/form/amazon.jpg
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 31, in recView
+    request.user, 'people': Person.objects.get()})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/db/models/query.py", line 383, in get
+    (self.model._meta.object_name, num)
+MultipleObjectsReturned: get() returned more than one Person -- it returned 949!
+>>>>>>> 6410c9f095475ca91b0a8f1822d07e9334fb8efd

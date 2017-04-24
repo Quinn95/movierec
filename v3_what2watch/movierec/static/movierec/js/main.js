@@ -84,6 +84,12 @@ $( document ).ready(function() {
 		$('#from option').filter(function() {
 		    return $(this).val() <= op;
 		}).prop('disabled', false);
+		if($('#from').find(":selected").text() === "-----"){
+			$('#from').val(op);
+		}
+		if(op !== "-----"){
+			$("#from option[value='-----'").prop('disabled', false);
+		}
 	});
 
 	$('body #netflix').on('click', function() {

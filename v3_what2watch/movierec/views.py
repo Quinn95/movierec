@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from utils import gbox, heist
 from utils import apiwrapper
+from .models import Person
 
 
 from .models import Movie, Genre, Person, Keyword
@@ -43,10 +44,12 @@ def recView(request):
             query = query.filter(genreQ__in[genre])
 
         results = query
+
         return render(request, 'movierec/recpage.html',
                       {'results': results,
-                       'user': request.user})
+                       'user': request.user,
+                       'people': Person.objects.all()})
 
-    return render(request, 'movierec/recpage.html', {'user':
-                                                    request.user})
+    return render(request, 'movierec/recpage.html', {'form': form, 'user':
+                                                    request.user, 'people': Person.objects.all()})
 
