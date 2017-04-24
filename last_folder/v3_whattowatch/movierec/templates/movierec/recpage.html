@@ -155,5 +155,10 @@
 
 
 {% include 'movierec/scripts.html' %}
+<script type="text/javascript">
+var resultFEs = jQuery.parseJSON( {{people|safe}} );
+console.log(resultFEs);
+console.log("hey");
+</script>
 
 </body>
