@@ -28,7 +28,7 @@ def recView(request):
         maxrating = request.POST['rating']
         people = request.POST.getlist('people[]')
         keywords = request.POST.getlist('keywords')
-#        netflix = request.POST['netflix']
+        netflix = request.POST['netflix']
 #        amazon = request.POST['amazon']
 #        hulu = request.POST['hulu']
 
