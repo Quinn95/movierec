@@ -1374,3 +1374,4 @@ MultiValueDictKeyError: "'from'"
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /
 WARNING:django.request:Not Found: /movierec
+WARNING:django.request:Not Found: /movierec/form/amazon.jpg
