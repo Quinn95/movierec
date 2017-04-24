@@ -61,12 +61,14 @@ $( document ).ready(function() {
 	var to = $("#to");
 	for (i = new Date().getFullYear(); i > 1877; i--) {
 		if(i == new Date().getFullYear()){
-	    	from.append($('<option />').val(i).html("-----"));
-	    	to.append($('<option />').val(i).html("-----"));
+	    	from.append($('<option />').val("-----").html("-----"));
+	    	to.append($('<option />').val("-----").html("-----"));
 	    }
-	    from.append($('<option />').val(i).html(i));
-	    to.append($('<option />').val(i).html(i));
+	    from.append($('<option />').val(i - 1).html(i));
+	    to.append($('<option />').val(i - 1).html(i));
 	}
+	console.log(from.text());
+
 	from.change(function(){
 		var op = from.val();
 		$('#to option').filter(function() {
@@ -171,7 +173,7 @@ $( document ).ready(function() {
 			$(this).remove();
 	    });
 		input.on('keydown', function() {
-			var key = event.keyCode || event.charCode;
+			var key = event.keyCode || event.chadrCode;
 
 			if( key == 8 || key == 46 ){
 				if(!input.val()){
