@@ -1,0 +1,1358 @@
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /movierec/forms
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10550
+DEBUG:root:Added 10 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9923
+DEBUG:root:Added 10 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 5 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 19
+INFO:root:There are currently 25 total movies in the database
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/271110?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 11098
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/7446?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6877
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/424?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4210
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/269149?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5341
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/223702?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5157
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/278927?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5020
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/294272?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5114
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/127380?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4688
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/4951?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4800
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/318846?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 10380
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/365942?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8085
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/157336?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8286
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/334533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4960
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/150689?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8240
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/258489?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3725
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/333371?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4092
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/295699?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5075
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/264644?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3738
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/339533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1809
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/300671?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6034
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9323?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3635
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/14?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 7807
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9377?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1691
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/87101?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8465
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/273481?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6376
+DEBUG:root:Details for 25 movies retrieved successfully
+WARNING:django.request:Not Found: /movierec/forms
+WARNING:django.request:Not Found: /account
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+<<<<<<< HEAD
+WARNING:django.request:Not Found: /movierec/
+WARNING:django.request:Not Found: /movierec/testing/
+=======
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/resting
+>>>>>>> 203f81c1b77258a13fe85dcc148152f3319b65fc
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10550
+DEBUG:root:Added 10 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9923
+DEBUG:root:Added 10 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 5 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 19
+INFO:root:There are currently 25 total movies in the database
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/271110?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 11098
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/7446?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6877
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/424?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4210
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/269149?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5341
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/223702?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5155
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/278927?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5020
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/294272?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5114
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/127380?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4687
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/4951?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4800
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/318846?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 10380
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/365942?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8085
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/157336?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8287
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/334533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4960
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/150689?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8240
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/258489?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3725
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/333371?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4092
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/295699?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5075
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/264644?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3738
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/339533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1809
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/300671?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6034
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9323?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3635
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/14?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 7807
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9377?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1691
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/87101?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8465
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/273481?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6376
+DEBUG:root:Details for 25 movies retrieved successfully
+<<<<<<< HEAD
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /profile/
+WARNING:django.request:Not Found: /account
+ERROR:django.request:Internal Server Error: /account/signup/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 215, in _get_response
+    response = response.render()
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/response.py", line 107, in render
+    self.content = self.rendered_content
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/response.py", line 82, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/response.py", line 64, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loader.py", line 53, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+TemplateDoesNotExist: account/signup.html
+ERROR:django.request:Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 393, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/edit.py", line 174, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 122, in get_context_data
+    current_site = get_current_site(self.request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/shortcuts.py", line 15, in get_current_site
+    return Site.objects.get_current(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 65, in get_current
+    return self._get_site_by_request(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 50, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Site matching query does not exist.
+ERROR:django.request:Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 393, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/edit.py", line 174, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 122, in get_context_data
+    current_site = get_current_site(self.request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/shortcuts.py", line 15, in get_current_site
+    return Site.objects.get_current(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 65, in get_current
+    return self._get_site_by_request(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 50, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Site matching query does not exist.
+ERROR:django.request:Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 393, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/edit.py", line 174, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 122, in get_context_data
+    current_site = get_current_site(self.request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/shortcuts.py", line 15, in get_current_site
+    return Site.objects.get_current(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 65, in get_current
+    return self._get_site_by_request(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 50, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Site matching query does not exist.
+ERROR:django.request:Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 393, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/edit.py", line 174, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 122, in get_context_data
+    current_site = get_current_site(self.request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/shortcuts.py", line 15, in get_current_site
+    return Site.objects.get_current(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 65, in get_current
+    return self._get_site_by_request(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 50, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Site matching query does not exist.
+ERROR:django.request:Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 393, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/views/generic/edit.py", line 174, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/auth/views.py", line 122, in get_context_data
+    current_site = get_current_site(self.request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/shortcuts.py", line 15, in get_current_site
+    return Site.objects.get_current(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 65, in get_current
+    return self._get_site_by_request(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/contrib/sites/models.py", line 50, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/db/models/query.py", line 379, in get
+    self.model._meta.object_name
+DoesNotExist: Site matching query does not exist.
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10550
+DEBUG:root:Added 10 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9831
+DEBUG:root:Added 10 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 6 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 19
+INFO:root:There are currently 26 total movies in the database
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/271110?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 11098
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/424?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4209
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/269149?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5340
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/223702?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5154
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/278927?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5024
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/7446?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6876
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/294272?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5115
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/127380?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4690
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/4951?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4794
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/318846?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 10377
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/615?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5356
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/365942?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8085
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/334533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4960
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/150689?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8242
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/258489?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3722
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/264644?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3738
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9323?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 3640
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/157336?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8287
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/333371?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 4086
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/295699?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 5075
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/339533?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1808
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/300671?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6036
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/14?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 7810
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/9377?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 1689
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/87101?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 8467
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/movie/273481?api_key=f2eee9cde7536b5ef17767e4e9a97239&append_to_response=credits%2Cvideos%2Ckeywords HTTP/1.1" 200 6376
+DEBUG:root:Details for 26 movies retrieved successfully
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+=======
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10550
+DEBUG:root:Added 0 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9923
+DEBUG:root:Added 0 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 0 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 0
+INFO:root:There are currently 25 total movies in the database
+DEBUG:root:Either Captain America: Civil War already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Tropic Thunder already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Schindler's List already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Zootopia already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Sausage Party already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Jungle Book already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Pete's Dragon already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Finding Dory already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 10 Things I Hate About You already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Big Short already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Space Between Us already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Interstellar already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Captain Fantastic already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Cinderella already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Legend of Tarzan already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 10 Cloverfield Lane already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Everybody Wants Some already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Room already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either San Andreas Quake already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 13 Hours: The Secret Soldiers of Benghazi already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Ghost in the Shell already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either American Beauty already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Ferris Bueller's Day Off already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Terminator Genisys already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Sicario already has movie details retrieved or no TMDb id exists
+DEBUG:root:Details for 0 movies retrieved successfully
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10550
+DEBUG:root:Added 0 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 None
+DEBUG:root:Added 0 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=netflix&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 None
+DEBUG:root:Added 0 new movies to the database from NetFlix
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 0 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=amazon_prime&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 9923
+DEBUG:root:Added 0 new movies to the database from Amazon Prime
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 0
+INFO:root:There are currently 25 total movies in the database
+DEBUG:root:Either Captain America: Civil War already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Tropic Thunder already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Schindler's List already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Zootopia already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Sausage Party already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Jungle Book already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Pete's Dragon already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Finding Dory already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 10 Things I Hate About You already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Big Short already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Space Between Us already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Interstellar already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Captain Fantastic already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Cinderella already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Legend of Tarzan already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 10 Cloverfield Lane already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Everybody Wants Some already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Room already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either San Andreas Quake already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 13 Hours: The Secret Soldiers of Benghazi already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Ghost in the Shell already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either American Beauty already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Ferris Bueller's Day Off already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Terminator Genisys already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Sicario already has movie details retrieved or no TMDb id exists
+DEBUG:root:Details for 0 movies retrieved successfully
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies?sources=hulu_plus&api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5&limit=10&offset=0 HTTP/1.1" 200 10065
+DEBUG:root:Added 0 new movies to the database from Hulu Plus
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.themoviedb.org
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies/128834?api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5 HTTP/1.1" 200 12054
+INFO:root:Links to subscription services added for Terminator Genisys
+DEBUG:requests.packages.urllib3.connectionpool:https://api.themoviedb.org:443 "GET /3/genre/list?api_key=f2eee9cde7536b5ef17767e4e9a97239 HTTP/1.1" 200 547
+DEBUG:root:Genres added to database: 0
+INFO:root:There are currently 25 total movies in the database
+DEBUG:root:Either Captain America: Civil War already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Tropic Thunder already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Schindler's List already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Zootopia already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Sausage Party already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Jungle Book already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Pete's Dragon already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Finding Dory already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 10 Things I Hate About You already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Big Short already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Space Between Us already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Interstellar already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Captain Fantastic already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Cinderella already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either The Legend of Tarzan already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 10 Cloverfield Lane already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Everybody Wants Some already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Room already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either San Andreas Quake already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either 13 Hours: The Secret Soldiers of Benghazi already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Ghost in the Shell already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either American Beauty already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Ferris Bueller's Day Off already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Terminator Genisys already has movie details retrieved or no TMDb id exists
+DEBUG:root:Either Sicario already has movie details retrieved or no TMDb id exists
+DEBUG:root:Details for 0 movies retrieved successfully
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api-public.guidebox.com
+DEBUG:requests.packages.urllib3.connectionpool:https://api-public.guidebox.com:443 "GET /v2/movies/128834?api_key=e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5 HTTP/1.1" 200 12054
+INFO:root:Links to subscription services added for Terminator Genisys
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 38, in get_template
+    contents = self.get_contents(origin)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/filesystem.py", line 28, in get_contents
+    with io.open(origin.name, encoding=self.engine.file_charset) as fp:
+IOError: [Errno 21] Is a directory: u'/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/useraccount/templates'
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+WARNING:django.request:Not Found: /movierec/form/images/hulu.png
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 32, in recView
+    request.user})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /movierec/home/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 13, in home
+    return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/home/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 13, in home
+    return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/home/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 13, in home
+    return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/home/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 13, in home
+    return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+TemplateDoesNotExist: navbar.html
+ERROR:django.request:Internal Server Error: /movierec/home/
+Traceback (most recent call last):
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/v3_what2watch/movierec/views.py", line 13, in home
+    return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Raphael/Desktop/WhatToWatch/movierec/env/lib/python2.7/site-packages/django/template/base.py", line 571, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 12: 'static'. Did you forget to register or load this tag?
+WARNING:django.request:Not Found: /movierec/resting
+WARNING:django.request:Not Found: /movierec/resting
+WARNING:django.request:Not Found: /movierec/form/home.html
+>>>>>>> 203f81c1b77258a13fe85dcc148152f3319b65fc
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 204, in render
+    template = context.template.engine.get_template(template_name)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 515, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 73: 'endblock', expected 'endif'. Did you forget to register or load this tag?
+WARNING:django.request:Not Found: /movierec/form/home.html
+WARNING:django.request:Not Found: /movierec/form/recpage.html
+ERROR:django.request:Internal Server Error: /movierec/form/
+Traceback (most recent call last):
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/quinn/461L/v3_what2watch/movierec/views.py", line 27, in recView
+    'user': request.user})
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 207, in render
+    return self._render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 216, in render
+    return template.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 63, in render
+    result = self.nodelist.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/base.py", line 957, in render_annotated
+    return self.render(context)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 458, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/home/quinn/461L/env/local/lib/python2.7/site-packages/django/urls/resolvers.py", line 497, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
