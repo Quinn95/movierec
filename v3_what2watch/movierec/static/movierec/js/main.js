@@ -157,7 +157,7 @@ $( document ).ready(function() {
 				if(!flag){
 					$(this).val("");
 					$('#people').before('<span class="tag">' + ui.item.value + '</span>');
-					$(".people").append('<input class="hide_name" type="text" name"people" value="' + ui.item.value + '">');
+					$(".people").append('<input type="hidden" name="people" value="' + ui.item.value + '">');
 				}
 				flag = false;
 

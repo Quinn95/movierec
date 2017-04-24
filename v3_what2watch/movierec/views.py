@@ -26,7 +26,7 @@ def recView(request):
         imdb = request.POST['imdb']
         #request.POST['mood']
         maxrating = request.POST['rating']
-        people = request.POST.getlist('people')
+        people = request.POST.getlist('people[]')
         keywords = request.POST.getlist('keywords')
 #        netflix = request.POST['netflix']
 #        amazon = request.POST['amazon']
@@ -34,16 +34,16 @@ def recView(request):
 
         query = Movie.objects.all()
 
-        if timerange[0] != "-----":
+        if timerange[0] != "2017":
             query = query.filter(date__gte=int(timerange[0]))
-        if timerange[1] != "-----":
+        if timerange[1] != "2017":
             query = query.filter(date__lte=int(timerange[1]))
-
         if genre != "Horror":
             genreQ = Genre.objects.get(name=genre)
-            query = query.filter(genreQ__in[genre])
-
+            query = query.filter(genre__in=[genreQ])
         results = query
+
+        print people
 
         return render(request, 'movierec/recpage.html',
                       {'results': results,
