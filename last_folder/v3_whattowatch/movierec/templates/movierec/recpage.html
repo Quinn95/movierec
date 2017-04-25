@@ -21,18 +21,9 @@
           <h4>Genre:</h4>
           <select name="genre" id="genre">
             <option value="Any">Any</option>
-            <option value="Horror">Horror</option>
-            <option value="Thriller">Thriller</option>
-            <option value="Western">Western</option>
-            <option value="Animation">Animation</option>
-            <option value="Romantic_Comedy">Romantic Comedy</option>
-            <option value="film_noir">Film Noir</option>
-            <option value="action">Action</option>
-            <option value="fiction">Fiction</option>
-            <option value="adventure">adventure</option>
-            <option value="documentary">Documentary</option>
-            <option value="romance">Romance</option>
-            <option value="Fantasy">Fantasy</option>
+            {% for genre in genres %}
+            <option value="{{genre}}">{{genre}}</option>
+            {% endfor %}
           </select>
 
           <h4>User Rating:</h4>
