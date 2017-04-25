@@ -154,11 +154,32 @@
 {% endif %}
 
 
-{% include 'movierec/scripts.html' %}
-<script type="text/javascript">
-var resultFEs = jQuery.parseJSON( {{people|safe}} );
-console.log(resultFEs);
-console.log("hey");
+<input type="hidden" id="hidden_people" value="" />
+<script>
+  var temp = "";
+  var people;
+  // localStorage.setItem("someVarName", someVarName);
+  // localStorage.getItem("someVarName");
+
+  if(localStorage.getItem("people") == null){
+
+{% for person in people %}
+
+  temp += "{{person}}" + ",";
+
+{% endfor %}
+
+people = temp;
+localStorage.setItem("people", temp);
+} else{
+  people = localStorage.getItem("people");
+}
+
+var hidden_people = document.getElementById("hidden_people");
+hidden_people.value = people; 
 </script>
+
+
+{% include 'movierec/scripts.html' %}
 
 </body>

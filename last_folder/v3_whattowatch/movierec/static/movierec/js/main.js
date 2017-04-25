@@ -126,8 +126,7 @@ $( document ).ready(function() {
 	}); 
 
 	$(function() {
-		var items = [ 'Germany', 'Brazil', 'Portugal', 'Morocco', 'New Zealand', 'France', 'Italy', 'Malta', 'England', 
-		'Australia', 'Spain', 'Scotland', "eat, pray, love" ];
+		var items = $("#hidden_people").val().split(",")
 		var input = $('#people');
 		var flag = false;
 
@@ -198,5 +197,6 @@ $( document ).ready(function() {
     	return false;
 
 	});
+
 
 });
