@@ -70,8 +70,10 @@ def recView(request):
                       {'results': results,
                        'user': request.user,
                        'people': Person.objects.all(),
-                      'genres': Genre.objects.all()})
+                      'genres': Genre.objects.all(),
+                      'keywords': Keyword.objects.all()})
 
     return render(request, 'movierec/recpage.html', {'user': request.user,
-                           'people': Person.objects.all(), 'genres': Genre.objects.all()})
+                           'people': Person.objects.all(), 'genres': Genre.objects.all(),
+                  'keywords': Keyword.objects.all()})
 

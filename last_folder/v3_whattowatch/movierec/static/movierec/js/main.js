@@ -130,13 +130,6 @@ $( document ).ready(function() {
 		var input = $('#people');
 		var flag = false;
 
-		function split( val ) {
-			return val.split( /,\s*/ );
-		}
-		function extractLast( term ) {
-			return split( term ).pop();
-		}
-
 		input.autocomplete({
 			minLength: 0,
 			source: function( request, response ) {
@@ -166,23 +159,81 @@ $( document ).ready(function() {
 				return false;
 			}
 		});
-		$(document).on('click', '.tag', function(){
-			$(this).remove();
-	    });
-		input.on('keydown', function() {
+		backspace("people");
+	});
+
+	$(function() {
+		var items = $("#hidden_keywords").val().split(",")
+		var input = $('#keywords');
+		var flag = false;
+
+		input.autocomplete({
+			minLength: 0,
+			source: function( request, response ) {
+				response( $.ui.autocomplete.filter(
+					items, extractLast( request.term ) 
+				));
+			},
+			focus: function() {
+				return false;
+			},
+			select: function( event, ui ) {
+				$(".keywords").children(".tag").each(function(index){
+					if($(this).text() === ui.item.value){
+						flag = true;
+					}
+				});
+				if(!flag){
+					$(this).val("");
+					$('#keywords').before('<span class="tag">' + ui.item.value + '</span>');
+					$(".keywords").append('<input type="hidden" name="people" value="' + ui.item.value + '">');
+				}
+				flag = false;
+
+				if($(".keywords").find(".tag").length !== 0){
+					input.removeAttr('placeholder');
+				}
+				return false;
+			}
+		});
+		backspace("keywords");
+	});
+
+	function split( val ) {
+		return val.split( /,\s*/ );
+	}
+	function extractLast( term ) {
+		return split( term ).pop();
+	}
+
+	function backspace(input) {
+		$("#" + input).on("keydown", function(){
 			var key = event.keyCode || event.charCode;
 
 			if( key == 8 || key == 46 ){
-				if(!input.val()){
-					$(".people").children(".tag").last().remove();
-					if($(".people").find(".tag").length === 0){
-						input.attr("placeholder", "Will Smith");
+				if(!$("#" + input).val()){
+					$("." + input).children(".tag").last().remove();
+					if($("." + input).find(".tag").length === 0){
+						if(input === "keywords"){
+							console.log("keywords");
+							input.attr("placeholder", "Alice, Man, Spider");
+						}
+						else{
+							input.attr("placeholder", "Will Smith");
+						}
 					}
 					return false;
 				}
 			}
 		});
-	});
+	};
+	$(document).on('click', '.tag', function(){
+		var parent = $(this).parent();
+		if(parent.find(".tag").length !== 0){
+			parent.attr("placeholder", "Alice, Man, Spider");
+		}
+		$(this).remove();
+    });
 
 	$(window).load(function(){
 		$(".nav").find("a").each(function(){

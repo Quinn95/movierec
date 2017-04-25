@@ -6,7 +6,7 @@
 {% include 'movierec/navbar.html' %}
 
 
-<form action="{% url 'recommendations' %}" method="post">
+<form id="recommendation" action="{% url 'recommendations' %}" method="post">
       {% csrf_token %}
   <div class="container recommendation __down">
     <h3 class="rec_title"> Welcome to our Recommendations Page: <br>(make sure to complete all fields)</h3><br>
@@ -144,8 +144,10 @@
   {% endfor %}
 {% endif %}
 
-
+<div class="hide_name">
 <input type="hidden" id="hidden_people" value="" />
+<input type="hidden" id="hidden_keywords" value="" />
+</div>
 <script>
   var temp = "";
   var people;
@@ -168,6 +170,29 @@ localStorage.setItem("people", temp);
 
 var hidden_people = document.getElementById("hidden_people");
 hidden_people.value = people; 
+
+  var tempkey = "";
+  var keywords;
+  // localStorage.setItem("someVarName", someVarName);
+  // localStorage.getItem("someVarName");
+
+  if(localStorage.getItem("keywords") == null){
+
+{% for key in keywords %}
+
+  tempkey += "{{key}}" + ",";
+
+{% endfor %}
+
+keywords = tempkey;
+localStorage.setItem("keywords", tempkey);
+} else{
+  keywords = localStorage.getItem("keywords");
+}
+
+var hidden_keywords = document.getElementById("hidden_keywords");
+hidden_keywords.value = keywords; 
+
 </script>
 
 
