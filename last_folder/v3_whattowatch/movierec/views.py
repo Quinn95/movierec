@@ -66,7 +66,7 @@ def recView(request):
         if anychecked:
             query = querynetflix | queryamazon | queryhulu
 
-        results = query
+        results = query[:20]
 
         return render(request, 'movierec/recpage.html',
                       {'results': results,
