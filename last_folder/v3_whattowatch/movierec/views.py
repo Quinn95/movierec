@@ -70,8 +70,9 @@ def recView(request):
         return render(request, 'movierec/recpage.html',
                       {'results': results,
                        'user': request.user,
-                       'people': Person.objects.all()})
+                       'people': Person.objects.all(),
+                      'genres': Genre.objects.all()})
 
     return render(request, 'movierec/recpage.html', {'user': request.user,
-                           'people': Person.objects.all()})
+                           'people': Person.objects.all(), 'genres': Genre.objects.all()})
 
