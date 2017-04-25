@@ -183,7 +183,6 @@ a:hover {
 .modal:before {
   content: '';
   display: inline-block;
-  height: 100%;
   vertical-align: middle;
   margin-right: -4px;
 }
@@ -191,7 +190,11 @@ a:hover {
 .modal-dialog {
   display: inline-block;
   text-align: left;
-  vertical-align: middle;
+
+  width: 80%;
+  height: 80%;
+  margin: 0;
+  padding: 0;
 }
 
 /* scroll fixes */
@@ -209,6 +212,8 @@ a:hover {
   background-color: #373737;
   color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  height: auto;
+  min-height: 60%;
 }
 .modal-header{
   text-align: center;
@@ -423,6 +428,15 @@ select::-ms-expand {
   max-height: 200px; 
   overflow-y: scroll; 
   overflow-x: hidden;
+}
+
+.close {
+    color: #fff; 
+    opacity: 1;
+}
+.close:hover{
+     color: #ea372e !important;
+    opacity: 1; 
 }
 
 @media (max-width: 1199px){

@@ -153,8 +153,8 @@
   var people;
   // localStorage.setItem("someVarName", someVarName);
   // localStorage.getItem("someVarName");
-
-  if(localStorage.getItem("people") == null){
+  var P = localStorage.getItem("people");
+  if(P == null || P == "" || P == " "){
 
 {% for person in people %}
 
@@ -175,8 +175,8 @@ hidden_people.value = people;
   var keywords;
   // localStorage.setItem("someVarName", someVarName);
   // localStorage.getItem("someVarName");
-
-  if(localStorage.getItem("keywords") == null){
+  var k = localStorage.getItem("keywords");
+  if(k == null || k == "" || k == " "){
 
 {% for key in keywords %}
 

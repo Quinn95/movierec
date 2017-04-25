@@ -51,9 +51,11 @@ $( document ).ready(function() {
 
   	$(".tile").on("click", function(){
   		var title = $(this).attr("data-target");
+		// var displace = (screen.height - parseInt($(".modal").css("height-dialog").replace("px", "")))/2;
+		// console.log($(".modal-dialog ").css("height"));
+		// $(".modal-content").css({"margin-top": displace + "px"})
 		$(title).on('hidden.bs.modal', function(e) {
 	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
-	    	// $(this).find('iframe').attr('src', rawVideoURL);
 		});
  	})
 
