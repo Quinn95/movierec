@@ -2,7 +2,7 @@
 {% include 'movierec/head.html' %}
 {{ user }}
 <body>
-    <label class="hide_name">../home</label>
+    <label class="hide_name">{% url 'home' %}</label>
 {% include 'movierec/navbar.html' %}
 
     <div class="container-fluid down">

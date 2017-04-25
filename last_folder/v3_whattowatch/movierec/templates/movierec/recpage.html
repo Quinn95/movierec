@@ -2,7 +2,7 @@
 {% include 'movierec/head.html' %}
 
 <body>
-<label class="hide_name">recpage.html</label>
+<label class="hide_name">{% url 'recommendations' %}</label>
 {% include 'movierec/navbar.html' %}
 
 
@@ -158,7 +158,7 @@
 
 {% for person in people %}
 
-  temp += "{{person}}" + ",";
+  temp += html("{{person}}") + ",";
 
 {% endfor %}
 
@@ -180,7 +180,7 @@ hidden_people.value = people;
 
 {% for key in keywords %}
 
-  tempkey += "{{key}}" + ",";
+  tempkey += html("{{key}}") + ",";
 
 {% endfor %}
 

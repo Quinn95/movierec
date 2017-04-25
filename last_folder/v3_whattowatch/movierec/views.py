@@ -41,8 +41,9 @@ def recView(request):
         if timerange[1] != "-----": #we need to change
             query = query.filter(date__lte=int(timerange[1]))
 
+        print genre
 
-        if genre != "Horror":
+        if genre != "Any":
             genreQ = Genre.objects.get(name=genre)
             query = query.filter(genre__in=[genreQ])
 

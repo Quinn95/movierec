@@ -237,7 +237,8 @@ $( document ).ready(function() {
 
 	$(window).load(function(){
 		$(".nav").find("a").each(function(){
-			if($(this).attr("href") === $(".hide_name").text()){
+			console.log("this is href " + $(this).attr("href") + " this is name " + $(".hide_name").text());
+			if($(this).attr("href").trim() === $(".hide_name").text().trim()){
 				$(this).addClass("active");
 			}
 			else if($(this).hasClass("active")){
