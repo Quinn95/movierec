@@ -61,8 +61,8 @@ $( document ).ready(function() {
 	var to = $("#to");
 	for (i = new Date().getFullYear(); i > 1877; i--) {
 		if(i == new Date().getFullYear()){
-	    	from.append($('<option />').val(i).html("-----"));
-	    	to.append($('<option />').val(i).html("-----"));
+	    	from.append($('<option />').val("-----").html("-----"));
+	    	to.append($('<option />').val("-----").html("-----"));
 	    }
 	    from.append($('<option />').val(i).html(i));
 	    to.append($('<option />').val(i).html(i));

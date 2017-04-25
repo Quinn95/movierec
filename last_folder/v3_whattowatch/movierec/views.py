@@ -35,9 +35,10 @@ def recView(request):
         if "people" in request.POST:
             people = request.POST.getlist('people')
 
-
+        print timerange[0]
         if timerange[0] != "-----": #we need to change
-            query = query.filter(date__gt=int(timerange[0]))
+            query = query.filter(date__gte=int(timerange[0]))
+            print query
         if timerange[1] != "-----": #we need to change
             query = query.filter(date__lte=int(timerange[1]))
 
