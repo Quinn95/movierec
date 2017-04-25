@@ -214,13 +214,7 @@ $( document ).ready(function() {
 				if(!$("#" + input).val()){
 					$("." + input).children(".tag").last().remove();
 					if($("." + input).find(".tag").length === 0){
-						if(input === "keywords"){
-							console.log("keywords");
-							input.attr("placeholder", "Alice, Man, Spider");
-						}
-						else{
-							input.attr("placeholder", "Will Smith");
-						}
+						renew(input);
 					}
 					return false;
 				}
@@ -229,15 +223,24 @@ $( document ).ready(function() {
 	};
 	$(document).on('click', '.tag', function(){
 		var parent = $(this).parent();
-		if(parent.find(".tag").length !== 0){
-			parent.attr("placeholder", "Alice, Man, Spider");
-		}
+		var text = parent.attr("class");
 		$(this).remove();
+		if(parent.find(".tag").length === 0){
+			renew(text);
+		}
     });
+    function renew(input){
+		if(input === "keywords"){
+			$("#" + input).attr("placeholder", "Alice, Man, Spider");
+		}
+		else{
+			$("#" + input).attr("placeholder", "Will Smith");
+		}
+    }
 
 	$(window).load(function(){
 		$(".nav").find("a").each(function(){
-			console.log("this is href " + $(this).attr("href") + " this is name " + $(".hide_name").text());
+
 			if($(this).attr("href").trim() === $(".hide_name").text().trim()){
 				$(this).addClass("active");
 			}
