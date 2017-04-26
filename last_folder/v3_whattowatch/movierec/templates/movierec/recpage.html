@@ -29,10 +29,10 @@
           <h4>User Rating:</h4>
           <select name="imdb" id="imdb">
             <option value="Any">Any</option>
-            <option value="great">&gt 8</option>
-            <option value="good">6-8</option>
-            <option value="meh">4-6</option>
-            <option value="bad">&lt 4</option>
+            <option value="> 8">&gt 8</option>
+            <option value="6-8">6-8</option>
+            <option value="4-6">4-6</option>
+            <option value="< 4">&lt 4</option>
           </select>
         </div>
 
@@ -156,8 +156,8 @@
               {% endfor %}
             <div>
             <div class="likes">
-              <span class="like"><i class="fa fa-thumbs-up icon-flipped"></i></span>
-              <span class="dislike"><i class="fa fa-thumbs-down"></i></span>
+              <span class="like"><button class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
+              <span class="dislike"><button class="yay"><i class="fa fa-thumbs-down"></i></button></span>
             </div>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
