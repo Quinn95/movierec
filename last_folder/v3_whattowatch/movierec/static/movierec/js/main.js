@@ -153,12 +153,14 @@ $( document ).ready(function() {
 
 		input.autocomplete({
 			minLength: 0,
+			autoFocus: true,
 			source: function( request, response ) {
 				response( $.ui.autocomplete.filter(
 					items, extractLast( request.term ) 
 				));
 			},
 			focus: function(event, ui) {
+				event.preventDefault();
 				return false;
 			},
 			select: function( event, ui ) {
@@ -177,18 +179,19 @@ $( document ).ready(function() {
 				if($(".keywords").find(".tag").length !== 0){
 					input.removeAttr('placeholder');
 				}
+				event.preventDefault();
 				return false;
 			}
 		});
 		backspace("keywords");
-		input.on('keydown', function(e){
-			if(e.which == 13) {
-				e.preventDefault();
-			} else{
-				$("#ui-id-2").addClass("ui-state-focus");
-				// console.log($())
-			}
-		});
+		// input.on('keydown', function(e){
+		// 	if(e.which == 13) {
+		// 		e.preventDefault();
+		// 	} else{
+		// 		$("#ui-id-2").addClass("ui-state-focus");
+		// 		// console.log($())
+		// 	}
+		// });
 	});
 
 	function split( val ) {
