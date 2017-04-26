@@ -439,9 +439,19 @@ select::-ms-expand {
   text-align: center;
   font-size: 12px;
 }
-/*.streaming_choice img{
-  text-align: center;
-}*/
+
+.dislike{
+  color: red;
+}
+.like{
+  color: green;
+}
+.icon-flipped{
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+}
 
 @media (max-width: 1199px){
   .text-col{

@@ -60,7 +60,7 @@
             <option value="PG-13">PG-13</option>
             <option value="NC-17">NC-17</option>
             <option value="R">R</option>
-            <option value="Unrated">Unrated</option>
+            <option value="NR">NR</option>
           </select>
 
         </div>
@@ -155,6 +155,10 @@
                 {% endif %}
               {% endfor %}
             <div>
+            <div class="likes">
+              <span class="like"><i class="fa fa-thumbs-up icon-flipped"></i></span>
+              <span class="dislike"><i class="fa fa-thumbs-down"></i></span>
+            </div>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
