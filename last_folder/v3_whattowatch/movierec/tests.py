@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.test import TestCase, StaticLiveServerTestCase
+from django.test import TestCase
+
+from django.contrib.staticfiles.testing import LiveServerTestCase
 
 from django.db import IntegrityError
 
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
+
+from pyvirtualdisplay import Display
 
 
 from .models import Movie
@@ -54,18 +58,36 @@ class TestMovieModel(TestCase):
         result = Movie.objects.get(title="Test Movie")
         self.assertEquals(1, result.identifier)
 
-class TestRecommendationsForm(StaticLiveServerTestCase):
+class TestRecommendationsForm(LiveServerTestCase):
     def setUp(self):
-        self.browser = WebDriver()
+        #self.display = Display(visible=0, size=(1024, 768))
+        #self.display.start()
+
+        self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(10)
+
+        super(TestRecommendationsForm, self).setUp()
+
+    def test_get_recommendations_action(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        genre_input = self.browser.find_element_by_name('genre')
+        for option in genre_input.find_elements_by_tag_name('option'):
+            if option.text == "Action":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+        #from_input = self.browser.find_element_by_name('from')
+        #to_input = self.browser.find_element_by_name('to')
+
 
     def tearDown(self):
         self.browser.quit()
+        #self.display.stop()
 
-    def test_get_recommendations(self):
-        self.browser.get("/movierec/form/")
-        genre = "Any"
-        
+
 
 
 
