@@ -58,8 +58,8 @@
             <option value="G">G</option>
             <option value="PG">PG</option>
             <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
             <option value="NC-17">NC-17</option>
+            <option value="R">R</option>
             <option value="Unrated">Unrated</option>
           </select>
 
@@ -141,17 +141,26 @@
           <div class="col-lg-4 text-col">
             <p> {{ item.summary }} </p>
             {% if item.netflix_available  %}
-            <a href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+              {% if item.netflix is not None %}
+            <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+              {% else %}
+            <a target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a> 
+              {% endif %}
             {% endif %}
+
             {% if item.amazon_available %}
-            <a href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}"></a>
+              {% if item.amazon is not None %}
+            <a target="blank" href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}"></a>
+              {% else %}
+            <a target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}"></a>
+              {% endif %}
             {% endif %}
+
             {% if item.hulu_available %}
-            <a href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
+            <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
             {% endif %}
           </div>
         </div>
-        <div class="center"> Hello World </div>
       </div>
     </div>
   </div>
