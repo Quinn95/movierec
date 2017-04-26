@@ -292,6 +292,7 @@ def getAllLinks():
     movie_set = Movie.objects.all();
 
     for movie in movie_set:
+        print 'Getting links for: ' + movie.__str__()
         movie_detail = guidebox.Movie.retrieve(id=movie.identifier)
         detail = json.loads(movie_detail.__str__())
 
