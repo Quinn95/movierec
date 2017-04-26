@@ -103,7 +103,7 @@ class TestRecommendationsForm(LiveServerTestCase):
     def test_get_netflix_movies(self):
     	self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         #stream_input = self.browser.find_element_by_name('netflix')
-        self.browser.execute_script(netflix_input.click
+        self.browser.execute_script('image("netflix")')
         #stream_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
