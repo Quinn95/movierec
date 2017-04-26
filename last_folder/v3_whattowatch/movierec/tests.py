@@ -7,7 +7,8 @@ from django.contrib.staticfiles.testing import LiveServerTestCase
 
 from django.db import IntegrityError
 
-from selenium import webdriver, NoSuchElementException
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 from pyvirtualdisplay import Display
 
@@ -101,8 +102,9 @@ class TestRecommendationsForm(LiveServerTestCase):
 
     def test_get_netflix_movies(self):
     	self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
-        stream_input = self.browser.find_element_by_name('netflix')
-        stream_input.click()
+        #stream_input = self.browser.find_element_by_name('netflix')
+        self.browser.execute_script(netflix_input.click
+        #stream_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
         modal = self.browser.find_element_by_name_id("myModal34688")

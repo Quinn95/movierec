@@ -156,8 +156,8 @@
               {% endfor %}
             <div>
             <div class="likes">
-              <span class="like"><button class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
-              <span class="dislike"><button class="yay"><i class="fa fa-thumbs-down"></i></button></span>
+              <span class="like"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
+              <span class="dislike"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
             </div>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}

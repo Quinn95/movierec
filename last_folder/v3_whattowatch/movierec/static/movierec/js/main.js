@@ -103,37 +103,27 @@ $( document ).ready(function() {
 	});
 
 	$('body #netflix').on('click', function() {
-	    if($('#netflix').css('border') == '0px none rgb(255, 255, 255)'){
-	    	$('#netflix').css({"border": "2px solid orange"});
-	    	$( "input[name='netflix']" ).prop("checked", true);
-	    }
-	    else if($('#netflix').css('border') == '2px solid rgb(255, 165, 0)'){
-	    	$('#netflix').css({"border": "0px none rgb(255, 255, 255)"});
-	    	$( "input[name='netflix']" ).prop("checked", false);
-	    }
+		image("netflix");
 	}); 
 
 	$('body #amazon').on('click', function() {
-	    if($('#amazon').css('border') == '0px none rgb(255, 255, 255)'){
-	    	$('#amazon').css({"border": "2px solid orange"});
-	    	$( "input[name='amazon']" ).prop("checked", true);
-	    }
-	    else if($('#amazon').css('border') == '2px solid rgb(255, 165, 0)'){
-	    	$('#amazon').css({"border": "0px none rgb(255, 255, 255)"});
-	    	$( "input[name='amazon']" ).prop("checked", false);
-	    }
+		image("amazon");
 	}); 
 
 	$('body #hulu').on('click', function() {
-	    if($('#hulu').css('border') == '0px none rgb(255, 255, 255)'){
-	    	$('#hulu').css({"border": "2px solid orange"});
-	    	$( "input[name='hulu']" ).prop("checked", true);
-	    }
-	    else if($('#hulu').css('border') == '2px solid rgb(255, 165, 0)'){
-	    	$('#hulu').css({"border": "0px none rgb(255, 255, 255)"});
-	    	$( "input[name='hulu']" ).prop("checked", false);
-	    }
+		image("hulu");
 	}); 
+
+	function image(input){
+	    if($('#'+input).css('border') == '0px none rgb(255, 255, 255)'){
+	    	$('#'+input).css({"border": "2px solid orange"});
+	    	$( "input[name='"+input+"']" ).prop("checked", true);
+	    }
+	    else if($('#'+input).css('border') == '2px solid rgb(255, 165, 0)'){
+	    	$('#'+input).css({"border": "0px none rgb(255, 255, 255)"});
+	    	$( "input[name='"+input+"']" ).prop("checked", false);
+	    }		
+	}
 
 	$('#people').on('keydown', function(e) {
    		if(e.which == 13) {
@@ -167,7 +157,12 @@ $( document ).ready(function() {
 				}
 			}
 	});
-
+	$("#keywords").on('keydown', function(e, ui){
+		if(event.which == 13) {
+			event.preventDefault;
+			alert("bitch");
+		}
+	});
 	$(function() {
 		var items = $("#hidden_keywords").val().split(",")
 		var input = $('#keywords');
@@ -175,12 +170,14 @@ $( document ).ready(function() {
 
 		input.autocomplete({
 			minLength: 0,
+			selectFirst: true,
 			source: function( request, response ) {
 				response( $.ui.autocomplete.filter(
 					items, extractLast( request.term ) 
 				));
 			},
-			focus: function() {
+			focus: function(event, ui) {
+				$(this).val(ui.item.value);
 				return false;
 			},
 			select: function( event, ui ) {
@@ -213,7 +210,7 @@ $( document ).ready(function() {
 	}
 
 	function backspace(input) {
-		$("#" + input).on("keydown", function(){
+		$("#" + input).on("keydown", function(e){
 			var key = event.keyCode || event.charCode;
 
 			if( key == 8 || key == 46 ){
@@ -259,6 +256,10 @@ $( document ).ready(function() {
     	return false;
 
 	});
+
+	// &("#up").on('click', function(){
+
+	// });
 
 
 });
