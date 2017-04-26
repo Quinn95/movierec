@@ -145,36 +145,12 @@
 {% endif %}
 
 <div class="hide_name">
-<input type="hidden" id="hidden_people" value="" />
 <input type="hidden" id="hidden_keywords" value="" />
 </div>
 <script>
-  var temp = "";
-  var people;
-  // localStorage.setItem("someVarName", someVarName);
-  // localStorage.getItem("someVarName");
-  var P = localStorage.getItem("people");
-  if(P == null || P == "" || P == " "){
-
-{% for person in people %}
-
-  temp += html("{{person}}") + ",";
-
-{% endfor %}
-
-people = temp;
-localStorage.setItem("people", temp);
-} else{
-  people = localStorage.getItem("people");
-}
-
-var hidden_people = document.getElementById("hidden_people");
-hidden_people.value = people; 
-
+//keywords
   var tempkey = "";
   var keywords;
-  // localStorage.setItem("someVarName", someVarName);
-  // localStorage.getItem("someVarName");
   var k = localStorage.getItem("keywords");
   if(k == null || k == "" || k == " "){
 
