@@ -7,7 +7,7 @@ from django.contrib.staticfiles.testing import LiveServerTestCase
 
 from django.db import IntegrityError
 
-from selenium import webdriver
+from selenium import webdriver, NoSuchElementException
 
 from pyvirtualdisplay import Display
 
@@ -77,7 +77,9 @@ class TestRecommendationsForm(LiveServerTestCase):
                 break
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
-        modal = self.browser.find_element_by_id("myModal34688")
+        #Tropic thunder should show up
+        with not self.assertRaises(NoSuchElementException):
+            modal = self.browser.find_element_by_id("myModal34688") 
         self.browser.implicitly_wait(20)
         #from_input = self.browser.find_element_by_name('from')
         #to_input = self.browser.find_element_by_name('to')

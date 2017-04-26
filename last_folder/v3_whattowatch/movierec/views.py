@@ -18,20 +18,30 @@ def test(request):
     return HttpResponse("You got movies")
 
 
+USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [7.9, 10.0], "6-8": [6.0, 8.0],
+                "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
+
 def recView(request):
     if request.method == 'POST':
         timerange = (request.POST['from'], request.POST['to'])
 
         genre = request.POST['genre']
         imdb = request.POST['imdb']
-        maxrating = request.POST['rating']
+        mpaarating = request.POST['rating']
         people = request.POST.getlist('people')
         language = request.POST['language']
+        userrating = request.POST['IMDB']
 
         query = Movie.objects.all()
 
-        if maxrating != "Any":
-            query = query.filter(rating=maxrating)
+        if mpaarating != "Any":
+            query = query.filter(rating=mpaarating)
+
+
+        if imdb != "Any":
+            minrating, maxrating = USER_RATINGS["imdb"]
+            query = query.filter(vote_average__gte=minrating)
+            query = query.filter(vote_average__lte=maxrating)
 
         peoplelist = request.POST.getlist('people')
         if len(peoplelist) > 0:
@@ -62,15 +72,17 @@ def recView(request):
         queryamazon = Movie.objects.none()
         queryhulu = Movie.objects.none()
         anychecked = False;
-        if "netflix" in request.POST:
-            querynetflix = query.filter(netflix_available=True)
-            anychecked = True
-        if "amazon" in request.POST:
-            queryamazon = query.filter(amazon_available=True)
-            anychecked = True
-        if "hulu" in request.POST:
-            queryhulu = query.filter(hulu_available=True)
-            anychecked = True
+        if not (("netflix" in request.POST) and ("amazon" in request.POST) and 
+                ("hulu" in request.POST)):
+            if "netflix" in request.POST:
+                querynetflix = query.filter(netflix_available=True)
+                anychecked = True
+            if "amazon" in request.POST:
+                queryamazon = query.filter(amazon_available=True)
+                anychecked = True
+            if "hulu" in request.POST:
+                queryhulu = query.filter(hulu_available=True)
+                anychecked = True
 
         if anychecked:
             query = querynetflix | queryamazon | queryhulu
