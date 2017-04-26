@@ -240,8 +240,11 @@ a:hover {
 }
 
 .text-col{
-  padding-top: 15%;
   background-color: #373737;
+  text-align: center;
+}
+.text-col a img{
+  padding-top: 15px;
 }
 .col-lg-8{
   background-color: #373737;
