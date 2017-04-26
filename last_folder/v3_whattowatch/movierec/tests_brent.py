@@ -236,13 +236,3 @@ class TestRecommendationsForm07(LiveServerTestCase07):
 
     def tearDown(self):
         self.browser.quit()
-
-
-
-
-
-
-
-
-
-
