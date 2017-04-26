@@ -18,31 +18,46 @@ def test(request):
     heist.test()
     return HttpResponse("You got movies")
 
+MOODS = {"Happy": ["Animation","Comedy","Family","Romance"], 
+         "Sad": ["Crime", "Documentary", "Drama", "History", "Horror","War"],
+         "Angry": ["Action", "Adventure", "Crime", "Documentary", "Horror", 
+                   "Thriller", "War"],
+         "Pumped": ["Action", "Adventure:", "Crime", "Fantasy", "Horror",
+                    "Science Fiction", "Thriller", "War", "Western"],
+         "Evil": ["History", "Horror", "Thriller", "Crime", "War"]}
+
 def recView(request):
     if request.method == 'POST':
         timerange = (request.POST['from'], request.POST['to'])
 
         genre = request.POST['genre']
         imdb = request.POST['imdb']
-        #request.POST['mood']
         maxrating = request.POST['rating']
         people = request.POST.getlist('people')
-        keywords = request.POST.getlist('keywords')
-
-        print people
+        mood = request.POST['mood']
 
         query = Movie.objects.all()
-        if "people" in request.POST:
-            people = request.POST.getlist('people')
 
-        print timerange[0]
+        if maxrating != "Any":
+            query = query.filter(rating=maxrating)
+
+        peoplelist = request.POST.getlist('people')
+        if len(peoplelist) > 0:
+            peoplequerylist = map(lambda x:
+                             Person.objects.filter(name__contains=x).first(),
+                             people)
+            query = query.filter(people__in=peoplequerylist)
+        keywords = request.POST.getlist('keywords')
+        if len(keywords) > 0:
+            keylist = map(lambda x: Keyword.objects.get(name=x), keywords)
+            query = query.filter(keywords__in=keylist)
+
         if timerange[0] != "-----": #we need to change
             query = query.filter(date__gte=int(timerange[0]))
-            print query
         if timerange[1] != "-----": #we need to change
             query = query.filter(date__lte=int(timerange[1]))
 
-        print genre
+       #if mood != "Any":
 
         if genre != "Any":
             genreQ = Genre.objects.get(name=genre)
@@ -66,7 +81,7 @@ def recView(request):
         if anychecked:
             query = querynetflix | queryamazon | queryhulu
 
-        results = query
+        results = query[:20]
 
         return render(request, 'movierec/recpage.html',
                       {'results': results,

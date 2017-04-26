@@ -41,17 +41,15 @@
           <select name="mood" id="mood">
             <option value="Any">Any</option>
             <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
+            <option value="Sad">Sad</option>
             <option value="Angry">Angry</option>
-            <option value="pumpped">Pumpped</option>
-            <option value="Gloom">Gloomy</option>
+            <option value="Pumped">Pumpped</option>
             <option value="Evil">Evil</option>
           </select>
       
           <h4>MPAA Rating:</h4>
           <select name="rating" id="rating">
             <option value="Any">Any</option>
-            <option value="all">all</option>
             <option value="G">G</option>
             <option value="PG">PG</option>
             <option value="PG-13">PG-13</option>
@@ -107,7 +105,7 @@
     </div>
     <div class="tile__details">
      <div class="tile__title">
-       {{ item }}
+       {{ item }} ({{item.date}})
      </div>
     </div>
   </div>
@@ -126,7 +124,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{item.title}}</h4>
+        <h4 class="modal-title">{{item.title}} ({{item.date}})</h4>
       </div>
       <div class="modal-body  video-container">
         <div class="row">
@@ -135,6 +133,15 @@
           </div>
           <div class="col-lg-4 text-col">
             <p> {{ item.summary }} </p>
+            {% if item.netflix_available  %}
+            <p>netflix: {{item.netflix}} </p>
+            {% endif %}
+            {% if item.amazon_available %}
+            <p>amazon: {{item.amazon}} </p>
+            {% endif %}
+            {% if item.hulu_available %}
+            <p>hulu: {{item.hulu}} </p>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -145,43 +152,20 @@
 {% endif %}
 
 <div class="hide_name">
-<input type="hidden" id="hidden_people" value="" />
 <input type="hidden" id="hidden_keywords" value="" />
 </div>
 <script>
-  var temp = "";
-  var people;
-  // localStorage.setItem("someVarName", someVarName);
-  // localStorage.getItem("someVarName");
 
-  if(localStorage.getItem("people") == null){
-
-{% for person in people %}
-
-  temp += html("{{person}}") + ",";
-
-{% endfor %}
-
-people = temp;
-localStorage.setItem("people", temp);
-} else{
-  people = localStorage.getItem("people");
-}
-
-var hidden_people = document.getElementById("hidden_people");
-hidden_people.value = people; 
+//keywords
 
   var tempkey = "";
   var keywords;
-  // localStorage.setItem("someVarName", someVarName);
-  // localStorage.getItem("someVarName");
-
-  if(localStorage.getItem("keywords") == null){
+  var k = localStorage.getItem("keywords");
+  if(k == null || k == "" || k == " "){
 
 {% for key in keywords %}
 
-  tempkey += html("{{key}}") + ",";
-
+  tempkey +="{{ key }}" + ",";
 {% endfor %}
 
 keywords = tempkey;

@@ -51,9 +51,11 @@ $( document ).ready(function() {
 
   	$(".tile").on("click", function(){
   		var title = $(this).attr("data-target");
+		// var displace = (screen.height - parseInt($(".modal").css("height-dialog").replace("px", "")))/2;
+		// console.log($(".modal-dialog ").css("height"));
+		// $(".modal-content").css({"margin-top": displace + "px"})
 		$(title).on('hidden.bs.modal', function(e) {
 	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
-	    	// $(this).find('iframe').attr('src', rawVideoURL);
 		});
  	})
 
@@ -125,41 +127,37 @@ $( document ).ready(function() {
 	    }
 	}); 
 
-	$(function() {
-		var items = $("#hidden_people").val().split(",")
-		var input = $('#people');
-		var flag = false;
-
-		input.autocomplete({
-			minLength: 0,
-			source: function( request, response ) {
-				response( $.ui.autocomplete.filter(
-					items, extractLast( request.term ) 
-				));
-			},
-			focus: function() {
-				return false;
-			},
-			select: function( event, ui ) {
-				$(".people").children(".tag").each(function(index){
-					if($(this).text() === ui.item.value){
-						flag = true;
-					}
-				});
-				if(!flag){
-					$(this).val("");
-					$('#people').before('<span class="tag">' + ui.item.value + '</span>');
-					$(".people").append('<input type="hidden" name="people" value="' + ui.item.value + '">');
+	$('#people').on('keydown', function(e) {
+   		if(e.which == 13) {
+   			var flag = false;
+   			e.preventDefault();
+        	$(".people").children(".tag").each(function(){
+				if($("#people").val() === $(this).text()){
+					flag = true;
 				}
-				flag = false;
-
-				if($(".people").find(".tag").length !== 0){
-					input.removeAttr('placeholder');
-				}
-				return false;
+			});
+			if(!flag){
+				$('#people').before('<span class="tag">' + $(this).val() + '</span>');
+				$(".people").append('<input type="hidden" name="people" value="' + $(this).val() + '">');
+				$(this).val("");
 			}
-		});
-		backspace("people");
+			flag = false;
+
+			if($(".people").find(".tag").length !== 0){
+				input.removeAttr('placeholder');
+			}
+    	}
+    	var key = event.keyCode || event.charCode;
+
+			if( key == 8 || key == 46 ){
+				if(!$("#people").val()){
+					$(".people").children(".tag").last().remove();
+					if($(".people").find(".tag").length === 0){
+						renew("people");
+					}
+					return false;
+				}
+			}
 	});
 
 	$(function() {
@@ -186,7 +184,7 @@ $( document ).ready(function() {
 				if(!flag){
 					$(this).val("");
 					$('#keywords').before('<span class="tag">' + ui.item.value + '</span>');
-					$(".keywords").append('<input type="hidden" name="people" value="' + ui.item.value + '">');
+					$(".keywords").append('<input type="hidden" name="keywords" value="' + ui.item.value + '">');
 				}
 				flag = false;
 
@@ -212,6 +210,7 @@ $( document ).ready(function() {
 
 			if( key == 8 || key == 46 ){
 				if(!$("#" + input).val()){
+					console.log($(".people").children(".tag").length);
 					$("." + input).children(".tag").last().remove();
 					if($("." + input).find(".tag").length === 0){
 						renew(input);
