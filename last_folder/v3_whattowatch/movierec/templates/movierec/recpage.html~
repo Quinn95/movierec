@@ -158,7 +158,7 @@
 
 {% for person in people %}
 
-  temp += "{{person}}" + ",";
+  temp += html("{{person}}") + ",";
 
 {% endfor %}
 
@@ -177,10 +177,12 @@ hidden_people.value = people;
   // localStorage.getItem("someVarName");
   var k = localStorage.getItem("keywords");
   if(k == null || k == "" || k == " "){
+  console.log("Stuff " + k);
 
 {% for key in keywords %}
 
-  tempkey +="{{ key }}" + ",";
+  tempkey += html("{{ key }}") + ",";
+  console.log("a" + tempkey);
 {% endfor %}
 
 keywords = tempkey;
