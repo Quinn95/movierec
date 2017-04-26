@@ -58,7 +58,8 @@
 #         result = Movie.objects.get(title="Test Movie")
 #         self.assertEquals(1, result.identifier)
 
-# class TestRecommendationsForm00(LiveServerTestCase00):
+# class TestRecommendationsForm(LiveServerTestCase):
+
 #     def setUp(self):
 #         self.browser = webdriver.Firefox()
 #         self.browser.implicitly_wait(10)
@@ -76,15 +77,6 @@
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm01(LiveServerTestCase01):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm01, self).setUp()
-
 #     def test_year_range(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
 #         from_input = self.browser.find_element_by_name('from')
@@ -101,15 +93,6 @@
 #         submit_input.click()
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
-
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm02(LiveServerTestCase02):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm02, self).setUp()
 
 #     def test_rating_r(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
@@ -123,15 +106,6 @@
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm03(LiveServerTestCase03):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm03, self).setUp()
-
 #     def test_language_english(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
 #         language_input = self.browser.find_element_by_name('language')
@@ -144,15 +118,6 @@
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm04(LiveServerTestCase04):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm04, self).setUp()
-
 #     def test_netflix(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
 #         netflix_input = self.browser.find_element_by_name('netflix')
@@ -162,15 +127,6 @@
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm05(LiveServerTestCase05):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm05, self).setUp()
-
 #     def test_amazon(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
 #         amazon_input = self.browser.find_element_by_name('amazon')
@@ -179,15 +135,6 @@
 #         submit_input.click()
 #         modal = self.browser.find_element_by_id("myModal14235")
 #         self.browser.implicitly_wait(20)
-
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm06(LiveServerTestCase06):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm06, self).setUp()
 
 #     def test_year_range(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
@@ -205,15 +152,6 @@
 #         submit_input.click()
 #         modal = self.browser.find_element_by_id("myModal14235")
 #         self.browser.implicitly_wait(20)
-
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm07(LiveServerTestCase07):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm07, self).setUp()
 
 #     def test_year_amazon(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
@@ -234,15 +172,6 @@
 #         modal = self.browser.find_element_by_id("myModal14235")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm08(LiveServerTestCase08):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm08, self).setUp()
-
 #     def test_year_netflix(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
 #         from_input = self.browser.find_element_by_name('from')
@@ -261,15 +190,6 @@
 #         submit_input.click()
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
-
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm09(LiveServerTestCase09):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm09, self).setUp()
 
 #     def test_tropic_thunder(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
@@ -310,15 +230,6 @@
 #         modal = self.browser.find_element_by_id("myModal34688")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm10(LiveServerTestCase10):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm10, self).setUp()
-
 #     def test_chicago(self):
 #         self.browser.get("http://localhost:8000/movierec/form/")
 #         from_input = self.browser.find_element_by_name('from')
@@ -341,26 +252,15 @@
 #             if option.text == "PG-13":
 #                 option.click()
 #                 break
-#         netflix_input = self.browser.find_element_by_name('amazon')
-#         netflix_input.click()
+#         amazon_input = self.browser.find_element_by_name('amazon')
+#         amazon_input.click()
 #         submit_input = self.browser.find_element_by_name('Submit')
 #         submit_input.click()
 #         modal = self.browser.find_element_by_id("myModal14235")
 #         self.browser.implicitly_wait(20)
 
-#     def tearDown(self):
-#         self.browser.quit()
-
-# class TestRecommendationsForm11(LiveServerTestCase11):
-#     def setUp(self):
-#         self.browser = webdriver.Firefox()
-#         self.browser.implicitly_wait(10)
-#         super(TestRecommendationsForm11, self).setUp()
-
 #     def test_back_to_back(self):
-
 #         self.browser.get("http://localhost:8000/movierec/form/")
-
 #         genre_input = self.browser.find_element_by_name('genre')
 #         for option in genre_input.find_elements_by_tag_name('option'):
 #             if option.text == "Comedy":
@@ -526,8 +426,8 @@
 #             if option.text == "PG-13":
 #                 option.click()
 #                 break
-#         netflix_input = self.browser.find_element_by_name('amazon')
-#         netflix_input.click()
+#         amazon_input = self.browser.find_element_by_name('amazon')
+#         amazon_input.click()
 #         submit_input = self.browser.find_element_by_name('Submit')
 #         submit_input.click()
 #         modal = self.browser.find_element_by_id("myModal14235")
