@@ -8,3 +8,4 @@ pinax-theme-bootstrap
 guidebox
 tmdbsimple
 
+selenium

@@ -44,7 +44,7 @@ def recView(request):
         peoplelist = request.POST.getlist('people')
         if len(peoplelist) > 0:
             peoplequerylist = map(lambda x:
-                             Person.objects.filter(name__contains=x).first(),
+                             Person.objects.filter(name__icontains=x).first(),
                              people)
             query = query.filter(people__in=peoplequerylist)
         keywords = request.POST.getlist('keywords')
