@@ -70,7 +70,7 @@ class TestRecommendationsForm(LiveServerTestCase):
         self.browser.implicitly_wait(10)
 
         super(TestRecommendationsForm, self).setUp()
-
+'''
     def test_get_netflix_movies(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         #stream_input = self.browser.find_element_by_name('netflix')
@@ -81,7 +81,7 @@ class TestRecommendationsForm(LiveServerTestCase):
         submit_input.click()
         modal = self.browser.find_element_by_name_id("myModal34688")
         self.browser.implicitly_wait(200)
-
+'''
 
     def tearDown(self):
         self.browser.quit()
@@ -90,7 +90,7 @@ class TestRecommendationsForm(LiveServerTestCase):
 
 
 
-"""
+
     def test_get_recommendations_action(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         genre_input = self.browser.find_element_by_name('genre')
@@ -120,6 +120,8 @@ class TestRecommendationsForm(LiveServerTestCase):
         submit_input.click()
         modal = self.browser.find_element_by_name_id("myModal34688")
         self.browser.implicitly_wait(20)
+
+"""    
     def test_get_amazon_movies(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         stream_input = self.browser.find_element_by_name('amazon')
@@ -137,7 +139,7 @@ class TestRecommendationsForm(LiveServerTestCase):
         submit_input.click()
         modal = self.browser.find_element_by_name_id("myModal4627")
         self.browser.implicitly_wait(20)
-
+"""
     def test_year_range(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         from_input = self.browser.find_element_by_name('from')
@@ -167,6 +169,7 @@ class TestRecommendationsForm(LiveServerTestCase):
         modal = self.browser.find_element_by_id("myModal34688")
         self.browser.implicitly_wait(20)
 
+"""
     def test_year_amazon(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         from_input = self.browser.find_element_by_name('from')
@@ -185,7 +188,8 @@ class TestRecommendationsForm(LiveServerTestCase):
         submit_input.click()
         modal = self.browser.find_element_by_id("myModal14235")
         self.browser.implicitly_wait(20)
-
+"""
+"""
     def test_back_to_back(self):
 
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
@@ -361,6 +365,8 @@ class TestRecommendationsForm(LiveServerTestCase):
         submit_input.click()
         modal = self.browser.find_element_by_id("myModal14235")
         self.browser.implicitly_wait(20)
+        self.browser.implicitly_wait(20)
+"""
 
     def test_chicago(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
@@ -384,12 +390,12 @@ class TestRecommendationsForm(LiveServerTestCase):
             if option.text == "PG-13":
                 option.click()
                 break
-        netflix_input = self.browser.find_element_by_name('amazon')
-        netflix_input.click()
+        # netflix_input = self.browser.find_element_by_name('amazon')
+        # netflix_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
         modal = self.browser.find_element_by_id("myModal14235")
-        self.browser.implicitly_wait(20)
+
 
     def test_tropic_thunder(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
@@ -423,13 +429,13 @@ class TestRecommendationsForm(LiveServerTestCase):
             if option.text == "R":
                 option.click()
                 break
-        netflix_input = self.browser.find_element_by_name('netflix')
-        netflix_input.click()
+        # netflix_input = self.browser.find_element_by_name('netflix')
+        # netflix_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
         modal = self.browser.find_element_by_id("myModal34688")
         self.browser.implicitly_wait(20)
-"""
+
 
 
 
