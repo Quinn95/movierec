@@ -41,10 +41,9 @@
           <select name="mood" id="mood">
             <option value="Any">Any</option>
             <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
+            <option value="Sad">Sad</option>
             <option value="Angry">Angry</option>
-            <option value="pumpped">Pumpped</option>
-            <option value="Gloom">Gloomy</option>
+            <option value="Pumped">Pumpped</option>
             <option value="Evil">Evil</option>
           </select>
       
@@ -106,7 +105,7 @@
     </div>
     <div class="tile__details">
      <div class="tile__title">
-       {{ item }}
+       {{ item }} ({{item.date}})
      </div>
     </div>
   </div>
@@ -125,7 +124,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{item.title}}</h4>
+        <h4 class="modal-title">{{item.title}} ({{item.date}})</h4>
       </div>
       <div class="modal-body  video-container">
         <div class="row">
@@ -134,6 +133,15 @@
           </div>
           <div class="col-lg-4 text-col">
             <p> {{ item.summary }} </p>
+            {% if item.netflix_available  %}
+            <p>netflix: {{item.netflix}} </p>
+            {% endif %}
+            {% if item.amazon_available %}
+            <p>amazon: {{item.amazon}} </p>
+            {% endif %}
+            {% if item.hulu_available %}
+            <p>hulu: {{item.hulu}} </p>
+            {% endif %}
           </div>
         </div>
       </div>
