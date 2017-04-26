@@ -18,7 +18,7 @@ def test(request):
     return HttpResponse("You got movies")
 
 
-USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [7.9, 10.0], "6-8": [6.0, 8.0],
+USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [7.9, 10.0], "6-8": [5.9, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
 def recView(request):
@@ -30,7 +30,6 @@ def recView(request):
         mpaarating = request.POST['rating']
         people = request.POST.getlist('people')
         language = request.POST['language']
-        userrating = request.POST['IMDB']
 
         query = Movie.objects.all()
 
@@ -39,7 +38,7 @@ def recView(request):
 
 
         if imdb != "Any":
-            minrating, maxrating = USER_RATINGS["imdb"]
+            minrating, maxrating = USER_RATINGS[imdb]
             query = query.filter(vote_average__gte=minrating)
             query = query.filter(vote_average__lte=maxrating)
 
