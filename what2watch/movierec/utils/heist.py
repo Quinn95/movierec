@@ -17,6 +17,7 @@ def test():
     createGenres()
     populateMovieDetails()
     #getStreamingLinks(identifier=128834)
+    getAllLinks()
 
 
 def getNetflixMovies():
@@ -285,3 +286,46 @@ def getStreamingLinks(identifier):
         logging.info('Links to subscription services added for ' + movie.title.__str__())
     else:
         logging.warning('No movie identifier was passed or the movie identifier is not an integer')
+
+def getAllLinks():
+    movie_set = Movie.objects.all();
+
+    for movie in movie_set:
+        movie_detail = guidebox.Movie.retrieve(id=movie.identifier)
+        detail = json.loads(movie_detail.__str__())
+
+        hulu_link = None
+        netflix_link = None
+        amazon_link = None
+
+        for each in detail['subscription_web_sources']:
+            if each['source'] == 'hulu_plus':
+                hulu_link = each['link']
+            elif each['source'] == 'netflix':
+                netflix_link = each['link']
+            elif each['source'] == 'shudder_amazon_prime':
+                amazon_link = each['link']
+
+        movie.hulu = hulu_link
+        movie.netflix = netflix_link
+        movie.amazon = amazon_link
+
+        movie.save()
+
+        logging.info('Links to subscription services added for ' + movie.title.__str__())
+
+def getManualLinks():
+    with open("link.txt", "r") as file:
+        for line in file:
+            array = line.split(" ")
+            id = int(array[0])
+            amazon_link = array[1]
+            m = Movie.objects.filter(identifier=id)[:1]
+            if len(m) != 0:
+                movie = m[0]
+                if len(amazon_link) == 0:
+                    movie.amazon_available = False
+                else:
+                    movie.amazon = amazon_link
+                movie.save()
+
