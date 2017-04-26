@@ -51,9 +51,17 @@ $( document ).ready(function() {
 
   	$(".tile").on("click", function(){
   		var title = $(this).attr("data-target");
-		// var displace = (screen.height - parseInt($(".modal").css("height-dialog").replace("px", "")))/2;
-		// console.log($(".modal-dialog ").css("height"));
-		// $(".modal-content").css({"margin-top": displace + "px"})
+  		$(title).on('shown.bs.modal', function(){
+  			var frame = $(title).find("#vid").width()/100;
+  			frame = frame * 62.5;
+			$(".video-container iframe").height(frame);
+  		});
+  		$(window).resize(function(){
+  			var frame = $(title).find("#vid").width()/100;
+  			frame = frame * 62.5;
+			$(".video-container iframe").height(frame);
+  		});
+
 		$(title).on('hidden.bs.modal', function(e) {
 	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
 		});
