@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.test import TestCase
+from django.test import TestCase, StaticLiveServerTestCase
 
 from django.db import IntegrityError
+
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 from .models import Movie
@@ -52,6 +54,22 @@ class TestMovieModel(TestCase):
         result = Movie.objects.get(title="Test Movie")
         self.assertEquals(1, result.identifier)
 
-class TestRecommendationsForm(TestCase):
-    pass
+class TestRecommendationsForm(StaticLiveServerTestCase):
+    def setUp(self):
+        self.browser = WebDriver()
+        self.browser.implicitly_wait(10)
+
+    def tearDown(self):
+        self.browser.quit()
+
+    def test_get_recommendations(self):
+        self.browser.get("/movierec/form/")
+        genre = "Any"
+        
+
+
+
+
+
+
 

@@ -3,10 +3,9 @@ from django.http import HttpResponse
 
 from utils import gbox, heist
 from utils import apiwrapper
-from .models import Person
 
 
-from .models import Movie, Genre, Person, Keyword
+from .models import Movie, Genre, Person, Keyword, Person, Language
 
 # Create your views here.
 
@@ -18,13 +17,6 @@ def test(request):
     heist.test()
     return HttpResponse("You got movies")
 
-MOODS = {"Happy": ["Animation","Comedy","Family","Romance"], 
-         "Sad": ["Crime", "Documentary", "Drama", "History", "Horror","War"],
-         "Angry": ["Action", "Adventure", "Crime", "Documentary", "Horror", 
-                   "Thriller", "War"],
-         "Pumped": ["Action", "Adventure:", "Crime", "Fantasy", "Horror",
-                    "Science Fiction", "Thriller", "War", "Western"],
-         "Evil": ["History", "Horror", "Thriller", "Crime", "War"]}
 
 def recView(request):
     if request.method == 'POST':
@@ -34,7 +26,7 @@ def recView(request):
         imdb = request.POST['imdb']
         maxrating = request.POST['rating']
         people = request.POST.getlist('people')
-        mood = request.POST['mood']
+        language = request.POST['language']
 
         query = Movie.objects.all()
 
@@ -57,7 +49,9 @@ def recView(request):
         if timerange[1] != "-----": #we need to change
             query = query.filter(date__lte=int(timerange[1]))
 
-       #if mood != "Any":
+        if language != "Any":
+            languageOb = Language.objects.get(name=language)
+            query = query.filter(languages__in=[languageOb])
 
         if genre != "Any":
             genreQ = Genre.objects.get(name=genre)
@@ -81,6 +75,7 @@ def recView(request):
         if anychecked:
             query = querynetflix | queryamazon | queryhulu
 
+        query = query.distinct()
         results = query[:20]
 
         return render(request, 'movierec/recpage.html',
