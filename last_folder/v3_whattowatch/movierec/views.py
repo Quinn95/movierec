@@ -75,7 +75,7 @@ def recView(request):
         querynetflix = Movie.objects.none()
         queryamazon = Movie.objects.none()
         queryhulu = Movie.objects.none()
-        anychecked = False;
+        anychecked = False
 
         # Check if any specific site is selected #
         if not (("netflix" in request.POST) and ("amazon" in request.POST) and 
