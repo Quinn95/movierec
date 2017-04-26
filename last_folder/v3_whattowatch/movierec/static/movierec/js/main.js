@@ -114,17 +114,6 @@ $( document ).ready(function() {
 		image("hulu");
 	}); 
 
-	function image(input){
-	    if($('#'+input).css('border') == '0px none rgb(255, 255, 255)'){
-	    	$('#'+input).css({"border": "2px solid orange"});
-	    	$( "input[name='"+input+"']" ).prop("checked", true);
-	    }
-	    else if($('#'+input).css('border') == '2px solid rgb(255, 165, 0)'){
-	    	$('#'+input).css({"border": "0px none rgb(255, 255, 255)"});
-	    	$( "input[name='"+input+"']" ).prop("checked", false);
-	    }		
-	}
-
 	$('#people').on('keydown', function(e) {
    		if(e.which == 13) {
    			var flag = false;
@@ -157,12 +146,6 @@ $( document ).ready(function() {
 				}
 			}
 	});
-	$("#keywords").on('keydown', function(e, ui){
-		if(event.which == 13) {
-			event.preventDefault;
-			alert("bitch");
-		}
-	});
 	$(function() {
 		var items = $("#hidden_keywords").val().split(",")
 		var input = $('#keywords');
@@ -170,14 +153,12 @@ $( document ).ready(function() {
 
 		input.autocomplete({
 			minLength: 0,
-			selectFirst: true,
 			source: function( request, response ) {
 				response( $.ui.autocomplete.filter(
 					items, extractLast( request.term ) 
 				));
 			},
 			focus: function(event, ui) {
-				$(this).val(ui.item.value);
 				return false;
 			},
 			select: function( event, ui ) {
@@ -200,6 +181,14 @@ $( document ).ready(function() {
 			}
 		});
 		backspace("keywords");
+		input.on('keydown', function(e){
+			if(e.which == 13) {
+				e.preventDefault();
+			} else{
+				$("#ui-id-2").addClass("ui-state-focus");
+				// console.log($())
+			}
+		});
 	});
 
 	function split( val ) {
@@ -261,5 +250,15 @@ $( document ).ready(function() {
 
 	// });
 
-
 });
+
+function image(input){
+    if($('#'+input).css('border') == '0px none rgb(255, 255, 255)'){
+    	$('#'+input).css({"border": "2px solid orange"});
+    	$( "input[name='"+input+"']" ).prop("checked", true);
+    }
+    else if($('#'+input).css('border') == '2px solid rgb(255, 165, 0)'){
+    	$('#'+input).css({"border": "0px none rgb(255, 255, 255)"});
+    	$( "input[name='"+input+"']" ).prop("checked", false);
+    }		
+}
