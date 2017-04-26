@@ -92,18 +92,18 @@ class TestRecommendationsForm(LiveServerTestCase):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         lang_input = self.browser.find_element_by_name('language')
         for lang in lang_input.find_elements_by_tag_name('option'):
-        	if lang.text == "English":
-        		lang.click()
-        		break
+            if lang.text == "English":
+                lang.click()
+                break
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
         modal = self.browser.find_element_by_name_id("myModal34688")
         self.browser.implicitly_wait(20)
 
     def test_get_netflix_movies(self):
-    	self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
+        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         #stream_input = self.browser.find_element_by_name('netflix')
-        self.browser.execute_script(netflix_input.click
+        self.browser.execute_script(netflix_input.click)
         #stream_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
@@ -111,7 +111,7 @@ class TestRecommendationsForm(LiveServerTestCase):
         self.browser.implicitly_wait(20)
 
     def test_get_amazon_movies(self):
-    	self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
+        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         stream_input = self.browser.find_element_by_name('amazon')
         stream_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
@@ -120,7 +120,7 @@ class TestRecommendationsForm(LiveServerTestCase):
         self.browser.implicitly_wait(20)
 
     def test_get_hulu_movies(self):
-    	self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
+        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         stream_input = self.browser.find_element_by_name('hulu')
         stream_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
