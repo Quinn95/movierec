@@ -439,6 +439,15 @@ select::-ms-expand {
     opacity: 1; 
 }
 
+.enter{
+  color: #DCD0C0;
+  text-align: center;
+  font-size: 12px;
+}
+.streaming_choice{
+  display: inline-block;
+}
+
 @media (max-width: 1199px){
   .text-col{
     padding-top: 0;
@@ -479,5 +488,19 @@ select::-ms-expand {
   }
   .peeps{
     margin-top: 10px;
+  }
+}
+/*  .year_title h4{
+    display: block !important;
+  }*/
+@media (max-width: 880px){
+  .year h4{
+    display: block !important;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 745px){
+  .streaming_choice img{
+    display: block;
   }
 }
