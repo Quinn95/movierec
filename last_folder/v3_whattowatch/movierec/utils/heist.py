@@ -17,7 +17,7 @@ def test():
     # createGenres()
     # populateMovieDetails()
     #getStreamingLinks(identifier=128834)
-    getAllLinks()
+    getManualLinks()
 
 
 def getNetflixMovies():
@@ -315,4 +315,20 @@ def getAllLinks():
         movie.save()
 
         logging.info('Links to subscription services added for ' + movie.title.__str__())
+
+
+def getManualLinks():
+    with open("link.txt", "r") as file:
+        for line in file:
+            array = line.split(" ")
+            id = int(array[0])
+            amazon_link = array[1]
+            m = Movie.objects.filter(identifier=id)[:1]
+            if len(m) != 0:
+                movie = m[0]
+                if len(amazon_link) == 0:
+                    movie.amazon_available = False
+                else:
+                    movie.amazon = amazon_link
+                movie.save()
 
