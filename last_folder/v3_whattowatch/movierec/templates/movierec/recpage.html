@@ -140,6 +140,21 @@
           </div>
           <div class="col-lg-4 text-col">
             <p> {{ item.summary }} </p>
+            {% if item.genre.all|length == 1 %}
+              <h4> Genre: </h4>
+            {% else %}
+              <h4> Genres: </h4>
+            {% endif %}
+              {% for genre in item.genre.all %}
+                {% if forloop.last and item.genre.all|length > 1 %}
+                  and {{ genre }}
+                {% elif forloop.last %}
+                  {{genre}}
+                {% else %}
+                  {{ genre }},
+                {% endif %}
+              {% endfor %}
+            <div>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
@@ -159,6 +174,7 @@
             {% if item.hulu_available %}
             <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
             {% endif %}
+            </div>
           </div>
         </div>
       </div>
