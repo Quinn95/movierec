@@ -37,14 +37,19 @@
         </div>
 
         <div class="choice">
-          <h4>Current Mood:</h4>
-          <select name="mood" id="mood">
+          <h4>Language:</h4>
+          <select name="language" id="language">
             <option value="Any">Any</option>
-            <option value="happy">Happy</option>
-            <option value="Sad">Sad</option>
-            <option value="Angry">Angry</option>
-            <option value="Pumped">Pumpped</option>
-            <option value="Evil">Evil</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="pt">Portuguese</option>
+            <option value="zn">Chinese</option>
+            <option value="ja">Japanese</option>
+            <option value="vi">Vietnamese</option>
+            <option value="ru">Russian</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
           </select>
       
           <h4>MPAA Rating:</h4>
@@ -130,8 +135,8 @@
       </div>
       <div class="modal-body  video-container">
         <div class="row">
-          <div class="col-lg-8">
-            <iframe src="{{ item.trailer }}" allowfullscreen></iframe>
+          <div class="col-lg-8"">
+            <iframe id="vid" src="{{ item.trailer }}" allowfullscreen></iframe>
           </div>
           <div class="col-lg-4 text-col">
             <p> {{ item.summary }} </p>
@@ -146,6 +151,7 @@
             {% endif %}
           </div>
         </div>
+        <div class="center"> Hello World </div>
       </div>
     </div>
   </div>
