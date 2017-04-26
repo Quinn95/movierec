@@ -4,19 +4,20 @@ from movierec.models import Movie, Genre, Person, Language, Keyword
 import tmdbsimple as tmdb
 import logging
 
-guidebox.api_key = "e9eb585ff0a9c36c22b6cf0fdc0a08cccfa5eac5"
+guidebox.api_key = "26ba3cbb31750bcd51dede8068cf8ff72fcfde79"
 guidebox.Region = "US"
 tmdb.API_KEY = "f2eee9cde7536b5ef17767e4e9a97239"
 logging.basicConfig(filename='heist.log',level=logging.DEBUG)
 
 
 def test():
-    getNetflixMovies()
-    getAmazonMovies()
-    getHuluMovies()
-    createGenres()
-    populateMovieDetails()
-    getStreamingLinks(identifier=128834)
+    # getNetflixMovies()
+    # getAmazonMovies()
+    # getHuluMovies()
+    # createGenres()
+    # populateMovieDetails()
+    #getStreamingLinks(identifier=128834)
+    getAllLinks()
 
 
 def getNetflixMovies():
@@ -285,3 +286,32 @@ def getStreamingLinks(identifier):
         logging.info('Links to subscription services added for ' + movie.title.__str__())
     else:
         logging.warning('No movie identifier was passed or the movie identifier is not an integer')
+
+
+def getAllLinks():
+    movie_set = Movie.objects.all();
+
+    for movie in movie_set:
+        movie_detail = guidebox.Movie.retrieve(id=movie.identifier)
+        detail = json.loads(movie_detail.__str__())
+
+        hulu_link = None
+        netflix_link = None
+        amazon_link = None
+
+        for each in detail['subscription_web_sources']:
+            if each['source'] == 'hulu_plus':
+                hulu_link = each['link']
+            elif each['source'] == 'netflix':
+                netflix_link = each['link']
+            elif each['source'] == 'shudder_amazon_prime':
+                amazon_link = each['link']
+
+        movie.hulu = hulu_link
+        movie.netflix = netflix_link
+        movie.amazon = amazon_link
+
+        movie.save()
+
+        logging.info('Links to subscription services added for ' + movie.title.__str__())
+
