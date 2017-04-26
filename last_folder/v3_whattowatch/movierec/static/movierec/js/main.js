@@ -188,7 +188,7 @@ $( document ).ready(function() {
 				if(!flag){
 					$(this).val("");
 					$('#keywords').before('<span class="tag">' + ui.item.value + '</span>');
-					$(".keywords").append('<input type="hidden" name="people" value="' + ui.item.value + '">');
+					$(".keywords").append('<input type="hidden" name="keywords" value="' + ui.item.value + '">');
 				}
 				flag = false;
 
