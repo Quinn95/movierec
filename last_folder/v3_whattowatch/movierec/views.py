@@ -27,22 +27,22 @@ def recView(request):
         #request.POST['mood']
         maxrating = request.POST['rating']
         people = request.POST.getlist('people')
-        keywords = request.POST.getlist('keywords')
 
-        print people
 
         query = Movie.objects.all()
         if "people" in request.POST:
             people = request.POST.getlist('people')
 
-        print timerange[0]
+        keywords = request.POST.getlist('keyword[]')
+        print keywords
+        for word in keywords:
+            print word
+
         if timerange[0] != "-----": #we need to change
             query = query.filter(date__gte=int(timerange[0]))
-            print query
         if timerange[1] != "-----": #we need to change
             query = query.filter(date__lte=int(timerange[1]))
 
-        print genre
 
         if genre != "Any":
             genreQ = Genre.objects.get(name=genre)
