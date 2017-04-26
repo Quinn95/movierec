@@ -9,7 +9,7 @@
 <form id="recommendation" action="{% url 'recommendations' %}" method="post">
       {% csrf_token %}
   <div class="container recommendation __down">
-    <h3 class="rec_title"> Welcome to our Recommendations Page: <br>(make sure to complete all fields)</h3><br>
+    <h3 class="rec_title"> Welcome to our Recommendations Page:</h3><br>
     <div class="row row-eq-height">
       <div class="col-md-6 left_col">
         <div class="year">
@@ -134,13 +134,13 @@
           <div class="col-lg-4 text-col">
             <p> {{ item.summary }} </p>
             {% if item.netflix_available  %}
-            <p>netflix: {{item.netflix}} </p>
+            <a href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
             {% endif %}
             {% if item.amazon_available %}
-            <p>amazon: {{item.amazon}} </p>
+            <a href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}"></a>
             {% endif %}
             {% if item.hulu_available %}
-            <p>hulu: {{item.hulu}} </p>
+            <a href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
             {% endif %}
           </div>
         </div>
