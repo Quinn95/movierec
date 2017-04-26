@@ -124,7 +124,7 @@ $( document ).ready(function() {
 				}
 			});
 			if(!flag){
-				$('#people').before('<span class="tag">' + $(this).val() + '</span>');
+				$('#people').before('<span class="tag">' + $(this).val() + '<div class="bar"></div><i class="fa fa-close"></i></span>');
 				$(".people").append('<input type="hidden" name="people" value="' + $(this).val() + '">');
 				$(this).val("");
 			}
@@ -171,7 +171,7 @@ $( document ).ready(function() {
 				});
 				if(!flag){
 					$(this).val("");
-					$('#keywords').before('<span class="tag">' + ui.item.value + '</span>');
+					$('#keywords').before('<span class="tag">' + ui.item.value + '<div class="bar"></div><i class="fa fa-close"></i></span>');
 					$(".keywords").append('<input type="hidden" name="keywords" value="' + ui.item.value + '">');
 				}
 				flag = false;
