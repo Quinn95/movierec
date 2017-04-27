@@ -70,18 +70,6 @@ class TestRecommendationsForm(LiveServerTestCase):
         self.browser.implicitly_wait(10)
 
         super(TestRecommendationsForm, self).setUp()
-'''
-    def test_get_netflix_movies(self):
-        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
-        #stream_input = self.browser.find_element_by_name('netflix')
-
-        self.browser.execute_script("if($('#netflix').css('border') == '0px none rgb(255, 255, 255)'){ $('#netflix').css({\"border\": \"2px solid orange\"}); $( \"input[name='\"netflix\"']\" ).prop(\"checked\", true); } else if($('#netflix').css('border') == '2px solid rgb(255, 165, 0)'){ $('#netflix').css({\"border\": \"0px none rgb(255, 255, 255)\"}); $( \"input[name='\"netflix\"']\" ).prop(\"checked\", false); }")
-        #stream_input.click()
-        submit_input = self.browser.find_element_by_name('Submit')
-        submit_input.click()
-        modal = self.browser.find_element_by_name_id("myModal34688")
-        self.browser.implicitly_wait(200)
-'''
 
     def tearDown(self):
         self.browser.quit()
@@ -101,8 +89,8 @@ class TestRecommendationsForm(LiveServerTestCase):
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
         #Tropic thunder should show up
-        with not self.assertRaises(NoSuchElementException):
-            modal = self.browser.find_element_by_id("myModal34688") 
+        with self.assertRaises(NoSuchElementException):
+            modal = self.browser.find_element_by_id("myModal") 
         self.browser.implicitly_wait(20)
         #from_input = self.browser.find_element_by_name('from')
         #to_input = self.browser.find_element_by_name('to')
@@ -118,28 +106,9 @@ class TestRecommendationsForm(LiveServerTestCase):
                 break
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
-        modal = self.browser.find_element_by_name_id("myModal34688")
+        modal = self.browser.find_element_by_id("myModal34688")
         self.browser.implicitly_wait(20)
 
-"""    
-    def test_get_amazon_movies(self):
-        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
-        stream_input = self.browser.find_element_by_name('amazon')
-        stream_input.click()
-        submit_input = self.browser.find_element_by_name('Submit')
-        submit_input.click()
-        modal = self.browser.find_element_by_name_id("myModal61261")
-        self.browser.implicitly_wait(20)
-
-    def test_get_hulu_movies(self):
-        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
-        stream_input = self.browser.find_element_by_name('hulu')
-        stream_input.click()
-        submit_input = self.browser.find_element_by_name('Submit')
-        submit_input.click()
-        modal = self.browser.find_element_by_name_id("myModal4627")
-        self.browser.implicitly_wait(20)
-"""
     def test_year_range(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         from_input = self.browser.find_element_by_name('from')
@@ -169,8 +138,9 @@ class TestRecommendationsForm(LiveServerTestCase):
         modal = self.browser.find_element_by_id("myModal34688")
         self.browser.implicitly_wait(20)
 
-"""
-    def test_year_amazon(self):
+
+
+    def test_chicago(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         from_input = self.browser.find_element_by_name('from')
         for option in from_input.find_elements_by_tag_name('option'):
@@ -182,13 +152,75 @@ class TestRecommendationsForm(LiveServerTestCase):
             if option.text == "2002":
                 option.click()
                 break
-        amazon_input = self.browser.find_element_by_name('amazon')
-        amazon_input.click()
+        user_input = self.browser.find_element_by_name('imdb')
+        for option in user_input.find_elements_by_tag_name('option'):
+            if option.text == "6-8":
+                option.click()
+                break
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "PG-13":
+                option.click()
+                break
+        # netflix_input = self.browser.find_element_by_name('amazon')
+        # netflix_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
-        modal = self.browser.find_element_by_id("myModal14235")
+        modal = self.browser.find_element_by_id("myModal75292")
+
+
+    def test_tropic_thunder(self):
+        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        genre_input = self.browser.find_element_by_name('genre')
+        for option in genre_input.find_elements_by_tag_name('option'):
+            if option.text == "Action":
+                option.click()
+                break
+        user_input = self.browser.find_element_by_name('imdb')
+        for option in user_input.find_elements_by_tag_name('option'):
+            if option.text == "6-8":
+                option.click()
+                break
+        language_input = self.browser.find_element_by_name('language')
+        for option in language_input.find_elements_by_tag_name('option'):
+            if option.text == "English":
+                option.click()
+                break
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "R":
+                option.click()
+                break
+        # netflix_input = self.browser.find_element_by_name('netflix')
+        # netflix_input.click()
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
         self.browser.implicitly_wait(20)
-"""
+
+'''
+    def test_get_netflix_movies(self):
+        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
+        #stream_input = self.browser.find_element_by_name('netflix')
+
+        self.browser.execute_script("if($('#netflix').css('border') == '0px none rgb(255, 255, 255)'){ $('#netflix').css({\"border\": \"2px solid orange\"}); $( \"input[name='\"netflix\"']\" ).prop(\"checked\", true); } else if($('#netflix').css('border') == '2px solid rgb(255, 165, 0)'){ $('#netflix').css({\"border\": \"0px none rgb(255, 255, 255)\"}); $( \"input[name='\"netflix\"']\" ).prop(\"checked\", false); }")
+        #stream_input.click()
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_name_id("myModal34688")
+        self.browser.implicitly_wait(200)
+'''
+
 """
     def test_back_to_back(self):
 
@@ -368,7 +400,9 @@ class TestRecommendationsForm(LiveServerTestCase):
         self.browser.implicitly_wait(20)
 """
 
-    def test_chicago(self):
+
+"""
+    def test_year_amazon(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
         from_input = self.browser.find_element_by_name('from')
         for option in from_input.find_elements_by_tag_name('option'):
@@ -380,65 +414,32 @@ class TestRecommendationsForm(LiveServerTestCase):
             if option.text == "2002":
                 option.click()
                 break
-        user_input = self.browser.find_element_by_name('imdb')
-        for option in user_input.find_elements_by_tag_name('option'):
-            if option.text == "6-8":
-                option.click()
-                break
-        rating_input = self.browser.find_element_by_name('rating')
-        for option in rating_input.find_elements_by_tag_name('option'):
-            if option.text == "PG-13":
-                option.click()
-                break
-        # netflix_input = self.browser.find_element_by_name('amazon')
-        # netflix_input.click()
+        amazon_input = self.browser.find_element_by_name('amazon')
+        amazon_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
         modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+"""
 
 
-    def test_tropic_thunder(self):
+"""    
+    def test_get_amazon_movies(self):
         self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
-        from_input = self.browser.find_element_by_name('from')
-        for option in from_input.find_elements_by_tag_name('option'):
-            if option.text == "2008":
-                option.click()
-                break
-        to_input = self.browser.find_element_by_name('to')
-        for option in to_input.find_elements_by_tag_name('option'):
-            if option.text == "2008":
-                option.click()
-                break
-        genre_input = self.browser.find_element_by_name('genre')
-        for option in genre_input.find_elements_by_tag_name('option'):
-            if option.text == "Action":
-                option.click()
-                break
-        user_input = self.browser.find_element_by_name('imdb')
-        for option in user_input.find_elements_by_tag_name('option'):
-            if option.text == "6-8":
-                option.click()
-                break
-        language_input = self.browser.find_element_by_name('language')
-        for option in language_input.find_elements_by_tag_name('option'):
-            if option.text == "English":
-                option.click()
-                break
-        rating_input = self.browser.find_element_by_name('rating')
-        for option in rating_input.find_elements_by_tag_name('option'):
-            if option.text == "R":
-                option.click()
-                break
-        # netflix_input = self.browser.find_element_by_name('netflix')
-        # netflix_input.click()
+        stream_input = self.browser.find_element_by_name('amazon')
+        stream_input.click()
         submit_input = self.browser.find_element_by_name('Submit')
         submit_input.click()
-        modal = self.browser.find_element_by_id("myModal34688")
+        modal = self.browser.find_element_by_name_id("myModal61261")
         self.browser.implicitly_wait(20)
 
-
-
-
-
-
+    def test_get_hulu_movies(self):
+        self.browser.get("http://immense-fortress-33702.herokuapp.com/movierec/form/")
+        stream_input = self.browser.find_element_by_name('hulu')
+        stream_input.click()
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_name_id("myModal4627")
+        self.browser.implicitly_wait(20)
+"""
 
