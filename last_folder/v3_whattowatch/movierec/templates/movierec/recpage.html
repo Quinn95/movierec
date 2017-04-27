@@ -137,10 +137,15 @@
         <div class="row">
           <div class="col-lg-8">
             <iframe id="vid" src="{{ item.trailer }}" allowfullscreen></iframe>
+              <div class="likes">
+                <span class="like pull-left"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
+                <span class="dislike pull-right"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
+              </div>
           </div>
           <div class="col-lg-4 text-col">
             <h4>Summary:</h4>
             <p> {{ item.summary }} </p>
+            <div class="gen">
             {% if item.genre.all|length == 1 %}
               <h4> Genre: </h4>
             {% else %}
@@ -155,11 +160,10 @@
                   {{ genre }},
                 {% endif %}
               {% endfor %}
+              </div>
             <div>
-            <div class="likes">
-              <span class="like"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
-              <span class="dislike"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
-            </div>
+              <h4>Available on:</h4>
+              <p class="enter">(click logo to watch)</p>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>

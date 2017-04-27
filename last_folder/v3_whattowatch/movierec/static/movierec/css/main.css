@@ -246,6 +246,9 @@ a:hover {
 .text-col a img{
   padding-top: 15px;
 }
+.text-col h4{
+  display: block;
+}
 .col-lg-8{
   background-color: #373737;
   padding-right: 10px;
@@ -483,6 +486,14 @@ select::-ms-expand {
 }
 .bar{
   padding: 0 2px;
+}
+#up, #down{
+  margin: 0 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+.gen{
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1199px){

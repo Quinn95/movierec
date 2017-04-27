@@ -261,9 +261,18 @@ $( document ).ready(function() {
 
 	});
 
-	// &("#up").on('click', function(){
-
-	// });
+	$("#up").on('click', function(){
+		$(this).css({"background-color": "orange"});
+		if( $("#down").css("background-color") == 'rgb(255, 165, 0)'){
+			$("#down").css({"background-color": "white"});
+		}
+	});
+	$("#down").on('click', function(){
+		$(this).css({"background-color": "orange"});
+		if( $("#up").css("background-color") == 'rgb(255, 165, 0)'){
+			$("#up").css({"background-color": "white"});
+		}
+	});
 
 });
 
