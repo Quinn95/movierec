@@ -354,6 +354,10 @@ select::-ms-expand {
   margin-bottom: 15px;
   background-color: white;
   text-align: left;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  cursor: text;
 }
 
 .people input, .keywords input{
@@ -363,13 +367,22 @@ select::-ms-expand {
   outline: none;
 }
 
+#people, #keywords{
+  width: 43%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 .tag {
     margin:2px;
-    background:lightblue;
+    background:orange;
     color:black;
     text-align:center;
     display: inline-block;
     cursor: pointer;
+}
+.tag div{
+  display: inline-block;
 }
 .peeps{
   max-width: 100%;
@@ -435,7 +448,7 @@ select::-ms-expand {
 }
 
 .enter{
-  color: #DCD0C0;
+  color: orange;
   text-align: center;
   font-size: 12px;
 }
@@ -451,6 +464,25 @@ select::-ms-expand {
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   -ms-transform: scaleX(-1);
+}
+.ui-autocomplete .ui-menu-item{
+  background-color: #F4F4F4;
+}
+.ui-widget-content a{
+  color: #373737;
+}
+.ui-state-focus {
+  color: black !important;
+  background: orange !important;
+}
+
+.fa-close{
+  color: #4a4a4a;
+  border-left: 2px solid black;
+  padding: 0 2px;
+}
+.bar{
+  padding: 0 2px;
 }
 
 @media (max-width: 1199px){
