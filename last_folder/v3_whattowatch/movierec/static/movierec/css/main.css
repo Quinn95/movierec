@@ -354,6 +354,10 @@ select::-ms-expand {
   margin-bottom: 15px;
   background-color: white;
   text-align: left;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  cursor: text;
 }
 
 .people input, .keywords input{
@@ -361,6 +365,12 @@ select::-ms-expand {
 }
 .people input:focus, .keywords input:focus{
   outline: none;
+}
+
+#people, #keywords{
+  width: 43%;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .tag {

@@ -114,6 +114,13 @@ $( document ).ready(function() {
 		image("hulu");
 	}); 
 
+	$(".people").on("click", function(){
+		$("#people").focus();
+	});
+	$(".keywords").on("click", function(){
+		$("#keywords").focus();
+	});
+
 	$('#people').on('keydown', function(e) {
    		if(e.which == 13) {
    			var flag = false;
@@ -126,6 +133,7 @@ $( document ).ready(function() {
 			if(!flag){
 				$('#people').before('<span class="tag">' + $(this).val() + '<div class="bar"></div><i class="fa fa-close"></i></span>');
 				$(".people").append('<input type="hidden" name="people" value="' + $(this).val() + '">');
+				$(".people").scrollLeft($(".people").scrollLeft() + $(".people").children(".tag").last().width() + 4);
 				$(this).val("");
 			}
 			flag = false;
@@ -149,6 +157,7 @@ $( document ).ready(function() {
 	$(function() {
 		var items = $("#hidden_keywords").val().split(",")
 		var input = $('#keywords');
+		var size = input.width();
 		var flag = false;
 
 		input.autocomplete({
@@ -173,13 +182,13 @@ $( document ).ready(function() {
 					$(this).val("");
 					$('#keywords').before('<span class="tag">' + ui.item.value + '<div class="bar"></div><i class="fa fa-close"></i></span>');
 					$(".keywords").append('<input type="hidden" name="keywords" value="' + ui.item.value + '">');
+					$(".keywords").scrollLeft($(".keywords").scrollLeft() + $(".keywords").children(".tag").last().width() + 4);
 				}
 				flag = false;
 
 				if($(".keywords").find(".tag").length !== 0){
 					input.removeAttr('placeholder');
 				}
-				event.preventDefault();
 				return false;
 			}
 		});
@@ -214,6 +223,9 @@ $( document ).ready(function() {
 					}
 					return false;
 				}
+			}
+			if(e.which == 13){
+				event.preventDefault();
 			}
 		});
 	};
