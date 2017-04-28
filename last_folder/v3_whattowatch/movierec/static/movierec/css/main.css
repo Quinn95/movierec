@@ -1,5 +1,6 @@
-body{
+body, body legend{
   background-color: #373737;
+  color: #DCD0C0;
 }
 
 .navbar{
@@ -583,6 +584,14 @@ select::-ms-expand {
   text-align: center;
   vertical-align: middle;
 }
+
+input, select{
+  color: black;
+}
+.col-md-5{
+  background-color: #373737 !important;
+}
+
 
 @media (max-width: 1199px){
   .text-col{
