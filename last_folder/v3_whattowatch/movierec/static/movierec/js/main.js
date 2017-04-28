@@ -155,7 +155,10 @@ $( document ).ready(function() {
 			}
 	});
 	$(function() {
-		var items = $("#hidden_keywords").val().split(",")
+		var items = $("#hidden_keywords").val().split(",");
+		if(items[items.length - 1] === "" || items[items.length - 1] === " "){
+			items.pop();
+		}
 		var input = $('#keywords');
 		var size = input.width();
 		var flag = false;
@@ -251,6 +254,9 @@ $( document ).ready(function() {
 
 			if($(this).attr("href").trim() === $(".hide_name").text().trim()){
 				$(this).addClass("active");
+				if($(".search_page") !== null){
+					$(".navbar-brand").addClass("hide_name");
+				}
 			}
 			else if($(this).hasClass("active")){
 				$(this).removeClass("active");
