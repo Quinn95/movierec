@@ -3,6 +3,31 @@
 {% include 'movierec/navbar.html' %}
 <body>
 <label class="hide_name search_page">{% url 'search' %}</label>
+
+
+	<div class="row search_bar">
+		<div class="search-logo">
+			<img src="{% static 'movierec/images/What2Watch.svg' %}">
+		</div>
+		<form action="{% url 'search' %}" method="post">
+			<div class="search-text">
+				<input type="text" name="search_text" placeholder="Search by Movie Title">
+			</div>
+			<div class="streaming-services-search">
+				<input class="hide_name" type="checkbox" name="netflix">
+	            <img id="netflix" class="stream-search streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/>
+	            <input class="hide_name" type="checkbox" name="amazon">
+	            <img id="amazon" class="stream-search streaming logo__img" src="{% static 'movierec/images/amazon_black2.png' %}">
+	            <input class="hide_name" type="checkbox" name="hulu">
+	            <img id="hulu" class="stream-search streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
+	        </div>
+	        <input class="submit_search" type="submit" value="submit" name="Submit">
+        </form>
+	</div>
+
+	{% for result in results %}
+		<label>{{result}}</label>
+	{% endfor %}
 </body>
 
 {% include 'movierec/scripts.html' %}

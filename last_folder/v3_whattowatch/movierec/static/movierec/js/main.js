@@ -102,15 +102,27 @@ $( document ).ready(function() {
 		}
 	});
 
-	$('body #netflix').on('click', function() {
+	$('.streaming-services-search #netflix').on('click', function() {
+		imageSearch("netflix");
+	}); 
+
+	$('.streaming-services-search #amazon').on('click', function() {
+		imageSearch("amazon");
+	}); 
+
+	$('.streaming-services-search #hulu').on('click', function() {
+		imageSearch("hulu");
+	}); 
+
+	$('.streaming_choice #netflix').on('click', function() {
 		image("netflix");
 	}); 
 
-	$('body #amazon').on('click', function() {
+	$('.streaming_choice #amazon').on('click', function() {
 		image("amazon");
 	}); 
 
-	$('body #hulu').on('click', function() {
+	$('.streaming_choice #hulu').on('click', function() {
 		image("hulu");
 	}); 
 
@@ -254,8 +266,11 @@ $( document ).ready(function() {
 
 			if($(this).attr("href").trim() === $(".hide_name").text().trim()){
 				$(this).addClass("active");
-				if($(".search_page") !== null){
+				console.log($(".search_page"));
+				if($(".search_page").length !== 0){
 					$(".navbar-brand").addClass("hide_name");
+				} else{
+					$(".navbar-brand").removeClass("hide_name");
 				}
 			}
 			else if($(this).hasClass("active")){
@@ -288,6 +303,17 @@ function image(input){
     	$( "input[name='"+input+"']" ).prop("checked", true);
     }
     else if($('#'+input).css('border') == '2px solid rgb(255, 165, 0)'){
+    	$('#'+input).css({"border": "0px none rgb(255, 255, 255)"});
+    	$( "input[name='"+input+"']" ).prop("checked", false);
+    }		
+}
+
+function imageSearch(input){
+    if($('#'+input).css('border') == '0px none rgb(255, 255, 255)'){
+    	$('#'+input).css({"border": "2px solid red"});
+    	$( "input[name='"+input+"']" ).prop("checked", true);
+    }
+    else if($('#'+input).css('border') == '2px solid rgb(255, 0, 0)'){
     	$('#'+input).css({"border": "0px none rgb(255, 255, 255)"});
     	$( "input[name='"+input+"']" ).prop("checked", false);
     }		
