@@ -166,6 +166,7 @@ $( document ).ready(function() {
 				}
 			}
 	});
+
 	$(function() {
 		var items = $("#hidden_keywords").val().split(",");
 		if(items[items.length - 1] === "" || items[items.length - 1] === " "){
@@ -293,6 +294,13 @@ $( document ).ready(function() {
 		if( $("#up").css("background-color") == 'rgb(255, 165, 0)'){
 			$("#up").css({"background-color": "white"});
 		}
+	});
+
+	$("#recommendation").on("submit", function(e){
+		$(window).load(function(){
+			$("#loading").modal("show");
+		});
+		e.preventDefault();
 	});
 
 });

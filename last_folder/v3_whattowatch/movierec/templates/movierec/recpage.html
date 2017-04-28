@@ -137,7 +137,7 @@
       <div class="modal-body  video-container">
         <div class="row">
           <div class="col-lg-8">
-            <iframe id="vid" src="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1&start=100" allowfullscreen></iframe>
+            <iframe id="vid" src="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1" allowfullscreen></iframe>
               <div class="likes">
                 <span class="dislike pull-right"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
                 <span class="like pull-right"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
@@ -196,6 +196,9 @@
 </div>
   {% endfor %}
 {% endif %}
+<!-- <div class="loading-center">
+  <img class="gif" src="{% static 'movierec/images/loading.gif' %}"></img>
+</div> -->
 
 <div class="hide_name">
 <input type="hidden" id="hidden_keywords" value="" />
@@ -209,7 +212,7 @@
   var tempkey = "";
   var keywords;
   var k = localStorage.getItem("keywords");
-  
+
   if(k == null || k.split(",") == "" || k.split(",") == " "){
 
 {% for key in keywords %}
@@ -225,6 +228,10 @@ localStorage.setItem("keywords", tempkey);
 
 var hidden_keywords = document.getElementById("hidden_keywords");
 hidden_keywords.value = keywords; 
+
+  // $.getJSON("{% static 'movierec/js/keywords.json' %}", function(json){
+  //   console.log("Json data: " + json);
+  // });
 
 </script>
 

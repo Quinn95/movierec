@@ -44,13 +44,14 @@
 				</div>
 				<div class="row">
 					<div class="pull-left search_summary">
+						<h5 class="first_genre">
 		              	{% for genre in result.genre.all %}
 		                	{% if forloop.last and result.genre.all|length > 1 %}
-		                  		<h5 class="first_genre"> and {{ genre }}</h5>
+		                  		 and {{ genre }}
 		                	{% elif forloop.last %}
-		                  		<h5 class="first_genre"> {{genre}}</h5>
+		                  		{{genre}}
 		                	{% else %}
-		                  		<h5 class="first_genre"> {{ genre }},</h5>
+		                  		{{ genre }},
 		                	{% endif %}
 		              	{% endfor %}
 		            </div>
