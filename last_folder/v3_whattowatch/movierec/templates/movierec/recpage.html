@@ -101,7 +101,7 @@
   </div>
 </form>
 
-<div class="container-fluid center">
+<div class="container-fluid center hide_name">
  <div class="row__inner_recommendation">
 
 {% if results %}
@@ -196,6 +196,18 @@
   {% endfor %}
 {% endif %}
 
+
+<div id="loading" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body" >
+        <img src="{% static 'movierec/images/loading.gif' %}"></img>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="hide_name">
 <input type="hidden" id="hidden_keywords" value="" />
 </div>
@@ -206,7 +218,7 @@
   var tempkey = "";
   var keywords;
   var k = localStorage.getItem("keywords");
-  
+
   if(k == null || k.split(",") == "" || k.split(",") == " "){
 
 {% for key in keywords %}
@@ -222,6 +234,10 @@ localStorage.setItem("keywords", tempkey);
 
 var hidden_keywords = document.getElementById("hidden_keywords");
 hidden_keywords.value = keywords; 
+
+  // $.getJSON("{% static 'movierec/js/keywords.json' %}", function(json){
+  //   console.log("Json data: " + json);
+  // });
 
 </script>
 
