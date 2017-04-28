@@ -1,0 +1,69 @@
+{% load static %}
+{% include 'movierec/head.html' %}
+{% include 'movierec/navbar.html' %}
+<body>
+<label class="hide_name search_page">{% url 'search' %}</label>
+
+
+	<div class="row search_bar">
+		<div class="search-logo">
+			<img src="{% static 'movierec/images/What2Watch.svg' %}">
+		</div>
+		<form action="{% url 'search' %}" method="post">
+			{% csrf_token %}
+			<div class="search-text">
+				<input type="text" name="search_text" placeholder="Search by Movie Title">
+			</div>
+			<div class="streaming-services-search">
+				<input class="hide_name" type="checkbox" name="netflix">
+	            <img id="netflix" class="stream-search streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/>
+	            <input class="hide_name" type="checkbox" name="amazon">
+	            <img id="amazon" class="stream-search streaming logo__img" src="{% static 'movierec/images/amazon_black2.png' %}">
+	            <input class="hide_name" type="checkbox" name="hulu">
+	            <img id="hulu" class="stream-search streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
+	        </div>
+	        <input class="submit_search" type="submit" value="submit" name="Submit">
+        </form>
+	</div>
+
+<div class="container">
+	{% for result in results %}
+	 <div class="row__inner_recommendation description">
+	 	<div class="row row-eq-height">
+			<div class="tile_search pull-left">
+			    <div class="tile__media">
+			      <img class="tile__img" src="{{ result.poster }}" alt=""  />
+			    </div>
+			</div>
+			<div class="search_info">
+				<div class="row">
+					<h4 class="search_title pull-left">{{result}} ({{result.date}})</h4>
+				</div>
+				<div class="row">
+					<h5 class="search_summary pull-left">{{ result.summary }}</h5>
+				</div>
+				<div class="row">
+					<div class="pull-left search_summary">
+		              	{% for genre in result.genre.all %}
+		                	{% if forloop.last and result.genre.all|length > 1 %}
+		                  		<h5 class="first_genre"> and {{ genre }}</h5>
+		                	{% elif forloop.last %}
+		                  		<h5 class="first_genre"> {{genre}}</h5>
+		                	{% else %}
+		                  		<h5 class="first_genre"> {{ genre }},</h5>
+		                	{% endif %}
+		              	{% endfor %}
+		            </div>
+              	</div>
+              	<div class="row rated_search">
+              		<h5 class="search_summary pull-left">Rated: {{result.rating}}</h5>
+              	</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+</body>
+
+{% include 'movierec/scripts.html' %}
