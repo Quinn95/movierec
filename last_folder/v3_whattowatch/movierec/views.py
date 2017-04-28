@@ -112,3 +112,5 @@ def recView(request):
                   'genres': Genre.objects.all(),
                   'keywords': Keyword.objects.all()})
 
+def search(request):
+    return render(request, 'movierec/search.html')
