@@ -24,6 +24,10 @@ USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
 def recView(request):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+    else:
+        profile = None
     if request.method == 'POST':
 
         # Form name definitions #
@@ -102,7 +106,7 @@ def recView(request):
         # Return all items #
         return render(request, 'movierec/recpage.html',
                      {'results': results,
-                      #'profile': Profile.objects.get(user=request.user),
+                      'profile': profile,
                       'user': request.user,
                       'people': Person.objects.all(),
                       'genres': Genre.objects.all(),
@@ -110,7 +114,7 @@ def recView(request):
 
     # Return all items #
     return render(request, 'movierec/recpage.html',
-                 {#'profile': Profile.objects.get(user=request.user),
+                 {'profile': profile,
                   'user': request.user,
                   'people': Person.objects.all(),
                   'genres': Genre.objects.all(),
