@@ -16,9 +16,9 @@
 			</div>
 			<div class="streaming-services-search">
 				<input class="hide_name" type="checkbox" name="netflix">
-	            <img id="netflix" class="stream-search streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/>
+	            <img id="netflix" class="stream-search streaming logo__img" src="{% static 'movierec/images/netflix2.png' %}"/>
 	            <input class="hide_name" type="checkbox" name="amazon">
-	            <img id="amazon" class="stream-search streaming logo__img" src="{% static 'movierec/images/amazon_black2.png' %}">
+	            <img id="amazon" class="stream-search streaming logo__img" src="{% static 'movierec/images/amazon_black.png' %}">
 	            <input class="hide_name" type="checkbox" name="hulu">
 	            <img id="hulu" class="stream-search streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
 	        </div>
@@ -28,11 +28,11 @@
 
 <div class="container">
 	{% for result in results %}
-	 <div class="row__inner_recommendation description">
+	 <div id="search_results" class="row__inner_recommendation description">
 	 	<div class="row row-eq-height">
 			<div class="tile_search pull-left">
 			    <div class="tile__media">
-			      <img class="tile__img" src="{{ result.poster }}" alt=""  />
+			      <img id="search_img" class="tile__img" src="{{ result.poster }}" alt=""  />
 			    </div>
 			</div>
 			<div class="search_info">
@@ -50,15 +50,51 @@
 		                  		 and {{ genre }}
 		                	{% elif forloop.last %}
 		                  		{{genre}}
-		                	{% else %}
-		                  		{{ genre }},
+		                	{% elif forloop.first %}
+		                  		{{genre}}
+		                  	{% else %}
+		                  		, {{genre}}
 		                	{% endif %}
 		              	{% endfor %}
+		              	</h5>
 		            </div>
               	</div>
-              	<div class="row rated_search">
-              		<h5 class="search_summary pull-left">Rated: {{result.rating}}</h5>
+              	<div class="row row-eq-height rated_search">
+              		<div class="col-sm-3">
+              			<h5 class="search_summary pull-left">Rated: {{result.rating}}</h5>
+              		</div>
+              		<div class="col-sm-6">
+						<a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}">
+					</div>
               	</div>
+			</div>
+			<div class="search_info_right">
+
+				<div class="row stream">
+		            {% if result.netflix_available  %}
+		              {% if result.netflix is not None %}
+		            <a class="search_logo" target="blank" href="{{result.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+		              {% else %}
+		            <a class="search_logo" target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a> 
+		              {% endif %}
+		            {% endif %}
+
+		            {% if result.amazon_available %}
+		              {% if result.amazon is not None %}
+		            <a class="search_logo" target="blank" href="{{result.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+		              {% else %}
+		            <a class="search_logo" target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+		              {% endif %}
+		            {% endif %}
+
+		            {% if result.hulu_available %}
+		              {% if result.amazon is not None %}
+		            <a class="search_logo" target="blank" href="{{result.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+		            {% else %}
+		            <a class="search_logo" target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+		            {% endif %}
+		            {% endif %}
+	            </div>
 			</div>
 		</div>
 	</div>

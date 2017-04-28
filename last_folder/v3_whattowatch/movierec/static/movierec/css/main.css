@@ -560,15 +560,20 @@ select::-ms-expand {
   width: 100%;
   height: auto;
   border-bottom: 2px solid white;
-  background-color: blue;
   overflow: hidden;
 }
 
 .search_info{
   margin-left: 4%;
+  width: 40%;
+}
+.search_info_right{
+  width: 40%;
+  vertical-align: middle;
+  text-align: center;
 }
 .search_summary{
-  width: 45%;
+  width: 80%;
   text-align: left;
 }
 .first_genre{
@@ -588,6 +593,9 @@ select::-ms-expand {
 .gif{
   margin-left: 40%;
 }
+.row .stream a{
+  display: block;
+}
 
 input, select{
   color: black;
@@ -600,6 +608,22 @@ input, select{
 }
 body.account-delete .account-delete, body.account-password .account-password, body.account-settings .account-settings{
   background-color: orange;
+}
+
+.imdb_logo {
+  padding-top: 7px;
+  width: 20%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.col-sm-3, .col-sm-6{
+  padding: 0;
+  border: none;
+  background-color: #373737;
+}
+
+.search_logo{
+  margin-bottom: 5px;
 }
 
 

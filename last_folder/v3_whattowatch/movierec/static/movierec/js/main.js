@@ -52,6 +52,10 @@ $( document ).ready(function() {
   	$(".tile").on("click", function(){
   		var title = $(this).attr("data-target");
   		$(title).on('shown.bs.modal', function(){
+  			var youtube = $(this).find("#video").val();
+  			console.log(youtube);
+  			var iframe_div = $(this).find(".col-lg-8");
+  			iframe_div.prepend("<iframe id='vid' src='"+youtube+"' allowfullscreen></iframe>");
   			var frame = $(title).find("#vid").width()/100;
   			frame = frame * 62.5;
 			$(".video-container iframe").height(frame);
@@ -63,7 +67,8 @@ $( document ).ready(function() {
   		});
 
 		$(title).on('hidden.bs.modal', function(e) {
-	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
+	    	$(this).find('iframe').remove();
+
 		});
  	})
 
@@ -295,6 +300,8 @@ $( document ).ready(function() {
 			$("#up").css({"background-color": "white"});
 		}
 	});
+
+	$(".stream").css({"margin-top": $("#search_img").height()/4});
 
 	// $("#recommendation").on("submit", function(e){
 	// 	$(window).load(function(){

@@ -91,7 +91,7 @@
             <input class="hide_name" type="checkbox" name="netflix">
             <img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/>
             <input class="hide_name" type="checkbox" name="amazon">
-            <img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}">
+            <img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}">
             <input class="hide_name" type="checkbox" name="hulu">
             <img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
           </div>
@@ -137,7 +137,7 @@
       <div class="modal-body  video-container">
         <div class="row">
           <div class="col-lg-8">
-            <iframe id="vid" src="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1" allowfullscreen></iframe>
+            <input type="hidden" id="video" value="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1" >
               <div class="likes">
                 <span class="dislike pull-right"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
                 <span class="like pull-right"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
@@ -174,17 +174,17 @@
 
             {% if item.amazon_available %}
               {% if item.amazon is not None %}
-            <a target="blank" href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}"></a>
+            <a target="blank" href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
               {% else %}
-            <a target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/amazon.png' %}"></a>
+            <a target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
               {% endif %}
             {% endif %}
 
             {% if item.hulu_available %}
               {% if item.amazon is not None %}
-            <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
+            <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
             {% else %}
-            <a target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
+            <a target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
             {% endif %}
             {% endif %}
             </div>
