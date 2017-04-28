@@ -117,11 +117,35 @@ def search(request):
         search_query = request.POST['search_text']
         query = Movie.objects.all()
 
+        # Check if text is returned #
         if len(search_query) != 0:
             query = query.filter(title__icontains = search_query)
 
+        # Initialize site queries #
+        querynetflix = Movie.objects.none()
+        queryamazon = Movie.objects.none()
+        queryhulu = Movie.objects.none()
+        anychecked = False
+
+        # Check if any specific site is selected #
+        if not (("netflix" in request.POST) and ("amazon" in request.POST) and 
+                ("hulu" in request.POST)):
+            if "netflix" in request.POST:
+                querynetflix = query.filter(netflix_available = True)
+                anychecked = True
+            if "amazon" in request.POST:
+                queryamazon = query.filter(amazon_available = True)
+                anychecked = True
+            if "hulu" in request.POST:
+                queryhulu = query.filter(hulu_available = True)
+                anychecked = True
+
+        # No specific sites selected #
+        if anychecked: query = querynetflix | queryamazon | queryhulu
+        
+        query = query.distinct()
         results = query[:20]
 
         return render(request, 'movierec/search.html', {'results': results})
-        
+
     return render(request, 'movierec/search.html')
