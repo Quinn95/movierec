@@ -7,6 +7,8 @@ from utils import apiwrapper
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
 
+from useraccount.models import Profile
+
 # Create your views here.
 
 def home(request):
@@ -100,6 +102,7 @@ def recView(request):
         # Return all items #
         return render(request, 'movierec/recpage.html',
                      {'results': results,
+                      'profile': Profile.objects.get(user=request.user),
                       'user': request.user,
                       'people': Person.objects.all(),
                       'genres': Genre.objects.all(),
@@ -107,7 +110,8 @@ def recView(request):
 
     # Return all items #
     return render(request, 'movierec/recpage.html',
-                 {'user': request.user,
+                 {'profile': Profile.objects.get(user=request.user),
+                  'user': request.user,
                   'people': Person.objects.all(),
                   'genres': Genre.objects.all(),
                   'keywords': Keyword.objects.all()})
