@@ -113,4 +113,15 @@ def recView(request):
                   'keywords': Keyword.objects.all()})
 
 def search(request):
+    if request.method == 'POST':
+        search_query = request.POST['search_text']
+        query = Movie.objects.all()
+
+        if len(search_query) != 0:
+            query = query.filter(title__icontains = search_query)
+
+        results = query[:20]
+
+        return render(request, 'movierec/search.html', {'results': results})
+        
     return render(request, 'movierec/search.html')
