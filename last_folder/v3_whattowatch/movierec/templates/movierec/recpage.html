@@ -136,15 +136,15 @@
       <div class="modal-body  video-container">
         <div class="row">
           <div class="col-lg-8">
-            <iframe id="vid" src="{{ item.trailer }}" allowfullscreen></iframe>
+            <iframe id="vid" src="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1&start=100" allowfullscreen></iframe>
               <div class="likes">
-                <span class="like pull-left"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
                 <span class="dislike pull-right"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
+                <span class="like pull-right"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
               </div>
           </div>
           <div class="col-lg-4 text-col">
-            <h4>Summary:</h4>
-            <p> {{ item.summary }} </p>
+            <h4 class="summary">Summary:</h4>
+            <p class="summary"> {{ item.summary }} </p>
             <div class="gen">
             {% if item.genre.all|length == 1 %}
               <h4> Genre: </h4>
@@ -161,9 +161,8 @@
                 {% endif %}
               {% endfor %}
               </div>
-            <div>
+            <div class="stream">
               <h4>Available on:</h4>
-              <p class="enter">(click logo to watch)</p>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
@@ -181,7 +180,11 @@
             {% endif %}
 
             {% if item.hulu_available %}
+              {% if item.amazon is not None %}
             <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
+            {% else %}
+            <a target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu.png' %}"></a>
+            {% endif %}
             {% endif %}
             </div>
           </div>
@@ -203,7 +206,8 @@
   var tempkey = "";
   var keywords;
   var k = localStorage.getItem("keywords");
-  if(k == null || k == "" || k == " "){
+  
+  if(k == null || k.split(",") == "" || k.split(",") == " "){
 
 {% for key in keywords %}
 
