@@ -588,8 +588,14 @@ select::-ms-expand {
 input, select{
   color: black;
 }
-.col-md-5{
+.col-md-5, .col-md-4, .col-md-8, .col-md-9, .col-md-3{
   background-color: #373737 !important;
+}
+.list-group a:link, .list-group a:hover, .list-group a:active, .list-group a:visited{
+  color: black;
+}
+body.account-delete .account-delete, body.account-password .account-password, body.account-settings .account-settings{
+  background-color: orange;
 }
 
 
