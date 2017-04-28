@@ -581,8 +581,12 @@ select::-ms-expand {
   margin-top: 0px;
 }
 .loading_center{
+  width: 100%;
   text-align: center;
   vertical-align: middle;
+}
+.gif{
+  margin-left: 40%;
 }
 
 input, select{

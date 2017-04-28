@@ -101,7 +101,7 @@
   </div>
 </form>
 
-<div class="container-fluid center hide_name">
+<div class="container-fluid center">
  <div class="row__inner_recommendation">
 
 {% if results %}
@@ -195,18 +195,9 @@
 </div>
   {% endfor %}
 {% endif %}
-
-
-<div id="loading" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body" >
-        <img src="{% static 'movierec/images/loading.gif' %}"></img>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- <div class="loading-center">
+  <img class="gif" src="{% static 'movierec/images/loading.gif' %}"></img>
+</div> -->
 
 <div class="hide_name">
 <input type="hidden" id="hidden_keywords" value="" />
