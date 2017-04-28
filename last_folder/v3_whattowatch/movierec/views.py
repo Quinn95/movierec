@@ -102,7 +102,7 @@ def recView(request):
         # Return all items #
         return render(request, 'movierec/recpage.html',
                      {'results': results,
-                      'profile': Profile.objects.get(user=request.user),
+                      #'profile': Profile.objects.get(user=request.user),
                       'user': request.user,
                       'people': Person.objects.all(),
                       'genres': Genre.objects.all(),
@@ -110,7 +110,7 @@ def recView(request):
 
     # Return all items #
     return render(request, 'movierec/recpage.html',
-                 {'profile': Profile.objects.get(user=request.user),
+                 {#'profile': Profile.objects.get(user=request.user),
                   'user': request.user,
                   'people': Person.objects.all(),
                   'genres': Genre.objects.all(),
