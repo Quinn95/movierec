@@ -103,7 +103,7 @@ def recView(request):
 
         # Display first 20 results #
         query = query.distinct()
-        results = query[:20]
+        results = query[:70]
 
         # Return all items #
         return render(request, 'movierec/recpage.html',
@@ -154,7 +154,7 @@ def search(request):
         if anychecked: query = querynetflix | queryamazon | queryhulu
         
         query = query.distinct()
-        results = query[:20]
+        results = query[:100]
 
         return render(request, 'movierec/search.html', {'results': results})
 
