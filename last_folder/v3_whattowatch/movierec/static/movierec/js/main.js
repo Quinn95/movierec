@@ -296,12 +296,12 @@ $( document ).ready(function() {
 		}
 	});
 
-	$("#recommendation").on("submit", function(e){
-		$(window).load(function(){
-			$("#loading").modal("show");
-		});
-		e.preventDefault();
-	});
+	// $("#recommendation").on("submit", function(e){
+	// 	$(window).load(function(){
+	// 		$("#loading").modal("show");
+	// 	});
+	// 	e.preventDefault();
+	// });
 
 });
 
