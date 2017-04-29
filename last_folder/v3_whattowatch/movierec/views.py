@@ -124,6 +124,9 @@ def recView(request):
                   'keywords': Keyword.objects.all()})
 
 def search(request):
+    profile = None
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
     if request.method == 'POST':
         search_query = request.POST['search_text']
         query = Movie.objects.all()
@@ -156,9 +159,9 @@ def search(request):
         query = query.distinct()
         results = query[:100]
 
-        return render(request, 'movierec/search.html', {'results': results})
+        return render(request, 'movierec/search.html', {'results': results, 'profile': profile, 'user': request.user})
         
-    return render(request, 'movierec/search.html')
+    return render(request, 'movierec/search.html', {'profile': profile, 'user': request.user})
 
 
 def like_dislike(request):
