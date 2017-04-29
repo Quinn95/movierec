@@ -338,3 +338,4 @@ function imageSearch(input){
     	$( "input[name='"+input+"']" ).prop("checked", false);
     }		
 }
+

@@ -8,6 +8,9 @@ from utils import apiwrapper
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
 
+from useraccount.models import Profile
+
+
 # Create your views here.
 
 def home(request):
@@ -149,3 +152,22 @@ def search(request):
         return render(request, 'movierec/search.html', {'results': results})
         
     return render(request, 'movierec/search.html')
+
+
+def like_dislike(request):
+    if request.method == 'POST':
+        user = request.user
+        if user.is_authenticated:
+            profile = Profile.objects.get(user=user) 
+            movie = request.POST['movie']
+            like_dislike = request.POST['like_dislike']
+            if like_dislike == True:
+                profile.liked_movies.add(movie)
+            elif like_dislike == False:
+                profile.disliked_movies.add(movie)
+            profile.save()
+    return HttpResponse("/")
+
+
+            #like = True
+            #dislike = False
