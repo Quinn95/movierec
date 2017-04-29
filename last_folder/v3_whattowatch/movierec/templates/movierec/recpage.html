@@ -44,7 +44,7 @@
             <option value="es">Spanish</option>
             <option value="fr">French</option>
             <option value="pt">Portuguese</option>
-            <option value="zn">Chinese</option>
+            <option value="zh">Chinese</option>
             <option value="ja">Japanese</option>
             <option value="ko">Korean</option>
             <option value="vi">Vietnamese</option>
@@ -243,19 +243,22 @@ hidden_keywords.value = keywords;
   //         type : "POST", // http method
   //         data : { the_post : $('#post-text').val() }, // data sent with the post request
 
-  //         // handle a successful response
-  //         success : function(json) {
-  //             console.log(json); // log the returned json to the console
-  //             console.log("success"); // another sanity check
-  //         },
-
-  //         // handle a non-successful response
-  //         error : function(xhr,errmsg,err) {
-  //             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-  //         }
-  //     });
-  // });
-
 </script>
 {% include 'movierec/scripts.html' %}
+
+{% if profile %}
+{% if profile.show_netflix %}
+
+  <script>image('netflix');</script>
+  {% endif %}
+
+  {% if profile.show_amazon %}
+  <script>image('amazon');</script>
+  {% endif %}
+
+  {% if profile.show_hulu %}
+  <script>image('hulu');</script>
+  {% endif %}
+{% endif %}
+
 </body>

@@ -104,3 +104,15 @@
 </body>
 
 {% include 'movierec/scripts.html' %}
+
+{% if profile.show_netflix %}
+<script>imageSearch('netflix');</script>
+{% endif %}
+
+{% if profile.show_amazon %}
+<script>imageSearch('amazon');</script>
+{% endif %}
+
+{% if profile.show_hulu %}
+<script>imageSearch('hulu');</script>
+{% endif %}

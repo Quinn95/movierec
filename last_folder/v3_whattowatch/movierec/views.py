@@ -7,6 +7,11 @@ from utils import apiwrapper
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
 
+from v3_whattowatch.models import UserProfile
+
+from useraccount.models import Profile
+
+
 # Create your views here.
 
 def home(request):
@@ -22,6 +27,10 @@ USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
 def recView(request):
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+    else:
+        profile = None
     if request.method == 'POST':
 
         # Form name definitions #
@@ -100,6 +109,7 @@ def recView(request):
         # Return all items #
         return render(request, 'movierec/recpage.html',
                      {'results': results,
+                      'profile': profile,
                       'user': request.user,
                       'people': Person.objects.all(),
                       'genres': Genre.objects.all(),
@@ -108,11 +118,15 @@ def recView(request):
     # Return all items #
     return render(request, 'movierec/recpage.html',
                  {'user': request.user,
+                  'profile': profile, 
                   'people': Person.objects.all(),
                   'genres': Genre.objects.all(),
                   'keywords': Keyword.objects.all()})
 
 def search(request):
+    profile = None
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
     if request.method == 'POST':
         search_query = request.POST['search_text']
         query = Movie.objects.all()
@@ -145,6 +159,25 @@ def search(request):
         query = query.distinct()
         results = query[:100]
 
-        return render(request, 'movierec/search.html', {'results': results})
+        return render(request, 'movierec/search.html', {'results': results, 'profile': profile, 'user': request.user})
         
-    return render(request, 'movierec/search.html')
+    return render(request, 'movierec/search.html', {'profile': profile, 'user': request.user})
+
+
+def like_dislike(request):
+    if request.method == 'POST':
+        user = request.user
+        if user.is_authenticated:
+            profile = Profile.objects.get(user=user) 
+            movie = request.POST['movie']
+            like_dislike = request.POST['like_dislike']
+            if like_dislike == True:
+                profile.liked_movies.add(movie)
+            elif like_dislike == False:
+                profile.disliked_movies.add(movie)
+            profile.save()
+    return HttpResponse("/")
+
+
+            #like = True
+            #dislike = False
