@@ -15,7 +15,7 @@
         <div class="year">
           <h4 class="year_title">Choose a year Range: </h4> 
             <h4>From:</h4><span class="time"><select name="from" id="from"></select></span>
-            <h4>To:</h4><span class="time"><select name="to" id="to"></select></h4></span>
+            <h4>To:</h4><span class="time"><select name="to" id="to"></select></span>
         </div>
         <div class="choice">
           <h4>Genre:</h4>
@@ -163,7 +163,7 @@
               {% endfor %}
               </div>
             <div class="stream">
-              <h4>Available on:</h4>
+              <h4 class="available">Available on:</h4>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
@@ -201,10 +201,9 @@
 </div> -->
 
 <div class="hide_name">
-<input type="hidden" id="hidden_keywords" value="" />
+  <input type="hidden" id="hidden_keywords" value="" />
 </div>
 
-{% include 'movierec/scripts.html' %}
 <script>
 
 //keywords
@@ -229,18 +228,6 @@ localStorage.setItem("keywords", tempkey);
 var hidden_keywords = document.getElementById("hidden_keywords");
 hidden_keywords.value = keywords; 
 
-//   $.ajax({
-//   url: ".",
-//   success: function(data){
-//     console.log(data);
-//   }
-// });
-  $.getJSON("{% static 'movierec/js/file.json' %}", function(json){
-      console.log("Json data: " + json);
-    });
-
 </script>
-
-
-
+{% include 'movierec/scripts.html' %}
 </body>

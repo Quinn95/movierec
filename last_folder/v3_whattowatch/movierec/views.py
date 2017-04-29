@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core import serializers
 
 from utils import gbox, heist
 from utils import apiwrapper
-import json
 
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
@@ -22,7 +20,6 @@ def test(request):
 # Defined user ratings #
 USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
-
 
 def recView(request):
     if request.method == 'POST':
