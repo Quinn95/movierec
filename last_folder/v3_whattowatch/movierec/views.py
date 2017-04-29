@@ -8,6 +8,8 @@ from utils import apiwrapper
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
 
+from v3_whattowatch.models import UserProfile
+
 from useraccount.models import Profile
 
 
@@ -112,6 +114,7 @@ def recView(request):
     # Return all items #
     return render(request, 'movierec/recpage.html',
                  {'user': request.user,
+                  'profile': UserProfile.objects.get(user=request.user),
                   'people': Person.objects.all(),
                   'genres': Genre.objects.all(),
                   'keywords': Keyword.objects.all()})
