@@ -22,7 +22,7 @@
           <select name="genre" id="genre">
             <option value="Any">Any</option>
             {% for genre in genres %}
-            <option value="{{genre}}">{{genre}}</option>
+              <option value="{{genre}}">{{genre}}</option>
             {% endfor %}
           </select>
 
@@ -204,7 +204,7 @@
 <input type="hidden" id="hidden_keywords" value="" />
 </div>
 
-
+{% include 'movierec/scripts.html' %}
 <script>
 
 //keywords
@@ -229,19 +229,18 @@ localStorage.setItem("keywords", tempkey);
 var hidden_keywords = document.getElementById("hidden_keywords");
 hidden_keywords.value = keywords; 
 
-  // $.getJSON("{% static 'movierec/js/keywords.json' %}", function(json){
-  //   console.log("Json data: " + json);
-  // });
-  $.ajax({
-  url: ".",
-  success: function(data){
-    console.log(data);
-  }
-});
+//   $.ajax({
+//   url: ".",
+//   success: function(data){
+//     console.log(data);
+//   }
+// });
+  $.getJSON("{% static 'movierec/js/file.json' %}", function(json){
+      console.log("Json data: " + json);
+    });
 
 </script>
 
 
-{% include 'movierec/scripts.html' %}
 
 </body>
