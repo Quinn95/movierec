@@ -241,16 +241,17 @@ hidden_keywords.value = keywords;
 
 </script>
 
-{% if profile.show_netflix %}
-<script>image('netflix');</script>
-{% endif %}
+{% if profile %}
+  {% if profile.show_netflix %}
+  <script>image('netflix');</script>
+  {% endif %}
 
-{% if profile.show_amazon %}
-<script>image('amazon');</script>
-{% endif %}
+  {% if profile.show_amazon %}
+  <script>image('amazon');</script>
+  {% endif %}
 
-{% if profile.show_hulu %}
-<script>image('hulu');</script>
+  {% if profile.show_hulu %}
+  <script>image('hulu');</script>
+  {% endif %}
 {% endif %}
-
 </body>
