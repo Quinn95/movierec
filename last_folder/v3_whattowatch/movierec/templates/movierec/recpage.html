@@ -233,18 +233,53 @@ localStorage.setItem("keywords", tempkey);
 
 var hidden_keywords = document.getElementById("hidden_keywords");
 hidden_keywords.value = keywords; 
+</script>
 
-  // AJAX for posting
-  // $("#recommendation").on('submit', function(e){
-  //   e.preventDefault();
-  //     console.log("success"); // sanity check
-  //     $.ajax({
-  //         url : "{% url 'recommendations' %}", // the endpoint
-  //         type : "POST", // http method
-  //         data : { the_post : $('#post-text').val() }, // data sent with the post request
+{% include 'movierec/scripts.html' %}
+<script>
+  $(".tile").on("click", function(){
+    var movie = $(this).find(".tile__title").text().trim();
+    var index = movie.lastIndexOf(" ");
+
+    var title = $(this).attr("data-target");
+    $(title).on('shown.bs.modal', function(){
+      var id = $(this).attr("id");
+      $(".up" + id).on('click', function(){
+          like_dislike(true, movie.substring(0, index));
+      });
+      $(".down" + id).on('click', function(){
+          like_dislike(false, movie.substring(0, index));
+      });
+
+    });
+  });
+
+  function like_dislike(input, movie_name){
+    //AJAX for posting
+    console.log("submitting"); // sanity check
+    $.ajax({
+        url : "{% url 'like_dislike' %}", // the endpoint
+        type : "POST", // http method
+        data : { 
+          like_dislike : input, 
+          movie : movie_name,
+          csrfmiddlewaretoken: '{{ csrf_token }}' }, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            console.log(json); // log the returned json to the console
+            console.log("success"); // another sanity check
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+  }
 
 </script>
-{% include 'movierec/scripts.html' %}
+
 
 {% if profile %}
 {% if profile.show_netflix %}

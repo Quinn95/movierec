@@ -170,6 +170,7 @@ a:hover {
   position: absolute;
   bottom: 0;
   padding: 10px;
+
 }
 /*.row__inner:hover {
   -webkit-transform: translate3d(0px, 0, 10px);
@@ -630,6 +631,9 @@ body.account-delete .account-delete, body.account-password .account-password, bo
 .search_logo{
   margin-bottom: 5px;
 }
+/*.title{
+  display: inline-block;
+}*/
 
 
 @media (max-width: 1199px){

@@ -60,6 +60,7 @@ $( document ).ready(function() {
   			var frame = $(title).find("#vid").width()/100;
   			frame = frame * 62.5;
 			$(".video-container iframe").height(frame);
+
 			var id = $(this).attr("id");
 			$(".up" + id).on('click', function(){
 				$(this).css({"background-color": "orange"});
