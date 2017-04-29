@@ -60,6 +60,21 @@ $( document ).ready(function() {
   			var frame = $(title).find("#vid").width()/100;
   			frame = frame * 62.5;
 			$(".video-container iframe").height(frame);
+			var id = $(this).attr("id");
+			$(".up" + id).on('click', function(){
+				$(this).css({"background-color": "orange"});
+
+				if( $(".down" + id).css("background-color") == 'rgb(255, 165, 0)'){
+					$(".down" + id).css({"background-color": "white"});
+				}
+			});
+			$(".down" + id).on('click', function(){
+				$(this).css({"background-color": "orange"});
+
+				if( $(".up" + id).css("background-color") == 'rgb(255, 165, 0)'){
+					$(".up" + id).css({"background-color": "white"});
+				}
+			});
   		});
   		$(window).resize(function(){
   			var frame = $(title).find("#vid").width()/100;
@@ -223,31 +238,6 @@ $( document ).ready(function() {
 		backspace("keywords");
 	});
 
-	function split( val ) {
-		return val.split( /,\s*/ );
-	}
-	function extractLast( term ) {
-		return split( term ).pop();
-	}
-
-	function backspace(input) {
-		$("#" + input).on("keydown", function(e){
-			var key = event.keyCode || event.charCode;
-
-			if( key == 8 || key == 46 ){
-				if(!$("#" + input).val()){
-					$("." + input).children(".tag").last().remove();
-					if($("." + input).find(".tag").length === 0){
-						renew(input);
-					}
-					return false;
-				}
-			}
-			if(e.which == 13){
-				event.preventDefault();
-			}
-		});
-	};
 	$(document).on('click', '.tag', function(){
 		var parent = $(this).parent();
 		var text = parent.attr("class");
@@ -256,14 +246,6 @@ $( document ).ready(function() {
 			renew(text);
 		}
     });
-    function renew(input){
-		if(input === "keywords"){
-			$("#" + input).attr("placeholder", "Alice, Man, Spider");
-		}
-		else{
-			$("#" + input).attr("placeholder", "Will Smith");
-		}
-    }
 
 	$(window).load(function(){
 		$(".nav").find("a").each(function(){
@@ -283,21 +265,6 @@ $( document ).ready(function() {
 
     	return false;
 
-	});
-	// $("#up").on('click', function(){
-	// 	$(this).css({"background-color": "orange"});
-	// 	if( $("#down").css("background-color") == 'rgb(255, 165, 0)'){
-	// 		$("#down").css({"background-color": "white"});
-	// 	}
-	// });
-	// $("#down").on('click', function(){
-	// 	$(this).css({"background-color": "orange"});
-	// 	if( $("#up").css("background-color") == 'rgb(255, 165, 0)'){
-	// 		$("#up").css({"background-color": "white"});
-	// 	}
-	// });
-	$("#up").on("click", function(){
-		alert("bitch");
 	});
 
 	$(".stream").css({"margin-top": $("#search_img").height()/4});
@@ -330,3 +297,36 @@ function imageSearch(input){
     	$( "input[name='"+input+"']" ).prop("checked", false);
     }		
 }
+function renew(input){
+	if(input === "keywords"){
+		$("#" + input).attr("placeholder", "Alice, Man, Spider");
+	}
+	else{
+		$("#" + input).attr("placeholder", "Will Smith");
+	}
+}
+function split( val ) {
+	return val.split( /,\s*/ );
+}
+function extractLast( term ) {
+	return split( term ).pop();
+}
+
+function backspace(input) {
+	$("#" + input).on("keydown", function(e){
+		var key = event.keyCode || event.charCode;
+
+		if( key == 8 || key == 46 ){
+			if(!$("#" + input).val()){
+				$("." + input).children(".tag").last().remove();
+				if($("." + input).find(".tag").length === 0){
+					renew(input);
+				}
+				return false;
+			}
+		}
+		if(e.which == 13){
+			event.preventDefault();
+		}
+	});
+};

@@ -3,12 +3,18 @@ body, body legend{
   color: #DCD0C0;
 }
 
-.navbar{
+.navbar, .navbar-collapse{
   background-color: #F4F4F4;
 }
 .navbar-brand img{
   width: 110px; 
   height: 55px;
+}
+.navbar-toggle{
+  margin-top: 17px;
+  margin-bottom: 0;
+  color: black;
+  background-color: black;
 }
 a.active{
   color: #ea372e !important;
@@ -675,6 +681,11 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   .year h4{
     display: block !important;
     margin-top: 10px;
+  }
+}
+@media (max-width: 765px){
+  .navbar-collapse{
+    margin-top: 18px;
   }
 }
 @media (max-width: 745px){
