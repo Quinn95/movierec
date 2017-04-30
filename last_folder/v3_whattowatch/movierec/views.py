@@ -30,7 +30,7 @@ def home(request):
 
     vote_average = query.order_by('-vote_average')[:30]
         
-    return render(request, 'movierec/search.html', 
+    return render(request, 'movierec/home.html', 
                             {'profile': profile, 
                             'user': request.user, 
                             'trending': trending, 
@@ -105,7 +105,6 @@ def recView(request):
         querynetflix = Movie.objects.none()
         queryamazon = Movie.objects.none()
         queryhulu = Movie.objects.none()
-        queryhbo = Movie.objects.none()
         anychecked = False
 
         # Check if any specific site is selected #
@@ -119,12 +118,10 @@ def recView(request):
         if (request.POST["hulu"] == "true"):
             queryhulu = query.filter(hulu_available = True)
             anychecked = True
-        if (request.POST["hbo"] == "true"):
-            queryhbo = query.filter(hbo_available = True)
 
         # No specific sites selected #
         if anychecked: 
-            query = querynetflix | queryamazon | queryhulu | queryhbo
+            query = querynetflix | queryamazon | queryhulu
 
         # Display first 20 results #
         query = query.distinct()
