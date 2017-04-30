@@ -17,7 +17,7 @@ def test():
     # createGenres()
     # populateMovieDetails()
     #getStreamingLinks(identifier=128834)
-    getManualLinks()
+    #getManualLinks()
 
 
 def getNetflixMovies():
