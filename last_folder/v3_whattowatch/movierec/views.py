@@ -15,8 +15,28 @@ from useraccount.models import Profile
 # Create your views here.
 
 def home(request):
-    user = request.user
-    return render(request, 'movierec/home.html', {'user': user, 'movies' : None})
+    profile = None
+    if request.user.is_authenticated:
+        #profile = UserProfile.objects.get(user=request.user)
+        profile = None
+    
+    query = Movie.objects.all()
+
+    trending = query.sort_by('-popularity')[:30]
+
+    recent = query.sort_by('-date')[:30]
+
+    random = query.order_by('?')[:30]
+
+    vote_average = query.sort_by('-vote_average')[:30]
+        
+    return render(request, 'movierec/search.html', 
+                            {'profile': profile, 
+                            'user': request.user, 
+                            'trending': trending, 
+                            'recent': recent, 
+                            'random': random, 
+                            'vote_average': vote_average})
 
 def test(request):
     heist.test()
@@ -183,27 +203,3 @@ def like_dislike(request):
             #like = True
             #dislike = False
 
-
-def homepage(request):
-    profile = None
-    if request.user.is_authenticated:
-        #profile = UserProfile.objects.get(user=request.user)
-        profile = None
-    
-    query = Movie.objects.all()
-
-    trending = query.sort_by('-popularity')[:20]
-
-    recent = query.sort_by('-date')[:20]
-
-    random = query.order_by('?')[:20]
-
-    vote_average = query.sort_by('-vote_average')[:20]
-        
-    return render(request, 'movierec/search.html', 
-                            {'profile': profile, 
-                            'user': request.user, 
-                            'trending': trending, 
-                            'recent': recent, 
-                            'random': random, 
-                            'vote_average': vote_average})
