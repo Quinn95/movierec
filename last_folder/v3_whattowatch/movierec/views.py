@@ -28,7 +28,7 @@ USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
 
 def recView(request):
     if request.user.is_authenticated:
-        None
+        profile = None
         #profile = UserProfile.objects.get(user=request.user)
     else:
         profile = None
