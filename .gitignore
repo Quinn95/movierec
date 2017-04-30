@@ -10,4 +10,4 @@ site_media/
 env/
 .idea/
 *.sqlite3
-
+migrations/
