@@ -55,16 +55,15 @@ def recView(request):
 
         # Check if any people were selected #
         peoplelist = request.POST.getlist('people[]')
-        print [person for person in peoplelist]
         if len(peoplelist) > 0:
-            peoplequerylist = map(lambda x: Person.objects.filter(name__icontains = x).first(), people)
+            peoplequerylist = map(lambda x: Person.objects.filter(name__icontains = x).first(), peoplelist)
             query = query.filter(people__in = peoplequerylist)
         
         # Check if any keywords were inputted #
-        # keywords = request.POST.getlist('keywords')
-        # if len(keywords) > 0:
-        #     keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
-        #     query = query.filter(keywords__in = keylist)
+        keywords = request.POST.getlist('keywords')
+        if len(keywords) > 0:
+            keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
+            query = query.filter(keywords__in = keylist)
 
         # Check against initial time range #
         if timerange[0] != "-----": #we need to change
