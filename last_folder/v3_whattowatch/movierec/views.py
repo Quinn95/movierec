@@ -121,6 +121,7 @@ def recView(request):
             anychecked = True
         if (request.POST["hbo"] == "true"):
             queryhbo = query.filter(hbo_available = True)
+            anychecked = True
 
         # No specific sites selected #
         if anychecked: 
@@ -179,6 +180,7 @@ def search(request):
             anychecked = True
         if (request.POST["hbo"] == "true"):
             queryhbo = query.filter(hbo_available = True)
+            anychecked = True
 
         # No specific sites selected #
         if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
