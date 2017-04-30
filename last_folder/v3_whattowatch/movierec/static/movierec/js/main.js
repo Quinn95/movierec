@@ -53,8 +53,10 @@ $( document ).ready(function() {
 
   			var iframe_div = $(this).find(".col-lg-8");
   			if(iframe_div.find("iframe").length){
-  			} else{
+  			} else if(iframe_div.find("iframe").attr("name") === "trailer"){
   				iframe_div.prepend("<iframe id='vid' src='"+youtube+"' allowfullscreen></iframe>");
+  			} else{
+  				$("<iframe id='vid' src='"+youtube+"'></iframe>").insertAfter($("#no-trailer"));
   			}
 
   			var frame = $(title).find("#vid").width()/100;
