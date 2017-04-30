@@ -636,7 +636,12 @@ body.account-delete .account-delete, body.account-password .account-password, bo
 .search_logo{
   margin-bottom: 5px;
 }
-
+.carousel{
+  margin-top: 30px;
+}
+.carousel h4{
+  margin-top: 0;
+}
 
 @media (max-width: 1199px){
   .text-col{

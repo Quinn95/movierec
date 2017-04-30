@@ -21,6 +21,8 @@
 	            <img id="amazon" class="stream-search streaming logo__img" src="{% static 'movierec/images/amazon_black.png' %}">
 	            <input id="hs" class="hide_name" type="checkbox" name="hulu">
 	            <img id="hulu" class="stream-search streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
+	            <input id="hbs" class="hide_name" type="checkbox" name="hbo">
+	            <img id="hbo" class="stream-search streaming logo__img" src="{% static 'movierec/images/hbo_now_black.png' %}">
 	        </div>
 	        <input class="submit_search" type="submit" value="submit" name="Submit">
         </form>
@@ -89,10 +91,18 @@
 		            {% endif %}
 
 		            {% if result.hulu_available %}
-		              {% if result.amazon is not None %}
+		              {% if result.hulu is not None %}
 		            <a class="search_logo" target="blank" href="{{result.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
 		            {% else %}
 		            <a class="search_logo" target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+		            {% endif %}
+		            {% endif %}
+
+		            {% if result.hbo_available %}
+		              {% if result.hbo is not None %}
+		            <a class="search_logo" target="blank" href="{{result.hbo}}"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"></a>
+		            {% else %}
+		            <a class="search_logo" target="blank" href="https://www.hbonow.com"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"></a>
 		            {% endif %}
 		            {% endif %}
 	            </div>

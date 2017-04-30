@@ -96,6 +96,9 @@ $( document ).ready(function() {
 	$('.streaming-services-search #hulu').on('click', function() {
 		imageSearch("hulu");
 	}); 
+	$('.streaming-services-search #hbo').on('click', function() {
+		imageSearch("hbo");
+	}); 
 
 	$('.streaming_choice #netflix').on('click', function() {
 		image("netflix");
@@ -107,6 +110,10 @@ $( document ).ready(function() {
 
 	$('.streaming_choice #hulu').on('click', function() {
 		image("hulu");
+	}); 
+
+	$('.streaming_choice #hbo').on('click', function() {
+		image("hbo");
 	}); 
 
 	$(".people").on("click", function(){
@@ -320,6 +327,9 @@ $( document ).ready(function() {
   var do_search = false;
   $("#search-form").on('submit', function(e){
     e.preventDefault();
+    var pageNum = 1; // The latest page loaded
+	var hasNextPage = true; // Indicates whether to expect another page after this one
+    $(window).bind('scroll', loadOnScroll);
     if(search_title !== $(this).find("#search_text").val()){
     	search_title = $(this).find("#search_text").val();
     	do_search = true;
@@ -437,7 +447,6 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
         	$('html, body').animate({
     			scrollTop: $("#insert").offset().top - 70
 			}, 1000);
-	        // console.log(data.split("<!-- END -->")[1])
 	    },
 
 	    // handle a non-successful response
@@ -462,7 +471,8 @@ function modal(){
   				iframe_div.prepend("<iframe id='vid' src='"+youtube+"' allowfullscreen></iframe>");
   			} else if(iframe_div.find("input").attr("name") === "bunny"){
   				$("<iframe class='ytplayer' id='vid' src='"+youtube+"&autoplay=1' volume='0'></iframe>").insertAfter($("#no-trailer"));
-  				var mute = iframe_div.find('iframe');
+  				var vid = document.getElementById("vid");
+				vid.volume = 0;
   			}
 
   			var frame = $(title).find("#vid").width()/100;
@@ -522,3 +532,45 @@ function arraysEqual(a, b) {
   }
   return true;
 }
+// // loadOnScroll handler
+// function loadOnScroll() {
+//    // If the current scroll position is past out cutoff point...
+//     if ($(window).scrollTop() > $(document).height() - ($(window).height()*2)) {
+//         // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
+//         $(window).unbind(); 
+//         // execute the load function below that will visit the JSON feed and stuff data into the HTML
+//         loadItems();
+//     }
+// };
+
+// function loadItems() {
+//     // If the next page doesn't exist, just quit now 
+//     if (hasNextPage === false) {
+//         return false
+//     }
+//     // Update the page number
+//     pageNum = pageNum + 1;
+//     // Configure the url we're about to hit
+//     $.ajax({
+//         url: '',
+//         data: {page_number: pageNum},
+//         dataType: 'json',
+//         success: function(data) {
+//             // Update global next page variable
+//             hasNextPage = true;//.hasNext;
+//             // Loop through all items
+//             for (i in data) {
+//                 $("#newItems").before(
+//                 // Do something with your json object response
+//             }
+//         },
+//         error: function(data) {
+//             // When I get a 400 back, fail safely
+//             hasNextPage = false
+//         },
+//         complete: function(data, textStatus){
+//             // Turn the scroll monitor back on
+//             $(window).bind('scroll', loadOnScroll);
+//         }
+//     });
+// };
