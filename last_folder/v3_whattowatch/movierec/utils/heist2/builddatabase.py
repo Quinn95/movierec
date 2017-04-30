@@ -17,7 +17,7 @@ def populateNetflix():
 
 			e = Movie.objects.filter(identifier=int(result['id']))
 
-			if len(e):
+			if len(e) == 0:
 				m = Movie(identifier=result['id'],
                           themoviedb=result['themoviedb'],
                           imdb=result['imdb'],
@@ -28,7 +28,7 @@ def populateNetflix():
                           poster=result['poster_400x570'],
                           title=result['title'],
                           date=result['release_year'],
-                          netflix_available=True))
+                          netflix_available=True)
 				m.save()
 			else:
 				obj = Movie.objects.get(identifier=int(result['id']))
@@ -51,7 +51,7 @@ def populateAmazon():
 
 			e = Movie.objects.filter(identifier=int(result['id']))
 
-			if len(e):
+			if len(e) == 0:
 				m = Movie(identifier=result['id'],
                           themoviedb=result['themoviedb'],
                           imdb=result['imdb'],
@@ -62,7 +62,7 @@ def populateAmazon():
                           poster=result['poster_400x570'],
                           title=result['title'],
                           date=result['release_year'],
-                          amazon_available=True))
+                          amazon_available=True)
 				m.save()
 			else:
 				obj = Movie.objects.get(identifier=int(result['id']))
@@ -85,7 +85,7 @@ def populateHulu():
 
 			e = Movie.objects.filter(identifier=int(result['id']))
 
-			if len(e):
+			if len(e) == 0:
 				m = Movie(identifier=result['id'],
                           themoviedb=result['themoviedb'],
                           imdb=result['imdb'],
@@ -96,7 +96,7 @@ def populateHulu():
                           poster=result['poster_400x570'],
                           title=result['title'],
                           date=result['release_year'],
-                          hulu_available=True))
+                          hulu_available=True)
 				m.save()
 			else:
 				obj = Movie.objects.get(identifier=int(result['id']))
@@ -119,7 +119,7 @@ def populateHbo():
 
 			e = Movie.objects.filter(identifier=int(result['id']))
 
-			if len(e):
+			if len(e) == 0:
 				m = Movie(identifier=result['id'],
                           themoviedb=result['themoviedb'],
                           imdb=result['imdb'],
@@ -130,7 +130,7 @@ def populateHbo():
                           poster=result['poster_400x570'],
                           title=result['title'],
                           date=result['release_year'],
-                          hbo_available=True))
+                          hbo_available=True)
 				m.save()
 			else:
 				obj = Movie.objects.get(identifier=int(result['id']))
@@ -194,7 +194,7 @@ def getManualLinks():
 					movie.hbo = hbo_link
 				movie.save()
 
-populateNetflix()
-populateAmazon()
-populateHulu()
-populateHbo()
+#populateNetflix()
+#populateAmazon()
+#populateHulu()
+#populateHbo()
