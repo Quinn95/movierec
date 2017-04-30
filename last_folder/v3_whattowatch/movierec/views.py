@@ -9,16 +9,13 @@ from .models import Movie, Genre, Person, Keyword, Person, Language
 
 from useraccount.models import UserProfile
 
-from useraccount.models import Profile
-
 
 # Create your views here.
 
 def home(request):
     profile = None
     if request.user.is_authenticated:
-        #profile = UserProfile.objects.get(user=request.user)
-        profile = None
+        profile = UserProfile.objects.get(user=request.user)
     
     query = Movie.objects.all()
 
@@ -48,8 +45,7 @@ USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
 
 def recView(request):
     if request.user.is_authenticated:
-        profile = None
-        #profile = UserProfile.objects.get(user=request.user)
+        profile = UserProfile.objects.get(user=request.user)
     else:
         profile = None
     if request.method == 'POST':
@@ -118,6 +114,12 @@ def recView(request):
         if (request.POST["hulu"] == "true"):
             queryhulu = query.filter(hulu_available = True)
             anychecked = True
+<<<<<<< HEAD
+=======
+        if (request.POST["hbo"] == "true"):
+            queryhbo = query.filter(hbo_available = True)
+            anychecked = True
+>>>>>>> 9bccfa42edf2a659a554332b9017c9e42f0fe36b
 
         # No specific sites selected #
         if anychecked: 
@@ -147,8 +149,8 @@ def recView(request):
 def search(request):
     profile = None
     if request.user.is_authenticated:
-        #profile = UserProfile.objects.get(user=request.user)
-        profile = None
+        profile = UserProfile.objects.get(user=request.user)
+    
     if request.method == 'POST':
         search_query = request.POST['search_text']
         print search_query
@@ -161,6 +163,7 @@ def search(request):
         querynetflix = Movie.objects.none()
         queryamazon = Movie.objects.none()
         queryhulu = Movie.objects.none()
+        queryhbo = Movie.objects.none()
         anychecked = False
 
         # Check if any specific site is selected #
@@ -173,9 +176,12 @@ def search(request):
         if (request.POST["hulu"] == "true"):
             queryhulu = query.filter(hulu_available = True)
             anychecked = True
+        if (request.POST["hbo"] == "true"):
+            queryhbo = query.filter(hbo_available = True)
+            anychecked = True
 
         # No specific sites selected #
-        if anychecked: query = querynetflix | queryamazon | queryhulu
+        if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
         
         query = query.distinct()
         results = query[:100]
@@ -189,14 +195,14 @@ def like_dislike(request):
     if request.method == 'POST':
         user = request.user
         if user.is_authenticated:
-            profile = Profile.objects.get(user=user) 
+            #profile = Profile.objects.get(user=user) 
             movie = request.POST['movie']
             like_dislike = request.POST['like_dislike']
             if like_dislike == True:
-                profile.liked_movies.add(movie)
+                #profile.liked_movies.add(movie)
             elif like_dislike == False:
-                profile.disliked_movies.add(movie)
-            profile.save()
+                #profile.disliked_movies.add(movie)
+            #profile.save()
     return HttpResponse("/")
 
 
