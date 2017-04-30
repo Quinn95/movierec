@@ -683,7 +683,7 @@ body.account-delete .account-delete, body.account-password .account-password, bo
 /*  .year_title h4{
     display: block !important;
   }*/
-@media (max-width: 880px){
+@media (max-width: 1050px){
   .year h4{
     display: block !important;
     margin-top: 10px;
