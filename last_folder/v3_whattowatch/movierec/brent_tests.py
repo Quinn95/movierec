@@ -361,5 +361,301 @@ class TestRecommendationsForm(LiveServerTestCase):
         modal = self.browser.find_element_by_id("myModal14235")
         self.browser.implicitly_wait(20)
 
+    def test_genre_comedy_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        genre_input = self.browser.find_element_by_name('genre')
+        for option in genre_input.find_elements_by_tag_name('option'):
+            if option.text == "Comedy":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+    def test_year_range_again_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+    def test_rating_r_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "R":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+    def test_language_english_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        language_input = self.browser.find_element_by_name('language')
+        for option in language_input.find_elements_by_tag_name('option'):
+            if option.text == "English":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+    def test_year_range_again_(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+
+    def test_tropic_thunder_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        genre_input = self.browser.find_element_by_name('genre')
+        for option in genre_input.find_elements_by_tag_name('option'):
+            if option.text == "Action":
+                option.click()
+                break
+        user_input = self.browser.find_element_by_name('imdb')
+        for option in user_input.find_elements_by_tag_name('option'):
+            if option.text == "6-8":
+                option.click()
+                break
+        language_input = self.browser.find_element_by_name('language')
+        for option in language_input.find_elements_by_tag_name('option'):
+            if option.text == "English":
+                option.click()
+                break
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "R":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+    def test_chicago_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        user_input = self.browser.find_element_by_name('imdb')
+        for option in user_input.find_elements_by_tag_name('option'):
+            if option.text == "6-8":
+                option.click()
+                break
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "PG-13":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+
+    def test_back_to_back_again(self):
+        self.browser.get("http://localhost:8000/movierec/form/")
+        genre_input = self.browser.find_element_by_name('genre')
+        for option in genre_input.find_elements_by_tag_name('option'):
+            if option.text == "Comedy":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "R":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        language_input = self.browser.find_element_by_name('language')
+        for option in language_input.find_elements_by_tag_name('option'):
+            if option.text == "English":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2008":
+                option.click()
+                break
+        genre_input = self.browser.find_element_by_name('genre')
+        for option in genre_input.find_elements_by_tag_name('option'):
+            if option.text == "Action":
+                option.click()
+                break
+        user_input = self.browser.find_element_by_name('imdb')
+        for option in user_input.find_elements_by_tag_name('option'):
+            if option.text == "6-8":
+                option.click()
+                break
+        language_input = self.browser.find_element_by_name('language')
+        for option in language_input.find_elements_by_tag_name('option'):
+            if option.text == "English":
+                option.click()
+                break
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "R":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal34688")
+        self.browser.implicitly_wait(20)
+
+        from_input = self.browser.find_element_by_name('from')
+        for option in from_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        to_input = self.browser.find_element_by_name('to')
+        for option in to_input.find_elements_by_tag_name('option'):
+            if option.text == "2002":
+                option.click()
+                break
+        user_input = self.browser.find_element_by_name('imdb')
+        for option in user_input.find_elements_by_tag_name('option'):
+            if option.text == "6-8":
+                option.click()
+                break
+        rating_input = self.browser.find_element_by_name('rating')
+        for option in rating_input.find_elements_by_tag_name('option'):
+            if option.text == "PG-13":
+                option.click()
+                break
+        submit_input = self.browser.find_element_by_name('Submit')
+        submit_input.click()
+        modal = self.browser.find_element_by_id("myModal14235")
+        self.browser.implicitly_wait(20)
+
     def tearDown(self):
         self.browser.quit()
