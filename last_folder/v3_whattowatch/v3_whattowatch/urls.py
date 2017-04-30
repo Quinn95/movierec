@@ -7,6 +7,7 @@ from django.contrib import admin
 
 from useraccount.views import SignupView
 
+#changed
 
 urlpatterns = [
     url(r"^", include('movierec.urls'), name="homepage"),
