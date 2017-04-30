@@ -63,6 +63,8 @@ class Movie(models.Model):
     amazon_available = models.BooleanField(default=False)
     hulu = models.CharField(max_length=200, null=True,blank=True)
     hulu_available = models.BooleanField(default=False)
+    hbo = models.CharField(max_length=200, null=True,blank=True)
+    hbo_available = models.BooleanField(default=False)
     trailer = models.CharField(max_length=200, null=True)
     keywords = models.ManyToManyField(Keyword)
     tmdb_get = models.BooleanField(default=False)

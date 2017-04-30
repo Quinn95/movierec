@@ -6,6 +6,6 @@ class Command(BaseCommand):
     help = "generates movies"
 
     def handle(self, **options):
-        heist.test()
-
+        heist.createGenres()
+        heist.populateMovieDetails()
 
