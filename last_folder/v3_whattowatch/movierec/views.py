@@ -9,16 +9,13 @@ from .models import Movie, Genre, Person, Keyword, Person, Language
 
 from useraccount.models import UserProfile
 
-from useraccount.models import Profile
-
 
 # Create your views here.
 
 def home(request):
     profile = None
     if request.user.is_authenticated:
-        #profile = UserProfile.objects.get(user=request.user)
-        profile = None
+        profile = UserProfile.objects.get(user=request.user)
     
     query = Movie.objects.all()
 
@@ -48,8 +45,7 @@ USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
 
 def recView(request):
     if request.user.is_authenticated:
-        profile = None
-        #profile = UserProfile.objects.get(user=request.user)
+        profile = UserProfile.objects.get(user=request.user)
     else:
         profile = None
     if request.method == 'POST':
@@ -150,8 +146,8 @@ def recView(request):
 def search(request):
     profile = None
     if request.user.is_authenticated:
-        #profile = UserProfile.objects.get(user=request.user)
-        profile = None
+        profile = UserProfile.objects.get(user=request.user)
+    
     if request.method == 'POST':
         search_query = request.POST['search_text']
         print search_query
@@ -192,14 +188,14 @@ def like_dislike(request):
     if request.method == 'POST':
         user = request.user
         if user.is_authenticated:
-            profile = Profile.objects.get(user=user) 
+            #profile = Profile.objects.get(user=user) 
             movie = request.POST['movie']
             like_dislike = request.POST['like_dislike']
             if like_dislike == True:
-                profile.liked_movies.add(movie)
+                #profile.liked_movies.add(movie)
             elif like_dislike == False:
-                profile.disliked_movies.add(movie)
-            profile.save()
+                #profile.disliked_movies.add(movie)
+            #profile.save()
     return HttpResponse("/")
 
 
