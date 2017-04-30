@@ -182,3 +182,28 @@ def like_dislike(request):
 
             #like = True
             #dislike = False
+
+
+def homepage(request):
+    profile = None
+    if request.user.is_authenticated:
+        #profile = UserProfile.objects.get(user=request.user)
+        profile = None
+    
+    query = Movie.objects.all()
+
+    trending = query.sort_by('-popularity')[:20]
+
+    recent = query.sort_by('-date')[:20]
+
+    random = query.order_by('?')[:20]
+
+    vote_average = query.sort_by('-vote_average')[:20]
+        
+    return render(request, 'movierec/search.html', 
+                            {'profile': profile, 
+                            'user': request.user, 
+                            'trending': trending, 
+                            'recent': recent, 
+                            'random': random, 
+                            'vote_average': vote_average})
