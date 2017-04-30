@@ -11,7 +11,14 @@ from django.dispatch import receiver
 
 # https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    show_netflix = models.BooleanField(default=False)
+    show_amazon = models.BooleanField(default=False)
+    show_hulu = models.BooleanField(default=False)
 
+    def __str__(self):
+    	return self.user.username
 
 
 @python_2_unicode_compatible

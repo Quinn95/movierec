@@ -7,7 +7,7 @@ from utils import apiwrapper
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
 
-from v3_whattowatch.models import UserProfile
+from useraccount.models import UserProfile
 
 from useraccount.models import Profile
 
