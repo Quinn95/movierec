@@ -44,53 +44,6 @@ $( document ).ready(function() {
 
 	});
 
-
-
-  	$(".tile").on("click", function(){
-  		var title = $(this).attr("data-target");
-  		$(title).on('shown.bs.modal', function(){
-  			var youtube = $(this).find("#video").val();
-
-  			var iframe_div = $(this).find(".col-lg-8");
-  			if(iframe_div.find("iframe").length){
-  			} else if(iframe_div.find("iframe").attr("name") === "trailer"){
-  				iframe_div.prepend("<iframe id='vid' src='"+youtube+"' allowfullscreen></iframe>");
-  			} else{
-  				$("<iframe id='vid' src='"+youtube+"'></iframe>").insertAfter($("#no-trailer"));
-  			}
-
-  			var frame = $(title).find("#vid").width()/100;
-  			frame = frame * 62.5;
-			$(".video-container iframe").height(frame);
-
-			var id = $(this).attr("id");
-			$(".up" + id).on('click', function(){
-				$(this).css({"background-color": "orange"});
-
-				if( $(".down" + id).css("background-color") == 'rgb(255, 165, 0)'){
-					$(".down" + id).css({"background-color": "white"});
-				}
-			});
-			$(".down" + id).on('click', function(){
-				$(this).css({"background-color": "orange"});
-
-				if( $(".up" + id).css("background-color") == 'rgb(255, 165, 0)'){
-					$(".up" + id).css({"background-color": "white"});
-				}
-			});
-  		});
-  		$(window).resize(function(){
-  			var frame = $(title).find("#vid").width()/100;
-  			frame = frame * 62.5;
-			$(".video-container iframe").height(frame);
-  		});
-
-		$(title).on('hidden.bs.modal', function(e) {
-	    	$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
-
-		});
- 	});
-
   	var from = $("#from");
 	var to = $("#to");
 	for (i = new Date().getFullYear(); i > 1877; i--) {
@@ -256,9 +209,9 @@ $( document ).ready(function() {
 			if($(this).attr("href").trim() === $(".hide_name").text().trim()){
 				$(this).addClass("active");
 				if($(".search_page").length !== 0){
-					$(".navbar-brand").addClass("hide_name");
+					$(".navbar-brand").hide();
 				} else{
-					$(".navbar-brand").removeClass("hide_name");
+					$(".navbar-brand").show();
 				}
 			}
 			else if($(this).hasClass("active")){
@@ -269,12 +222,61 @@ $( document ).ready(function() {
     	return false;
 
 	});
+	$(window).scroll(function(){
+	    if ($(window).scrollTop() > 300) {
+	    	$(".navbar-brand").fadeIn();
+	    } else {
+	       	if($(".search_page").length !== 0){
+	       		$(".navbar-brand").fadeOut();
+	       	}
+	    }
+	});
 
 	$(".stream").css({"margin-top": $("#search_img").height()/4});
 
-	if($(window).width() < 600){
-		$(".available").remove();
-	}
+  $("#recommendation").on('submit', function(e){
+    e.preventDefault();
+    var pep = new Array();
+    var key = new Array();
+    $(".people").children(".tag").each(function(){
+      pep.push($(this).text());
+    });
+    $(".keywords").children(".tag").each(function(){
+      key.push($(this).text());
+    });
+
+    $.ajax({
+        url: $(this).attr("action"),
+        type: "POST",
+        data: {
+          from: $("#from").val(),
+          to: $("#to").val(),
+          genre: $("#genre").val(),
+          imdb: $("#imdb").val(),
+          rating: $("#rating").val(),
+          language: $("#language").val(),
+          'people[]': pep,
+          keywords: key.toString(),
+          netflix: $("#n").is(":checked"),
+          amazon: $("#a").is(":checked"),
+          hulu: $("#h").is(":checked"),
+          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
+
+
+        // handle a successful response
+        success: function(data) {
+        	$("#insert").empty();
+	        $("#insert").append(data.split("<!-- END -->")[1]);
+	        modal();
+	        // console.log(data.split("<!-- END -->")[1])
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+  });
 
 
 });
@@ -333,3 +335,66 @@ function backspace(input) {
 		}
 	});
 };
+function modal(){
+  	$(".tile").on("click", function(){
+  		var title = $(this).attr("data-target");
+  		$(title).on('shown.bs.modal', function(){
+  			var youtube = $(this).find("#video").val();
+
+  			var iframe_div = $(this).find(".col-lg-8");
+
+  			if(iframe_div.find("iframe").length){
+  				if(iframe_div.find("input").attr("name") === "bunny"){
+  					iframe_div.find('iframe').attr('src', iframe_div.find('iframe').attr('src')+"&autoplay=1");
+  				}
+  			} else if(iframe_div.find("input").attr("name") === "trailer"){
+  				iframe_div.prepend("<iframe id='vid' src='"+youtube+"' allowfullscreen></iframe>");
+  			} else if(iframe_div.find("input").attr("name") === "bunny"){
+  				$("<iframe class='ytplayer' id='vid' src='"+youtube+"&autoplay=1' volume='0'></iframe>").insertAfter($("#no-trailer"));
+  				var mute = iframe_div.find('iframe');
+  			}
+
+  			var frame = $(title).find("#vid").width()/100;
+  			frame = frame * 62.5;
+			$(".video-container iframe").height(frame);
+
+			var id = $(this).attr("id");
+			$(".up" + id).on('click', function(){
+				$(this).css({"background-color": "orange"});
+
+				if( $(".down" + id).css("background-color") == 'rgb(255, 165, 0)'){
+					$(".down" + id).css({"background-color": "white"});
+				}
+			});
+			$(".down" + id).on('click', function(){
+				$(this).css({"background-color": "orange"});
+
+				if( $(".up" + id).css("background-color") == 'rgb(255, 165, 0)'){
+					$(".up" + id).css({"background-color": "white"});
+				}
+			});
+  		});
+
+  		$(window).resize(function(){
+  			var frame = $(title).find("#vid").width()/100;
+  			frame = frame * 62.5;
+			$(".video-container iframe").height(frame);
+
+			$(".description .row").each(function(){
+				if($(window).width() < 540){
+					$(this).removeClass("row-eq-height");
+				}
+			});
+  		});
+
+		$(title).on('hidden.bs.modal', function(e) {
+			if($(this).find('input').attr("name") === "bunny"){
+				var link = $(this).find('iframe').attr("src");
+				var new_link = link.substring(0, link.length-11);
+				$(this).find('iframe').attr('src', new_link);
+			} else{
+	    		$(this).find('iframe').attr('src', $(this).find('iframe').attr('src'));
+	    	}
+		});
+ 	});
+}
