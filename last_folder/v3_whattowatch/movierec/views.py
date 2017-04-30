@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core import serializers
 
 from utils import gbox, heist
 from utils import apiwrapper

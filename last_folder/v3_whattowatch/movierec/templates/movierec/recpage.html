@@ -15,7 +15,7 @@
         <div class="year">
           <h4 class="year_title">Choose a year Range: </h4> 
             <h4>From:</h4><span class="time"><select name="from" id="from"></select></span>
-            <h4>To:</h4><span class="time"><select name="to" id="to"></select></h4></span>
+            <h4>To:</h4><span class="time"><select name="to" id="to"></select></span>
         </div>
         <div class="choice">
           <h4>Genre:</h4>
@@ -102,12 +102,20 @@
   </div>
 </form>
 
+
+<!-- <video autoplay="autoplay" loop="loop" width="400" height="300">
+  <source src="{% static 'movierec/images/bunny.mp4' %}" type="video/mp4" />
+  <source src="{% static 'movierec/images/bunny.ogv' %}" type="video/ogg" />
+  <source src="{% static 'movierec/images/bunny.webm' %}" type="video/webm" />
+   <h4>Your browser does not support HTML5 video.</h4>
+</video> -->
+
 <div class="container-fluid center">
  <div class="row__inner_recommendation">
 
 {% if results %}
   {% for item in results %}
-  <div class="tile" data-toggle="modal" data-target="#myModal{{item.identifier}}">
+  <div class="tile" data-toggle="modal" data-target="#{{item.identifier}}">
     <div class="tile__media">
       <img class="tile__img" src="{{ item.poster }}" alt=""  />
     </div>
@@ -121,11 +129,10 @@
 {% endif %}
   </div>
 </div>
-
 {% if results %}
   {% for item in results %}  
   <!-- Modal -->
-<div id="myModal{{item.identifier}}" class="modal fade" role="dialog">
+<div id="{{item.identifier}}" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
@@ -137,11 +144,17 @@
       <div class="modal-body  video-container">
         <div class="row">
           <div class="col-lg-8">
-            <input type="hidden" id="video" value="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1" >
+            {% if item.trailer is not none %}
+              <input type="hidden" name="trailer" id="video" value="{{ item.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1" >
+            {% else %}
+              <h4 id="no-trailer">Trailer is not in our servers. Sorry for the inconvinience but please enjoy this video instead.</h4>
+              <input type="hidden" name="bunny" id="video" value="https://www.youtube.com/embed/A9HV5O8Un6k?iv_load_policy=3&showinfo=0&rel=0&modestbranding=0&controls=0" >
+            {% endif %}
               <div class="likes">
-                <span class="dislike pull-right"><button id="down" class="yay"><i class="fa fa-thumbs-down"></i></button></span>
-                <span class="like pull-right"><button id="up" class="yay"><i class="fa fa-thumbs-up icon-flipped"></button></i></span>
+                <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
+                <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
               </div>
+            }
           </div>
           <div class="col-lg-4 text-col">
             <h4 class="summary">Summary:</h4>
@@ -163,7 +176,7 @@
               {% endfor %}
               </div>
             <div class="stream">
-              <h4>Available on:</h4>
+              <h4 class="available">Available on:</h4>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
@@ -201,10 +214,8 @@
 </div> -->
 
 <div class="hide_name">
-<input type="hidden" id="hidden_keywords" value="" />
+  <input type="hidden" id="hidden_keywords" value="" />
 </div>
-
-{% include 'movierec/scripts.html' %}
 <script>
 
 //keywords
@@ -228,18 +239,53 @@ localStorage.setItem("keywords", tempkey);
 
 var hidden_keywords = document.getElementById("hidden_keywords");
 hidden_keywords.value = keywords; 
+</script>
 
-//   $.ajax({
-//   url: ".",
-//   success: function(data){
-//     console.log(data);
-//   }
-// });
-  $.getJSON("{% static 'movierec/js/file.json' %}", function(json){
-      console.log("Json data: " + json);
+{% include 'movierec/scripts.html' %}
+<script>
+  $(".tile").on("click", function(){
+    var movie = $(this).find(".tile__title").text().trim();
+    var index = movie.lastIndexOf(" ");
+
+    var title = $(this).attr("data-target");
+    $(title).on('shown.bs.modal', function(){
+      var id = $(this).attr("id");
+      $(".up" + id).on('click', function(){
+          like_dislike(true, movie.substring(0, index));
+      });
+      $(".down" + id).on('click', function(){
+          like_dislike(false, movie.substring(0, index));
+      });
+
     });
+  });
+
+  function like_dislike(input, movie_name){
+    //AJAX for posting
+    console.log("submitting"); // sanity check
+    $.ajax({
+        url : "{% url 'like_dislike' %}", // the endpoint
+        type : "POST", // http method
+        data : { 
+          like_dislike : input, 
+          movie : movie_name,
+          csrfmiddlewaretoken: '{{ csrf_token }}' }, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            console.log(json); // log the returned json to the console
+            console.log("success"); // another sanity check
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+  }
 
 </script>
+
 
 {% if profile %}
 {% if profile.show_netflix %}
@@ -255,4 +301,5 @@ hidden_keywords.value = keywords;
   <script>image('hulu');</script>
   {% endif %}
 {% endif %}
+
 </body>
