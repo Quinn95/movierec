@@ -22,13 +22,13 @@ def home(request):
     
     query = Movie.objects.all()
 
-    trending = query.sort_by('-popularity')[:30]
+    trending = query.order_by('-popularity')[:30]
 
-    recent = query.sort_by('-date')[:30]
+    recent = query.order_by('-date')[:30]
 
     random = query.order_by('?')[:30]
 
-    vote_average = query.sort_by('-vote_average')[:30]
+    vote_average = query.order_by('-vote_average')[:30]
         
     return render(request, 'movierec/search.html', 
                             {'profile': profile, 

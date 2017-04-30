@@ -18,6 +18,7 @@ def test():
     # populateMovieDetails()
     #getStreamingLinks(identifier=128834)
     #getManualLinks()
+    pass
 
 
 def getNetflixMovies():

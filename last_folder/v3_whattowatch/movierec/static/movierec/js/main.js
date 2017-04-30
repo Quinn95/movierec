@@ -259,6 +259,7 @@ $( document ).ready(function() {
 	var rec_netflix = false;
 	var rec_amazon = false;
 	var rec_hulu = false;
+	var rec_hbo = false;
 	var do_rec = false;
   $("#recommendation").on('submit', function(e){
 	    e.preventDefault();
@@ -314,10 +315,14 @@ $( document ).ready(function() {
 	    	rec_hulu = $("#h").is(":checked");
 	    	do_rec = true;
 	    }
+	    if(rec_hbo !== $("#hb").is(":checked")){
+	    	rec_hbo = $("#hb").is(":checked");
+	    	do_rec = true;
+	    }
 	    if(do_rec){
 	    	$("#success-ajax").hide();
 	    	recCall($(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
-	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, 
+	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val())
 		}
 	do_rec = false;
@@ -343,6 +348,7 @@ $( document ).ready(function() {
 	          netflix: $("#ns").is(":checked"),
 	          amazon: $("#as").is(":checked"),
 	          hulu: $("#hs").is(":checked"),
+	          hbo: $("#hbs").is(":checked"),
 	          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
 
 
@@ -420,7 +426,7 @@ function backspace(input) {
 		}
 	});
 };
-function recCall(url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, csrf){
+function recCall(url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf){
 	$.ajax({
 	    url: url,
 	    type: "POST",
@@ -436,6 +442,7 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 	      netflix: netflix,
 	      amazon: amazon,
 	      hulu: hulu,
+	      hbo: hbo,
 	      csrfmiddlewaretoken: csrf},
 
 
