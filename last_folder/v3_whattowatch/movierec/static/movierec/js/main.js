@@ -329,7 +329,7 @@ $( document ).ready(function() {
     e.preventDefault();
     var pageNum = 1; // The latest page loaded
 	var hasNextPage = true; // Indicates whether to expect another page after this one
-    $(window).bind('scroll', loadOnScroll);
+    // $(window).bind('scroll', loadOnScroll);
     if(search_title !== $(this).find("#search_text").val()){
     	search_title = $(this).find("#search_text").val();
     	do_search = true;
