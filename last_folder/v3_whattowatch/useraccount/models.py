@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     show_hulu = models.BooleanField(default=False)
 
     def __str__(self):
-    	return self.user.username
+         return self.user.username
 
 
 @python_2_unicode_compatible
