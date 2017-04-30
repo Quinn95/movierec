@@ -151,10 +151,17 @@ $( document ).ready(function() {
 	});
 
 	$(function() {
-		var items = $("#hidden_keywords").val().split(",");
+		var keys = $("#hidden_keywords").val();
+		var items;
+		if(keys !== undefined){
+			items = keys.split(",");
+		} else{
+			items = new Array();
+		}
 		if(items[items.length - 1] === "" || items[items.length - 1] === " "){
 			items.pop();
 		}
+		items.sort();
 		var input = $('#keywords');
 		var size = input.width();
 		var flag = false;
@@ -247,101 +254,69 @@ $( document ).ready(function() {
 	var rec_hulu = false;
 	var do_rec = false;
   $("#recommendation").on('submit', function(e){
-    e.preventDefault();
-    var pep = new Array();
-    var key = new Array();
-    $(".people").children(".tag").each(function(){
-      pep.push($(this).text());
-    });
-    $(".keywords").children(".tag").each(function(){
-      key.push($(this).text());
-    });
-    if(rec_from !== $("#from").val()){
-    	rec_from = $("#from").val();
-    	console.log(rec_from);
-    	do_rec = true;
-    }
-    if(rec_to !== $("#to").val()){
-    	rec_to = $("#to").val();
-    	console.log(rec_to);
-    	do_rec = true;
-    }
-    if(rec_gen !== $("#genre").val()){
-    	rec_gen = $("#genre").val();
-    	console.log(rec_gen);
-    	do_rec = true;
-    }
-    if(rec_imdb !== $("#imdb").val()){
-    	rec_imdb = $("#imdb").val();
-    	console.log(rec_imdb);
-    	do_rec = true;
-    }
-    if(rec_rating !== $("#rating").val()){
-    	rec_rating = $("#rating").val();
-    	console.log("")
-    	do_rec = true;
-    }
-    if(rec_language !== $("#language").val()){
-    	rec_language = $("#language").val();
-    	do_rec = true;
-    }
-    if(!arraysEqual(rec_people, pep)){
-    	rec_people = pep.slice();
-    	do_rec = true;
-    }
-    if(!arraysEqual(rec_keywords, key)){
-    	rec_keywords = key.slice();
-    	do_rec = true;
-    }
-    if(rec_netflix !== $("#n").is(":checked")){
-    	rec_netflix = $("#n").is(":checked");
-    	do_rec = true;
-    }
-    if(rec_amazon !== $("#a").is(":checked")){
-    	rec_amazon = $("#a").is(":checked");
-    	do_rec = true;
-    }
-    if(rec_hulu !== $("#h").is(":checked")){
-    	rec_hulu = $("#h").is(":checked");
-    	do_rec = true;
-    }
-    if(do_rec){
-    	$.ajax({
-		    url: $(this).attr("action"),
-		    type: "POST",
-		    data: {
-		      from: rec_from,
-		      to: rec_to,
-		      genre: rec_gen,
-		      imdb: rec_imdb,
-		      rating: rec_rating,
-		      language: rec_language,
-		      'people[]': rec_people,
-		      'keywords[]': rec_keywords,
-		      netflix: rec_netflix,
-		      amazon: rec_amazon,
-		      hulu: rec_hulu,
-		      csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
-
-
-		    // handle a successful response
-		    success: function(data) {
-		    	$("#insert").empty();
-		        $("#insert").append(data.split("<!-- END -->")[1]);
-		        modal();
-		        // console.log(data.split("<!-- END -->")[1])
-		    },
-
-		    // handle a non-successful response
-		    error : function(xhr,errmsg,err) {
-		        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-		    }
-		});
-	}
+	    e.preventDefault();
+	    var pep = new Array();
+	    var key = new Array();
+	    $(".people").children(".tag").each(function(){
+	      pep.push($(this).text());
+	    });
+	    $(".keywords").children(".tag").each(function(){
+	      key.push($(this).text());
+	    });
+	    if(rec_from !== $("#from").val()){
+	    	rec_from = $("#from").val();
+	    	do_rec = true;
+	    }
+	    if(rec_to !== $("#to").val()){
+	    	rec_to = $("#to").val();
+	    	do_rec = true;
+	    }
+	    if(rec_gen !== $("#genre").val()){
+	    	rec_gen = $("#genre").val();
+	    	do_rec = true;
+	    }
+	    if(rec_imdb !== $("#imdb").val()){
+	    	rec_imdb = $("#imdb").val();
+	    	do_rec = true;
+	    }
+	    if(rec_rating !== $("#rating").val()){
+	    	rec_rating = $("#rating").val();
+	    	do_rec = true;
+	    }
+	    if(rec_language !== $("#language").val()){
+	    	rec_language = $("#language").val();
+	    	do_rec = true;
+	    }
+	    if(!arraysEqual(rec_people, pep)){
+	    	rec_people = pep.slice();
+	    	do_rec = true;
+	    }
+	    if(!arraysEqual(rec_keywords, key)){
+	    	rec_keywords = key.slice();
+	    	do_rec = true;
+	    }
+	    if(rec_netflix !== $("#n").is(":checked")){
+	    	rec_netflix = $("#n").is(":checked");
+	    	do_rec = true;
+	    }
+	    if(rec_amazon !== $("#a").is(":checked")){
+	    	rec_amazon = $("#a").is(":checked");
+	    	do_rec = true;
+	    }
+	    if(rec_hulu !== $("#h").is(":checked")){
+	    	rec_hulu = $("#h").is(":checked");
+	    	do_rec = true;
+	    }
+	    if(do_rec){
+	    	$("#success-ajax").hide();
+	    	recCall($(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
+	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, 
+	    		$(this).find("input[name='csrfmiddlewaretoken']").val())
+		}
 	do_rec = false;
   });
 
-  var search_title = "";
+  var search_title = null;
   var do_search = false;
   $("#search-form").on('submit', function(e){
     e.preventDefault();
@@ -365,7 +340,9 @@ $( document ).ready(function() {
 	        success: function(data) {
 	        	$("#search-query").empty();
 		        $("#search-query").append(data.split("<!-- END -->")[1]);
-		        console.log(data);
+		    	$('html, body').animate({
+        			scrollTop: $("#search-query").offset().top - 70
+    			}, 1000);
 	        },
 
 	        // handle a non-successful response
@@ -376,7 +353,6 @@ $( document ).ready(function() {
 	}
 	do_search = false;
   });
-
 
 });
 
@@ -434,6 +410,42 @@ function backspace(input) {
 		}
 	});
 };
+function recCall(url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, csrf){
+	$.ajax({
+	    url: url,
+	    type: "POST",
+	    data: {
+	      from: from,
+	      to: to,
+	      genre: gen,
+	      imdb: imdb,
+	      rating: rating,
+	      language: language,
+	      'people[]': people,
+	      'keywords[]': keywords,
+	      netflix: netflix,
+	      amazon: amazon,
+	      hulu: hulu,
+	      csrfmiddlewaretoken: csrf},
+
+
+	    // handle a successful response
+	    success: function(data) {
+	    	$("#insert").empty();
+	        $("#insert").append(data.split("<!-- END -->")[1]);
+	        modal();
+        	$('html, body').animate({
+    			scrollTop: $("#insert").offset().top - 70
+			}, 1000);
+	        // console.log(data.split("<!-- END -->")[1])
+	    },
+
+	    // handle a non-successful response
+	    error : function(xhr,errmsg,err) {
+	        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+	    }
+	});
+}
 function modal(){
   	$(".tile").on("click", function(){
   		var title = $(this).attr("data-target");
