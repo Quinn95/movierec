@@ -26,10 +26,95 @@
         </div>
       </div>
       {% endfor %}
-
-     
       </div>
     </div>
+
+<!--Trending Modals-->
+{% for movie in trending %}  
+  <!-- Modal -->
+<div id="{{movie.identifier}}" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{movie.title}} ({{movie.date}})</h4>
+      </div>
+      <div class="modal-body  video-container">
+        <div class="row">
+          <div class="col-lg-8">
+            {% if movie.trailer is not none %}
+              <input type="hidden" name="trailer" id="video" value="{{ movie.trailer}}?iv_load_policy=3&showinfo=0&rel=0&modestbranding=1" />
+            {% else %}
+              <h4 id="no-trailer">Trailer is not in our servers. Sorry for the inconvinience <br>but please enjoy this video instead.</h4>
+              <input type="hidden" name="bunny" id="video" value="https://www.youtube.com/embed/A9HV5O8Un6k?iv_load_policy=3&showinfo=0&rel=0&modestbranding=0&controls=0&loop=1&enablejsapi=1" />
+            {% endif %}
+              <div class="likes">
+                <span class="dislike pull-right"><button class="yay down{{movie.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
+                <span class="like pull-right"><button id="up" class="yay up{{movie.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
+              </div>
+          </div>
+          <div class="col-lg-4 text-col">
+            <h4 class="summary">Summary:</h4>
+            <p class="summary"> {{ movie.summary }} </p>
+            <div class="gen">
+            {% if movie.genre.all|length == 1 %}
+              <h4> Genre: </h4>
+            {% else %}
+              <h4> Genres: </h4>
+            {% endif %}
+              {% for genre in movie.genre.all %}
+                {% if forloop.last and movie.genre.all|length > 1 %}
+                  and {{ genre }}
+                {% elif forloop.last %}
+                  {{genre}}
+                {% else %}
+                  {{ genre }},
+                {% endif %}
+              {% endfor %}
+              </div>
+            <div class="stream">
+              <h4 class="available">Available on:</h4>
+            {% if movie.netflix_available  %}
+              {% if movie.netflix is not None %}
+            <a target="blank" href="{{movie.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+              {% else %}
+            <a target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a> 
+              {% endif %}
+            {% endif %}
+
+            {% if movie.amazon_available %}
+              {% if movie.amazon is not None %}
+            <a target="blank" href="{{movie.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+              {% else %}
+            <a target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+              {% endif %}
+            {% endif %}
+
+            {% if movie.hulu_available %}
+              {% if movie.amazon is not None %}
+              <a target="blank" href="{{movie.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+              {% else %}
+              <a target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+              {% endif %}
+            {% endif %}
+
+            {% if movie.hbo_available  %}
+              {% if movie.hbo is not None %}
+            <a target="blank" href="{{movie.hbo}}"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/></a>
+              {% else %}
+            <a target="blank" href="https://www.hbonow.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/></a> 
+              {% endif %}
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}
 
 
 
