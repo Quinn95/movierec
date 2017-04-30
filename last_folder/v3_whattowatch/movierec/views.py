@@ -54,16 +54,17 @@ def recView(request):
             query = query.filter(vote_average__lte=maxrating)
 
         # Check if any people were selected #
-        peoplelist = request.POST.getlist('people')
+        peoplelist = request.POST.getlist('people[]')
+        print [person for person in peoplelist]
         if len(peoplelist) > 0:
             peoplequerylist = map(lambda x: Person.objects.filter(name__icontains = x).first(), people)
             query = query.filter(people__in = peoplequerylist)
         
         # Check if any keywords were inputted #
-        keywords = request.POST.getlist('keywords')
-        if len(keywords) > 0:
-            keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
-            query = query.filter(keywords__in = keylist)
+        # keywords = request.POST.getlist('keywords')
+        # if len(keywords) > 0:
+        #     keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
+        #     query = query.filter(keywords__in = keylist)
 
         # Check against initial time range #
         if timerange[0] != "-----": #we need to change
@@ -88,20 +89,20 @@ def recView(request):
         anychecked = False
 
         # Check if any specific site is selected #
-        if not (("netflix" in request.POST) and ("amazon" in request.POST) and 
-                ("hulu" in request.POST)):
-            if "netflix" in request.POST:
-                querynetflix = query.filter(netflix_available = True)
-                anychecked = True
-            if "amazon" in request.POST:
-                queryamazon = query.filter(amazon_available = True)
-                anychecked = True
-            if "hulu" in request.POST:
-                queryhulu = query.filter(hulu_available = True)
-                anychecked = True
+
+        if (request.POST["netflix"] == "true"):
+            querynetflix = query.filter(netflix_available = True)
+            anychecked = True
+        if (request.POST["amazon"] == "true"):
+            queryamazon = query.filter(amazon_available = True)
+            anychecked = True
+        if (request.POST["hulu"] == "true"):
+            queryhulu = query.filter(hulu_available = True)
+            anychecked = True
 
         # No specific sites selected #
-        if anychecked: query = querynetflix | queryamazon | queryhulu
+        if anychecked: 
+            query = querynetflix | queryamazon | queryhulu
 
         # Display first 20 results #
         query = query.distinct()

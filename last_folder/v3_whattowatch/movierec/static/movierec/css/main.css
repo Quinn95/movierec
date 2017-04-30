@@ -110,7 +110,7 @@ a:hover {
 }
 .tile_search{
   cursor: default;
-  margin: 5px 0;
+  margin: auto 0;
   margin-left: 5%;
 }
 .tile__img {
@@ -271,6 +271,7 @@ a:hover {
   padding-right: 10px;
   padding-bottom: 25px;
   padding-left: 0px !important;
+  text-align: center;
 }
 
 .search {
@@ -299,6 +300,10 @@ a:hover {
     padding: 0;
     font-style: italic;
     outline: none;
+}
+
+.ytplayer {
+  pointer-events: none;
 }
 
 
@@ -631,9 +636,6 @@ body.account-delete .account-delete, body.account-password .account-password, bo
 .search_logo{
   margin-bottom: 5px;
 }
-/*.title{
-  display: inline-block;
-}*/
 
 
 @media (max-width: 1199px){
@@ -691,6 +693,9 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   .navbar-collapse{
     margin-top: 18px;
   }
+  .submit_search{
+    width: 35%;
+  }
 }
 @media (max-width: 745px){
   .streaming{
@@ -703,11 +708,15 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   .search_bar{
     height: 100% !important;
   }
-  .search_bar:before{
-    margin-top: 30px;
-  }
   .modal-body{
     overflow-y: scroll;
+  }
+  .streaming-services-search, .submit_search{
+    margin: 0 !important;
+  }
+  .search-logo img{
+    width: 160px !important;
+    height: 80px !important;
   }
 }
 @media (max-width: 500px){
@@ -736,6 +745,18 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   .stream img{
     margin: 0, auto !important;
     margin-top: 0;
+  }
+  .search-logo{
+    margin-top: 28%;
+  }
+}
+
+@media screen and (max-width: 530px){
+  .search_info, .search_info_right, .tile_search{
+    margin: auto;
+  }
+  #search_results, #search_results .row{
+    display: block;
   }
 }
 
