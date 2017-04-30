@@ -234,6 +234,18 @@ $( document ).ready(function() {
 
 	$(".stream").css({"margin-top": $("#search_img").height()/4});
 
+	var rec_from = "";
+	var rec_to = "";
+	var rec_gen = "";
+	var rec_imdb = "";
+	var rec_rating = "";
+	var rec_language = "";
+	var rec_people = new Array();
+	var rec_keywords = new Array();
+	var rec_netflix = false;
+	var rec_amazon = false;
+	var rec_hulu = false;
+	var do_rec = false;
   $("#recommendation").on('submit', function(e){
     e.preventDefault();
     var pep = new Array();
@@ -244,38 +256,125 @@ $( document ).ready(function() {
     $(".keywords").children(".tag").each(function(){
       key.push($(this).text());
     });
+    if(rec_from !== $("#from").val()){
+    	rec_from = $("#from").val();
+    	console.log(rec_from);
+    	do_rec = true;
+    }
+    if(rec_to !== $("#to").val()){
+    	rec_to = $("#to").val();
+    	console.log(rec_to);
+    	do_rec = true;
+    }
+    if(rec_gen !== $("#genre").val()){
+    	rec_gen = $("#genre").val();
+    	console.log(rec_gen);
+    	do_rec = true;
+    }
+    if(rec_imdb !== $("#imdb").val()){
+    	rec_imdb = $("#imdb").val();
+    	console.log(rec_imdb);
+    	do_rec = true;
+    }
+    if(rec_rating !== $("#rating").val()){
+    	rec_rating = $("#rating").val();
+    	console.log("")
+    	do_rec = true;
+    }
+    if(rec_language !== $("#language").val()){
+    	rec_language = $("#language").val();
+    	do_rec = true;
+    }
+    if(!arraysEqual(rec_people, pep)){
+    	rec_people = pep.slice();
+    	do_rec = true;
+    }
+    if(!arraysEqual(rec_keywords, key)){
+    	rec_keywords = key.slice();
+    	do_rec = true;
+    }
+    if(rec_netflix !== $("#n").is(":checked")){
+    	rec_netflix = $("#n").is(":checked");
+    	do_rec = true;
+    }
+    if(rec_amazon !== $("#a").is(":checked")){
+    	rec_amazon = $("#a").is(":checked");
+    	do_rec = true;
+    }
+    if(rec_hulu !== $("#h").is(":checked")){
+    	rec_hulu = $("#h").is(":checked");
+    	do_rec = true;
+    }
+    if(do_rec){
+    	$.ajax({
+		    url: $(this).attr("action"),
+		    type: "POST",
+		    data: {
+		      from: rec_from,
+		      to: rec_to,
+		      genre: rec_gen,
+		      imdb: rec_imdb,
+		      rating: rec_rating,
+		      language: rec_language,
+		      'people[]': rec_people,
+		      'keywords[]': rec_keywords,
+		      netflix: rec_netflix,
+		      amazon: rec_amazon,
+		      hulu: rec_hulu,
+		      csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
 
-    $.ajax({
-        url: $(this).attr("action"),
-        type: "POST",
-        data: {
-          from: $("#from").val(),
-          to: $("#to").val(),
-          genre: $("#genre").val(),
-          imdb: $("#imdb").val(),
-          rating: $("#rating").val(),
-          language: $("#language").val(),
-          'people[]': pep,
-          keywords: key.toString(),
-          netflix: $("#n").is(":checked"),
-          amazon: $("#a").is(":checked"),
-          hulu: $("#h").is(":checked"),
-          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
+
+		    // handle a successful response
+		    success: function(data) {
+		    	$("#insert").empty();
+		        $("#insert").append(data.split("<!-- END -->")[1]);
+		        modal();
+		        // console.log(data.split("<!-- END -->")[1])
+		    },
+
+		    // handle a non-successful response
+		    error : function(xhr,errmsg,err) {
+		        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+		    }
+		});
+	}
+	do_rec = false;
+  });
+
+  var search_title = "";
+  var do_search = false;
+  $("#search-form").on('submit', function(e){
+    e.preventDefault();
+    if(search_title !== $(this).find("#search_text").val()){
+    	search_title = $(this).find("#search_text").val();
+    	do_search = true;
+    }
+    if(do_search){
+	    $.ajax({
+	        url: $(this).attr("action"),
+	        type: "POST",
+	        data: {
+	          search_text: $(this).find("#search_text").val(),
+	          netflix: $("#ns").is(":checked"),
+	          amazon: $("#as").is(":checked"),
+	          hulu: $("#hs").is(":checked"),
+	          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
 
 
-        // handle a successful response
-        success: function(data) {
-        	$("#insert").empty();
-	        $("#insert").append(data.split("<!-- END -->")[1]);
-	        modal();
-	        // console.log(data.split("<!-- END -->")[1])
-        },
+	        // handle a successful response
+	        success: function(data) {
+	        	$("#search-query").empty();
+		        $("#search-query").append(data.split("<!-- END -->")[1]);
+		        console.log(data);
+	        },
 
-        // handle a non-successful response
-        error : function(xhr,errmsg,err) {
-            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-        }
-    });
+	        // handle a non-successful response
+	        error : function(xhr,errmsg,err) {
+	            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+	        }
+	    });
+	}
+	do_search = false;
   });
 
 
@@ -397,4 +496,17 @@ function modal(){
 	    	}
 		});
  	});
+}
+function arraysEqual(a, b) {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length != b.length) return false;
+
+  // If you don't care about the order of the elements inside
+  // the array, you should sort both arrays here.
+
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
 }

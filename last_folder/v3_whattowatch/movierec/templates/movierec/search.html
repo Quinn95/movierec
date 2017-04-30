@@ -9,24 +9,25 @@
 		<div class="search-logo">
 			<img src="{% static 'movierec/images/What2Watch.svg' %}">
 		</div>
-		<form action="{% url 'search' %}" method="post">
+		<form id="search-form" action="{% url 'search' %}" method="post">
 			{% csrf_token %}
 			<div class="search-text">
-				<input type="text" name="search_text" placeholder="Search by Movie Title">
+				<input id="search_text" type="text" name="search_text" placeholder="Search by Movie Title">
 			</div>
 			<div class="streaming-services-search">
-				<input class="hide_name" type="checkbox" name="netflix">
+				<input id="ns" class="hide_name" type="checkbox" name="netflix">
 	            <img id="netflix" class="stream-search streaming logo__img" src="{% static 'movierec/images/netflix2.png' %}"/>
-	            <input class="hide_name" type="checkbox" name="amazon">
+	            <input id="as" class="hide_name" type="checkbox" name="amazon">
 	            <img id="amazon" class="stream-search streaming logo__img" src="{% static 'movierec/images/amazon_black.png' %}">
-	            <input class="hide_name" type="checkbox" name="hulu">
+	            <input id="hs" class="hide_name" type="checkbox" name="hulu">
 	            <img id="hulu" class="stream-search streaming logo__img" src="{% static 'movierec/images/hulu.png' %}">
 	        </div>
 	        <input class="submit_search" type="submit" value="submit" name="Submit">
         </form>
 	</div>
 
-<div class="container">
+<div id="search-query" class="container">
+<!-- END -->
 	{% for result in results %}
 	 <div id="search_results" class="row__inner_recommendation description">
 	 	<div class="row row-eq-height">
@@ -99,6 +100,7 @@
 		</div>
 	</div>
 	{% endfor %}
+<!-- END -->
 </div>
 
 </body>

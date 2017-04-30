@@ -60,7 +60,7 @@ def recView(request):
             query = query.filter(people__in = peoplequerylist)
         
         # Check if any keywords were inputted #
-        keywords = request.POST.getlist('keywords')
+        keywords = request.POST.getlist('keywords[]')
         if len(keywords) > 0:
             keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
             query = query.filter(keywords__in = keylist)
@@ -131,6 +131,7 @@ def search(request):
         profile = None
     if request.method == 'POST':
         search_query = request.POST['search_text']
+        print search_query
         query = Movie.objects.all()
 
         if len(search_query) != 0:
@@ -143,17 +144,15 @@ def search(request):
         anychecked = False
 
         # Check if any specific site is selected #
-        if not (("netflix" in request.POST) and ("amazon" in request.POST) and 
-                ("hulu" in request.POST)):
-            if "netflix" in request.POST:
-                querynetflix = query.filter(netflix_available = True)
-                anychecked = True
-            if "amazon" in request.POST:
-                queryamazon = query.filter(amazon_available = True)
-                anychecked = True
-            if "hulu" in request.POST:
-                queryhulu = query.filter(hulu_available = True)
-                anychecked = True
+        if (request.POST["netflix"] == "true"):
+            querynetflix = query.filter(netflix_available = True)
+            anychecked = True
+        if (request.POST["amazon"] == "true"):
+            queryamazon = query.filter(amazon_available = True)
+            anychecked = True
+        if (request.POST["hulu"] == "true"):
+            queryhulu = query.filter(hulu_available = True)
+            anychecked = True
 
         # No specific sites selected #
         if anychecked: query = querynetflix | queryamazon | queryhulu
