@@ -703,6 +703,9 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   .search_bar{
     height: 100% !important;
   }
+  .search_bar:before{
+    margin-top: 30px;
+  }
   .modal-body{
     overflow-y: scroll;
   }
