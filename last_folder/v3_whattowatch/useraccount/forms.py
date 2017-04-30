@@ -10,6 +10,7 @@ STREAMING_CHOICES = (
     ('netflix', 'Netflix'),
     ('amazon', 'Amazon Prime'),
     ('hulu', 'Hulu'),
+    ('hbo', 'HBO Now')
 )
 
 class SignupForm(account.forms.SignupForm):    

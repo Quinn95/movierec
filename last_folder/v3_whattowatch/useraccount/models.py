@@ -16,6 +16,7 @@ class UserProfile(models.Model):
     show_netflix = models.BooleanField(default=False)
     show_amazon = models.BooleanField(default=False)
     show_hulu = models.BooleanField(default=False)
+    show_hbo = models.BooleanField(default=False)
 
     def __str__(self):
          return self.user.username

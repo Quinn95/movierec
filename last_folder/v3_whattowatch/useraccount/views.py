@@ -22,6 +22,8 @@ class SignupView(account.views.SignupView):
 				profile.show_amazon = True
 			if element == 'hulu':
 				profile.show_hulu = True
+            if element == 'hbo':
+                profile.show_hbo = True
 		profile.save()
 
 	def after_signup(self, form):
