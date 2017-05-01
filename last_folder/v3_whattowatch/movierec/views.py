@@ -190,7 +190,6 @@ def search(request):
 
 
 def like_dislike(request):
-<<<<<<< HEAD
     # if request.method == 'POST':
     #     user = request.user
     #     if user.is_authenticated:
