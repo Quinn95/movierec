@@ -114,12 +114,9 @@ def recView(request):
         if (request.POST["hulu"] == "true"):
             queryhulu = query.filter(hulu_available = True)
             anychecked = True
-<<<<<<< HEAD
-=======
         if (request.POST["hbo"] == "true"):
             queryhbo = query.filter(hbo_available = True)
             anychecked = True
->>>>>>> 9bccfa42edf2a659a554332b9017c9e42f0fe36b
 
         # No specific sites selected #
         if anychecked: 
@@ -192,17 +189,17 @@ def search(request):
 
 
 def like_dislike(request):
-    if request.method == 'POST':
-        user = request.user
-        if user.is_authenticated:
-            #profile = Profile.objects.get(user=user) 
-            movie = request.POST['movie']
-            like_dislike = request.POST['like_dislike']
-            if like_dislike == True:
-                #profile.liked_movies.add(movie)
-            elif like_dislike == False:
-                #profile.disliked_movies.add(movie)
-            #profile.save()
+    # if request.method == 'POST':
+    #     user = request.user
+    #     if user.is_authenticated:
+    #         #profile = Profile.objects.get(user=user) 
+    #         movie = request.POST['movie']
+    #         like_dislike = request.POST['like_dislike']
+    #         if like_dislike == True:
+    #             #profile.liked_movies.add(movie)
+    #         elif like_dislike == False:
+    #             #profile.disliked_movies.add(movie)
+    #         #profile.save()
     return HttpResponse("/")
 
 
