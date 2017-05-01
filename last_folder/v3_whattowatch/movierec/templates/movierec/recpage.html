@@ -147,10 +147,6 @@
               <h4 id="no-trailer">Trailer is not in our servers. Sorry for the inconvinience <br>but please enjoy this video instead.</h4>
               <input type="hidden" name="bunny" id="video" value="https://www.youtube.com/embed/A9HV5O8Un6k?iv_load_policy=3&showinfo=0&rel=0&modestbranding=0&controls=0&loop=1&enablejsapi=1" />
             {% endif %}
-              <div class="likes">
-                <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
-                <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
-              </div>
           </div>
           <div class="col-lg-4 text-col">
             <h4 class="summary">Summary:</h4>
@@ -205,6 +201,10 @@
               {% endif %}
             {% endif %}
             </div>
+              <div class="likes">
+                <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
+                <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
+              </div>
           </div>
         </div>
       </div>
