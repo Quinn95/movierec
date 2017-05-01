@@ -21,6 +21,32 @@ def home(request):
     query = query.exclude(popularity__exact=None)
     query = query.exclude(date__exact=None)
     query = query.exclude(vote_average__exact=None)
+
+    # Initialize site queries #
+    querynetflix = Movie.objects.none()
+    queryamazon = Movie.objects.none()
+    queryhulu = Movie.objects.none()
+    queryhbo = Movie.objects.none()
+    anychecked = False
+
+    if profile != None:
+        # Check if any specific site is selected #
+        if (profile.show_netflix == True):
+            querynetflix = query.filter(netflix_available = True)
+            anychecked = True
+        if (profile.show_amazon == True):
+            queryamazon = query.filter(amazon_available = True)
+            anychecked = True
+        if (profile.show_hulu == True):
+            queryhulu = query.filter(hulu_available = True)
+            anychecked = True
+        if (profile.show_hbo == True):
+            queryhbo = query.filter(hbo_available = True)
+            anychecked = True
+
+        # No specific sites selected #
+        if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
+        query = query.distinct()
     
     trending = query.order_by('-popularity')[:30]
 
