@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from utils import gbox, heist
 from utils import apiwrapper
+from django.core.paginator import Paginator
 
 
 from .models import Movie, Genre, Person, Keyword, Person, Language
@@ -172,44 +173,53 @@ def recView(request):
                   'genres': Genre.objects.all(),
                   'keywords': Keyword.objects.all()})
 
+paginator = None;
 def search(request):
     profile = None
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
     
     if request.method == 'POST':
-        search_query = request.POST['search_text']
-        print search_query
-        query = Movie.objects.all()
+        if int(request.POST['pageNum']) == 1:
+            search_query = request.POST['search_text']
+            print search_query
+            query = Movie.objects.all()
 
-        if len(search_query) != 0:
-            query = query.filter(title__icontains = search_query)
+            if len(search_query) != 0:
+                query = query.filter(title__icontains = search_query)
 
-        # Initialize site queries #
-        querynetflix = Movie.objects.none()
-        queryamazon = Movie.objects.none()
-        queryhulu = Movie.objects.none()
-        queryhbo = Movie.objects.none()
-        anychecked = False
+            # Initialize site queries #
+            querynetflix = Movie.objects.none()
+            queryamazon = Movie.objects.none()
+            queryhulu = Movie.objects.none()
+            queryhbo = Movie.objects.none()
+            anychecked = False
 
-        # Check if any specific site is selected #
-        if (request.POST["netflix"] == "true"):
-            querynetflix = query.filter(netflix_available = True)
-            anychecked = True
-        if (request.POST["amazon"] == "true"):
-            queryamazon = query.filter(amazon_available = True)
-            anychecked = True
-        if (request.POST["hulu"] == "true"):
-            queryhulu = query.filter(hulu_available = True)
-            anychecked = True
-        if (request.POST["hbo"] == "true"):
-            queryhbo = query.filter(hbo_available = True)
-            anychecked = True
+            # Check if any specific site is selected #
+            if (request.POST["netflix"] == "true"):
+                querynetflix = query.filter(netflix_available = True)
+                anychecked = True
+            if (request.POST["amazon"] == "true"):
+                queryamazon = query.filter(amazon_available = True)
+                anychecked = True
+            if (request.POST["hulu"] == "true"):
+                queryhulu = query.filter(hulu_available = True)
+                anychecked = True
+            if (request.POST["hbo"] == "true"):
+                queryhbo = query.filter(hbo_available = True)
+                anychecked = True
 
-        # No specific sites selected #
-        if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
-        query = query.distinct()
-        results = query[:100]
+            # No specific sites selected #
+            if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
+            query = query.distinct()
+            global paginator
+            if len(query) >= 100:
+                paginator = Paginator(list(query), 100)
+            else:
+                paginator = Paginator(list(query), 14)
+            results = paginator.page(1)
+        else:
+            results = paginator.page(int(request.POST['pageNum']))
 
         return render(request, 'movierec/search.html', {'results': results,
                                                         'profile': profile,
