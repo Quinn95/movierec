@@ -170,6 +170,7 @@ a:hover {
   position: absolute;
   bottom: 0;
   padding: 10px;
+  white-space: wrap;
 
 }
 /*.row__inner:hover {
