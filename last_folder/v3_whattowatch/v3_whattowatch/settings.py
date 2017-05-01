@@ -186,3 +186,5 @@ ACCOUNT_USE_AUTH_AUTHENTICATE = True
 AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
 ]
+
+AUTH_PROFILE_MODULE = 'useraccount.UserProfile'
