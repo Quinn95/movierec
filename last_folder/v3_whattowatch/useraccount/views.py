@@ -8,6 +8,7 @@ import account.views
 from .models import UserProfile
 from .forms import SignupForm
 
+
 class SignupView(account.views.SignupView):
     form_class = SignupForm
 
@@ -26,9 +27,11 @@ class SignupView(account.views.SignupView):
                 profile.show_hbo = True
         profile.save()
 
-	def after_signup(self, form):
-		self.update_profile(form)
-		super(SignupView, self).after_signup(form)
+    def after_signup(self, form):
+        self.update_profile(form)
+        super(SignupView, self).after_signup(form)
+
+
 # Create your views here.
 
 def profile_settings(request):
@@ -42,21 +45,14 @@ def profile_settings(request):
         if request.method == 'POST':
             form = forms.ProfileForm(request.POST)
             if form.is_valid():
-                #change settings/etc
-               # profile.disliked_movies = form.disliked_movies
+                # change settings/etc
+                # profile.disliked_movies = form.disliked_movies
                 profile.liked_movies = form.cleaned_data['liked_movies']
                 profile.disliked_movies = form.cleaned_data['disliked_movies']
                 profile.save()
                 return render(request, 'useraccount/profile_settings.html',
                               {"user": user, "form": form})
 
-
         return render(request, 'useraccount/profile_settings.html', {"user": user,
                                                                      "form": form}
-                    )
-
-
-
-
-
-
+                      )
