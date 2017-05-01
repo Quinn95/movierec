@@ -11,11 +11,11 @@ logging.basicConfig(filename='heist.log',level=logging.DEBUG)
 
 
 def test():
-     # getNetflixMovies()
-     # getAmazonMovies()
-     # getHuluMovies()
-     # getHBOMovies()
-     # createGenres()
+     getNetflixMovies()
+     getAmazonMovies()
+     getHuluMovies()
+     getHBOMovies()
+     createGenres()
      populateMovieDetails()
     #getStreamingLinks(identifier=128834)
     #getManualLinks()
