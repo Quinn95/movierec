@@ -131,6 +131,7 @@ def recView(request):
         querynetflix = Movie.objects.none()
         queryamazon = Movie.objects.none()
         queryhulu = Movie.objects.none()
+        queryhbo = Movie.objects.none()
         anychecked = False
 
         # Check if any specific site is selected #
@@ -150,7 +151,7 @@ def recView(request):
 
         # No specific sites selected #
         if anychecked: 
-            query = querynetflix | queryamazon | queryhulu
+            query = querynetflix | queryamazon | queryhulu | queryhbo
 
         # Display first 20 results #
         query = query.distinct()
