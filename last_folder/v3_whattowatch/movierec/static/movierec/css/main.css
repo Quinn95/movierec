@@ -630,6 +630,13 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   -o-object-fit: cover;
      object-fit: cover;
 }
+.rec .imdb_logo{
+  padding: 0;
+  width: 20%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  text-align: left;
+}
 .col-sm-3, .col-sm-6{
   padding: 0;
   border: none;

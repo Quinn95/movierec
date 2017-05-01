@@ -73,89 +73,97 @@ def test(request):
 USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
+paginatorRec = None
 def recView(request):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
     else:
         profile = None
     if request.method == 'POST':
+        if int(request.POST['pageNum']) == 1:
+            print "hello people"
 
-        # Form name definitions #
-        timerange = (request.POST['from'], request.POST['to'])
-        genre = request.POST['genre']
-        imdb = request.POST['imdb']
-        mpaarating = request.POST['rating']
-        people = request.POST.getlist('people')
-        language = request.POST['language']
-        query = Movie.objects.all()
+            # Form name definitions #
+            timerange = (request.POST['from'], request.POST['to'])
+            genre = request.POST['genre']
+            imdb = request.POST['imdb']
+            mpaarating = request.POST['rating']
+            people = request.POST.getlist('people')
+            language = request.POST['language']
+            query = Movie.objects.all()
 
-        # Check if MPAA is selected #
-        if mpaarating != "Any":
-            query = query.filter(rating=mpaarating)
+            # Check if MPAA is selected #
+            if mpaarating != "Any":
+                query = query.filter(rating=mpaarating)
 
-        # Check if IMDB rating is selected #
-        if imdb != "Any":
-            minrating, maxrating = USER_RATINGS[imdb]
-            query = query.filter(vote_average__gte=minrating)
-            query = query.filter(vote_average__lte=maxrating)
+            # Check if IMDB rating is selected #
+            if imdb != "Any":
+                minrating, maxrating = USER_RATINGS[imdb]
+                query = query.filter(vote_average__gte=minrating)
+                query = query.filter(vote_average__lte=maxrating)
 
-        # Check if any people were selected #
-        peoplelist = request.POST.getlist('people[]')
-        if len(peoplelist) > 0:
-            peoplequerylist = map(lambda x: Person.objects.filter(name__icontains = x).first(), peoplelist)
-            query = query.filter(people__in = peoplequerylist)
-        
-        # Check if any keywords were inputted #
-        keywords = request.POST.getlist('keywords[]')
-        if len(keywords) > 0:
-            keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
-            query = query.filter(keywords__in = keylist)
+            # Check if any people were selected #
+            peoplelist = request.POST.getlist('people[]')
+            if len(peoplelist) > 0:
+                peoplequerylist = map(lambda x: Person.objects.filter(name__icontains = x).first(), peoplelist)
+                query = query.filter(people__in = peoplequerylist)
+            
+            # Check if any keywords were inputted #
+            keywords = request.POST.getlist('keywords[]')
+            if len(keywords) > 0:
+                keylist = map(lambda x: Keyword.objects.get(name = x), keywords)
+                query = query.filter(keywords__in = keylist)
 
-        # Check against initial time range #
-        if timerange[0] != "-----": #we need to change
-            query = query.filter(date__gte = int(timerange[0]))
-        if timerange[1] != "-----": #we need to change
-            query = query.filter(date__lte = int(timerange[1]))
+            # Check against initial time range #
+            if timerange[0] != "-----": #we need to change
+                query = query.filter(date__gte = int(timerange[0]))
+            if timerange[1] != "-----": #we need to change
+                query = query.filter(date__lte = int(timerange[1]))
 
-        # Check if any language is selected #
-        if language != "Any":
-            languageOb = Language.objects.get(name = language)
-            query = query.filter(languages__in = [languageOb])
+            # Check if any language is selected #
+            if language != "Any":
+                languageOb = Language.objects.get(name = language)
+                query = query.filter(languages__in = [languageOb])
 
-        # Check if any genre is selected #
-        if genre != "Any":
-            genreQ = Genre.objects.get(name = genre)
-            query = query.filter(genre__in = [genreQ])
+            # Check if any genre is selected #
+            if genre != "Any":
+                genreQ = Genre.objects.get(name = genre)
+                query = query.filter(genre__in = [genreQ])
 
-        # Initialize site queries #
-        querynetflix = Movie.objects.none()
-        queryamazon = Movie.objects.none()
-        queryhulu = Movie.objects.none()
-        queryhbo = Movie.objects.none()
-        anychecked = False
+            # Initialize site queries #
+            querynetflix = Movie.objects.none()
+            queryamazon = Movie.objects.none()
+            queryhulu = Movie.objects.none()
+            queryhbo = Movie.objects.none()
+            anychecked = False
 
-        # Check if any specific site is selected #
+            # Check if any specific site is selected #
 
-        if (request.POST["netflix"] == "true"):
-            querynetflix = query.filter(netflix_available = True)
-            anychecked = True
-        if (request.POST["amazon"] == "true"):
-            queryamazon = query.filter(amazon_available = True)
-            anychecked = True
-        if (request.POST["hulu"] == "true"):
-            queryhulu = query.filter(hulu_available = True)
-            anychecked = True
-        if (request.POST["hbo"] == "true"):
-            queryhbo = query.filter(hbo_available = True)
-            anychecked = True
+            if (request.POST["netflix"] == "true"):
+                querynetflix = query.filter(netflix_available = True)
+                anychecked = True
+            if (request.POST["amazon"] == "true"):
+                queryamazon = query.filter(amazon_available = True)
+                anychecked = True
+            if (request.POST["hulu"] == "true"):
+                queryhulu = query.filter(hulu_available = True)
+                anychecked = True
+            if (request.POST["hbo"] == "true"):
+                queryhbo = query.filter(hbo_available = True)
+                anychecked = True
 
-        # No specific sites selected #
-        if anychecked: 
-            query = querynetflix | queryamazon | queryhulu | queryhbo
+            # No specific sites selected #
+            if anychecked: 
+                query = querynetflix | queryamazon | queryhulu | queryhbo
 
-        # Display first 20 results #
-        query = query.distinct()
-        results = query[:70]
+            # Display first 20 results #
+            query = query.distinct()
+            global paginatorRec
+            paginatorRec = None;
+            paginatorRec = Paginator(list(query), 20)
+            results = paginatorRec.page(1)
+        else:
+            results = paginatorRec.page(int(request.POST['pageNum']))
 
         # Return all items #
         return render(request, 'movierec/recpage.html',
@@ -214,10 +222,8 @@ def search(request):
             if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
             query = query.distinct()
             global paginator
-            if len(query) >= 100:
-                paginator = Paginator(list(query), 20)
-            else:
-                paginator = Paginator(list(query), 20)
+            paginator = None
+            paginator = Paginator(list(query), 20)
             results = paginator.page(1)
         else:
             results = paginator.page(int(request.POST['pageNum']))

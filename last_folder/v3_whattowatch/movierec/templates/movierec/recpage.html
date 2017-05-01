@@ -111,7 +111,7 @@
 <!-- END -->
 <div class="container-fluid center">
  <div class="row__inner_recommendation">
-
+<!--nextPage-->
 {% if results %}
   {% for item in results %}
   <div class="tile" data-toggle="modal" data-target="#{{item.identifier}}">
@@ -126,8 +126,11 @@
   </div>
   {% endfor %}
 {% endif %}
+<!--nextPage-->
   </div>
 </div>
+<div id="modal-insert">
+<!--nextModal-->
 {% if results %}
   {% for item in results %}  
   <!-- Modal -->
@@ -169,8 +172,18 @@
                 {% endif %}
               {% endfor %}
               </div>
-            <div class="stream">
-              <h4 class="available">Available on:</h4>
+          </div>
+          <div class="likes">
+            <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
+            <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <div class="rec pull-left">
+            <a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}"></a>
+          </div>
+          <div class="stream">
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
@@ -203,18 +216,14 @@
               {% endif %}
             {% endif %}
             </div>
-              <div class="likes">
-                <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
-                <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
-              </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
   {% endfor %}
 {% endif %}
+<!--nextModal-->
+</div>
 <!-- END -->
 </div>
 

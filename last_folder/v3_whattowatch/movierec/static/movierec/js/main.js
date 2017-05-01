@@ -325,7 +325,7 @@ $( document ).ready(function() {
 	    	$("#success-ajax").removeClass("hidden");
 	    	recCall($(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
-	    		$(this).find("input[name='csrfmiddlewaretoken']").val())
+	    		$(this).find("input[name='csrfmiddlewaretoken']").val());
 		}
 	do_rec = false;
   });
@@ -338,8 +338,6 @@ $( document ).ready(function() {
   var do_search = false;
   $("#search-form").on('submit', function(e){
     e.preventDefault();
-    var pageNum = 1; // The latest page loaded
-	var hasNextPage = true; // Indicates whether to expect another page after this one
     if(search_title !== $(this).find("#search_text").val()){
     	search_title = $(this).find("#search_text").val();
     	do_search = true;
@@ -361,14 +359,14 @@ $( document ).ready(function() {
     	do_search = true;
     }
     if(do_search){
-    	$("#success-ajax").removeClass("hidden")
+    	$("#success-ajax").removeClass("hidden");
 	    $.ajax({
 	        url: $(this).attr("action"),
 	        type: "POST",
 	        data: {
 	          search_text: $(this).find("#search_text").val(),
 	          netflix: search_netflix,
-	          pageNum: pageNum,
+	          pageNum: 1,
 	          amazon: search_amazon,
 	          hulu: search_hulu,
 	          hbo: search_hbo,
@@ -384,7 +382,7 @@ $( document ).ready(function() {
         			scrollTop: $("#search-query").offset().top - 70
     			}, 1000);
     			$(window).on('scroll', function(){
-    				loadOnScroll(pageNum, hasNextPage);
+    				loadOnScroll(1, true, "search-query", $("#search-form").find("input[name='csrfmiddlewaretoken']").val());
     			});
 	        },
 
@@ -470,6 +468,7 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 	      amazon: amazon,
 	      hulu: hulu,
 	      hbo: hbo,
+	      pageNum: 1,
 	      csrfmiddlewaretoken: csrf},
 
 
@@ -482,6 +481,9 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
         	$('html, body').animate({
     			scrollTop: $("#insert").offset().top - 70
 			}, 1000);
+			$(window).on('scroll', function(){
+    			loadOnScroll(1, true, "recommendation", $("#recommendation").find("input[name='csrfmiddlewaretoken']").val());
+    		});
 	    },
 
 	    // handle a non-successful response
@@ -568,17 +570,17 @@ function arraysEqual(a, b) {
   return true;
 }
 //loadOnScroll handler
-function loadOnScroll(pageNum, hasNextPage) {
+function loadOnScroll(pageNum, hasNextPage, form, csrf) {
    //If the current scroll position is past out cutoff point...
-    if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 300) {
+    if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 450) {
         // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
         $(window).off("scroll"); 
         // execute the load function below that will visit the JSON feed and stuff data into the HTML
-        loadItems(pageNum, hasNextPage);
+        loadItems(pageNum, hasNextPage, form, csrf);
     }
 };
 
-function loadItems(pageNum, hasNextPage) {
+function loadItems(pageNum, hasNextPage, form, csrf) {
     // If the next page doesn't exist, just quit now 
     if (hasNextPage === false) {
         return false
@@ -587,17 +589,23 @@ function loadItems(pageNum, hasNextPage) {
     pageNum = pageNum + 1;
     // Configure the url we're about to hit
 	$.ajax({
-        url: $("#search-form").attr("action"),
+        url: $("#"+form).attr("action"),
         type: "POST",
         data: {
           pageNum: pageNum,
-          csrfmiddlewaretoken: $("#search-form").find("input[name='csrfmiddlewaretoken']").val()
+          csrfmiddlewaretoken: csrf
       	},
 
 
         // handle a successful response
         success: function(data) {
-	        $("#search-query").append(data.split("<!-- END -->")[1]);
+        	if(form === "search-query"){
+	        	$("#search-query").append(data.split("<!-- END -->")[1]);
+	        } else{
+	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
+	        	$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
+	        	modal();
+	        }
         },
 
         // handle a non-successful response
@@ -608,7 +616,7 @@ function loadItems(pageNum, hasNextPage) {
         complete: function(data, textStatus){
             // Turn the scroll monitor back on
             $(window).on('scroll', function(){
-				loadOnScroll(pageNum, hasNextPage);
+				loadOnScroll(pageNum, hasNextPage, form, csrf);
 			});
         }
 
