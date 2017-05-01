@@ -11,10 +11,11 @@ logging.basicConfig(filename='heist.log',level=logging.DEBUG)
 
 
 def test():
-     getNetflixMovies()
-     getAmazonMovies()
-     getHuluMovies()
-     createGenres()
+     # getNetflixMovies()
+     # getAmazonMovies()
+     # getHuluMovies()
+     # getHBOMovies()
+     # createGenres()
      populateMovieDetails()
     #getStreamingLinks(identifier=128834)
     #getManualLinks()
@@ -34,7 +35,7 @@ def getNetflixMovies():
     added_count = 0
     while netflix_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='netflix')
-        movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='netflix')
+        movies = guidebox.Movie.list(offset=movie_offset, limit=30, sources='netflix')
         list = json.loads(movies.__str__())
         movie_offset += 250
         #netflix_movie_count = list['total_results'] - movie_offset
@@ -79,7 +80,7 @@ def getAmazonMovies():
     added_count = 0
     while amazon_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='amazon_prime')
-        movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='amazon_prime')
+        movies = guidebox.Movie.list(offset=movie_offset, limit=30, sources='amazon_prime')
         list = json.loads(movies.__str__())
         movie_offset += 250
         #amazon_movie_count = list['total_results'] - movie_offset
@@ -123,7 +124,7 @@ def getHuluMovies():
     added_count = 0
     while hulu_movie_count > 0:
         #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='hulu_plus')
-        movies = guidebox.Movie.list(offset=movie_offset, limit=10, sources='hulu_plus')
+        movies = guidebox.Movie.list(offset=movie_offset, limit=30, sources='hulu_plus')
         list = json.loads(movies.__str__())
         movie_offset += 250
         #hulu_movie_count = list['total_results'] - movie_offset
@@ -153,6 +154,50 @@ def getHuluMovies():
     logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Hulu Plus')
 
 
+def getHBOMovies():
+    """
+    Get a list of HBO Now movies from GuideBox and populates the database
+
+    Args:
+        None
+    Returns:
+        None
+    """
+    hulu_movie_count = 250
+    movie_offset = 0
+    added_count = 0
+    while hulu_movie_count > 0:
+        #movies = guidebox.Movie.list(offset=movie_offset, limit=250, source='hulu_plus')
+        movies = guidebox.Movie.list(offset=movie_offset, limit=30, sources='hbo_now')
+        list = json.loads(movies.__str__())
+        movie_offset += 250
+        #hulu_movie_count = list['total_results'] - movie_offset
+        hulu_movie_count -= movie_offset
+        for result in list['results']:
+            e = Movie.objects.filter(identifier=int(result['id']))
+
+            # Only do this if movie does not exist in the database
+            if len(e) == 0:
+                m = Movie(identifier=result['id'],
+                          themoviedb=result['themoviedb'],
+                          imdb=result['imdb'],
+                          rating=result['rating'],
+                          rottentomatoes=result['rottentomatoes'],
+                          metacritic=result['metacritic'],
+                          common_sense_media=result['common_sense_media'],
+                          poster=result['poster_400x570'],
+                          title=result['title'],
+                          date=result['release_year'],
+                          hbo_available=True)
+                m.save()
+                added_count += 1
+            else:
+                obj = Movie.objects.get(identifier=int(result['id']))
+                obj.hbo_available = True
+                obj.save()
+    logging.debug('Added ' + added_count.__str__() + ' new movies to the database from Hulu Plus')
+
+
 def populateMovieDetails():
     """
     Gets details for all movies in the database using the TMDb API and populates the database
@@ -167,11 +212,17 @@ def populateMovieDetails():
     movie_retrieve_count = 0
     for movie in movie_set:
         if (not movie.tmdb_get) and (movie.themoviedb is not None):
-            tmdb_data = tmdb.Movies(movie.themoviedb).info(append_to_response='credits,videos,keywords')
+            try:
+                tmdb_data = tmdb.Movies(movie.themoviedb).info(append_to_response='credits,videos,keywords')
+            except:
+                continue
 
             genre_list = []
             for genre in tmdb_data['genres']:
-                genre_list.append(Genre.objects.get(identifier=genre['id']))
+                try:
+                    genre_list.append(Genre.objects.get(identifier=genre['id']))
+                except:
+                    pass
 
             keywords_list = []
             for keyword in tmdb_data['keywords']['keywords']:
@@ -191,7 +242,7 @@ def populateMovieDetails():
                     people_list.append(p)
                     p.save()
                 else:
-                    people_list.append(Person.objects.get(name=cast['name']))
+                    people_list.append(Person.objects.get(identifier=cast['id']))
 
             for crew in people['crew']:
                 if crew['job'] == 'Director' or crew['job'] == 'Writer':
@@ -200,7 +251,7 @@ def populateMovieDetails():
                         people_list.append(p)
                         p.save()
                     else:
-                        people_list.append(Person.objects.get(name=crew['name']))
+                        people_list.append(Person.objects.get(identifier=crew['id']))
 
             language_list = []
             for language in tmdb_data['spoken_languages']:
@@ -221,7 +272,10 @@ def populateMovieDetails():
             movie.vote_count=tmdb_data['vote_count']
             movie.vote_average=tmdb_data['vote_average']
             movie.popularity=tmdb_data['popularity']
-            movie.trailer='https://www.youtube.com/embed/'+tmdb_data['videos']['results'][0]['key']
+            try:
+                movie.trailer='https://www.youtube.com/embed/'+tmdb_data['videos']['results'][0]['key']
+            except:
+                pass
             movie.tmdb_get=True
             movie.save()
             movie_retrieve_count += 1
