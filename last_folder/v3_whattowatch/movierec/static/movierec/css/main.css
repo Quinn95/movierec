@@ -645,6 +645,10 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   margin-top: 0;
 }
 
+.warning{
+  text-align: center;
+}
+
 @media (max-width: 1199px){
   .text-col{
     padding-top: 0;
