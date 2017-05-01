@@ -8,5 +8,5 @@ class Command(BaseCommand):
     def handle(self, **options):
         site = Site.objects.get_current()
         site.domain = 'w2w.com'
-        site.name = 'W2W'
+        site.name = 'WhatToWatch'
         site.save()
