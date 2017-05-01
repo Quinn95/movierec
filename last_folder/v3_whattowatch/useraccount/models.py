@@ -16,29 +16,9 @@ class UserProfile(models.Model):
     show_netflix = models.BooleanField(default=False)
     show_amazon = models.BooleanField(default=False)
     show_hulu = models.BooleanField(default=False)
+    show_hbo = models.BooleanField(default=False)
 
     def __str__(self):
          return self.user.username
-
-
-@python_2_unicode_compatible
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    liked_movies = models.ManyToManyField('movierec.Movie',
-                                          related_name='liked_movies')
-    disliked_movies = models.ManyToManyField('movierec.Movie',
-                                             related_name='disliked_movies')
-    def __str__(self):
-        return self.user.username
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
 
 

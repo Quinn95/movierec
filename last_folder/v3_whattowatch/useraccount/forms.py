@@ -10,6 +10,7 @@ STREAMING_CHOICES = (
     ('netflix', 'Netflix'),
     ('amazon', 'Amazon Prime'),
     ('hulu', 'Hulu'),
+    ('hbo', 'HBO Now')
 )
 
 class SignupForm(account.forms.SignupForm):    
@@ -24,11 +25,3 @@ class SignupForm(account.forms.SignupForm):
 #
 LANGUAGE_CHOICES = (("english", "en"), ("test", "ts"))
 
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = models.Profile
-        fields = ("liked_movies", "disliked_movies")
-
-def bound_form(profile):
-    form = ProfileForm(instance=profile)
-    return form

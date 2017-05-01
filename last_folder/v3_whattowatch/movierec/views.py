@@ -179,16 +179,18 @@ def search(request):
 
         # No specific sites selected #
         if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
-        
         query = query.distinct()
         results = query[:100]
 
-        return render(request, 'movierec/search.html', {'results': results, 'profile': profile, 'user': request.user})
-        
+        return render(request, 'movierec/search.html', {'results': results,
+                                                        'profile': profile,
+                                                        'user': request.user})
+
     return render(request, 'movierec/search.html', {'profile': profile, 'user': request.user})
 
 
 def like_dislike(request):
+<<<<<<< HEAD
     # if request.method == 'POST':
     #     user = request.user
     #     if user.is_authenticated:
