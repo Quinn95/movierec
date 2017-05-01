@@ -113,8 +113,6 @@
 <!-- END -->
 </div>
 
-</body>
-
 {% include 'movierec/scripts.html' %}
 
 {% if profile.show_netflix %}
@@ -128,3 +126,9 @@
 {% if profile.show_hulu %}
 <script>imageSearch('hulu');</script>
 {% endif %}
+
+{% if profile.show_hbo %}
+<script>imageSearch('hbo');</script>
+{% endif %}
+
+</body>

@@ -18,7 +18,10 @@ def home(request):
         profile = UserProfile.objects.get(user=request.user)
     
     query = Movie.objects.all()
-
+    query = query.exclude(popularity__isnull=False)
+    query = query.exclude(date__isnull=False)
+    query = query.exclude(vote_average__isnull=False)
+    
     trending = query.order_by('-popularity')[:30]
 
     recent = query.order_by('-date')[:30]
