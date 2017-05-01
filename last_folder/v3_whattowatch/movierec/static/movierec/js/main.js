@@ -232,6 +232,8 @@ $( document ).ready(function() {
 			}
 			if($(this).attr("href").trim() === "/"){
 				modal();
+			} else if($(this).attr("href").trim()){
+				$("#success-ajax").hide();
 			}
 		});
 
@@ -322,7 +324,7 @@ $( document ).ready(function() {
 	    	do_rec = true;
 	    }
 	    if(do_rec){
-	    	$("#success-ajax").hide();
+	    	$("#success-ajax").show();
 	    	recCall($(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val())
@@ -470,6 +472,7 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 
 	    // handle a successful response
 	    success: function(data) {
+	    	$("#success-ajax").hide();
 	    	$("#insert").empty();
 	        $("#insert").append(data.split("<!-- END -->")[1]);
 	        modal();
