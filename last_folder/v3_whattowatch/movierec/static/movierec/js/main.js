@@ -232,8 +232,6 @@ $( document ).ready(function() {
 			}
 			if($(this).attr("href").trim() === "/"){
 				modal();
-			} else if($(this).attr("href").trim()){
-				$("#success-ajax").hide();
 			}
 		});
 
@@ -324,7 +322,7 @@ $( document ).ready(function() {
 	    	do_rec = true;
 	    }
 	    if(do_rec){
-	    	$("#success-ajax").show();
+	    	$("#success-ajax").removeClass("hidden");
 	    	recCall($(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val())
@@ -364,6 +362,7 @@ $( document ).ready(function() {
     	do_search = true;
     }
     if(do_search){
+    	$("#success-ajax").removeClass("hidden");
 	    $.ajax({
 	        url: $(this).attr("action"),
 	        type: "POST",
@@ -378,6 +377,7 @@ $( document ).ready(function() {
 
 	        // handle a successful response
 	        success: function(data) {
+	        	$("#success-ajax").addClass("hidden");
 	        	$("#search-query").empty();
 		        $("#search-query").append(data.split("<!-- END -->")[1]);
 		    	$('html, body').animate({
@@ -472,7 +472,7 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 
 	    // handle a successful response
 	    success: function(data) {
-	    	$("#success-ajax").hide();
+	    	$("#success-ajax").addClass("hidden");
 	    	$("#insert").empty();
 	        $("#insert").append(data.split("<!-- END -->")[1]);
 	        modal();
@@ -564,7 +564,7 @@ function arraysEqual(a, b) {
   }
   return true;
 }
-// // loadOnScroll handler
+// loadOnScroll handler
 // function loadOnScroll() {
 //    // If the current scroll position is past out cutoff point...
 //     if ($(window).scrollTop() > $(document).height() - ($(window).height()*2)) {
