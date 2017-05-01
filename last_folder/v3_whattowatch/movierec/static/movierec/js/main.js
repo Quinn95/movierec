@@ -219,7 +219,6 @@ $( document ).ready(function() {
 
 	$(window).load(function(){
 		$(".nav").find("a").each(function(){
-
 			if($(this).attr("href").trim() === $(".hide_name").text().trim()){
 				$(this).addClass("active");
 				if($(".search_page").length !== 0){
@@ -230,6 +229,9 @@ $( document ).ready(function() {
 			}
 			else if($(this).hasClass("active")){
 				$(this).removeClass("active");
+			}
+			if($(this).attr("href").trim() === "/"){
+				modal();
 			}
 		});
 
@@ -329,6 +331,10 @@ $( document ).ready(function() {
   });
 
   var search_title = null;
+  var search_netflix = false;
+  var search_amazon = false;
+  var search_hulu = false;
+  var search_hbo = false;
   var do_search = false;
   $("#search-form").on('submit', function(e){
     e.preventDefault();
@@ -339,16 +345,32 @@ $( document ).ready(function() {
     	search_title = $(this).find("#search_text").val();
     	do_search = true;
     }
+    if(search_netflix !== $("#ns").is(":checked")){
+    	search_netflix = $("#ns").is(":checked");
+    	do_search = true;
+    }
+    if(search_amazon !== $("#as").is(":checked")){
+    	search_amazon = $("#as").is(":checked");
+    	do_search = true;
+    }
+    if(search_hulu !== $("#hs").is(":checked")){
+    	search_hulu = $("#hs").is(":checked");
+    	do_search = true;
+    }
+    if(search_hbo !== $("#hbs").is(":checked")){
+    	search_hbo = $("#hbs").is(":checked");
+    	do_search = true;
+    }
     if(do_search){
 	    $.ajax({
 	        url: $(this).attr("action"),
 	        type: "POST",
 	        data: {
 	          search_text: $(this).find("#search_text").val(),
-	          netflix: $("#ns").is(":checked"),
-	          amazon: $("#as").is(":checked"),
-	          hulu: $("#hs").is(":checked"),
-	          hbo: $("#hbs").is(":checked"),
+	          netflix: search_netflix,
+	          amazon: search_amazon,
+	          hulu: search_hulu,
+	          hbo: search_hbo,
 	          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
 
 

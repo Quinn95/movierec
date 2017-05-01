@@ -4,21 +4,20 @@ from movierec.models import Movie, Genre, Person, Language, Keyword
 import tmdbsimple as tmdb
 import logging
 
-guidebox.api_key = "26ba3cbb31750bcd51dede8068cf8ff72fcfde79"
+guidebox.api_key = '9bc69134d3ed994df4c6fb5dd3b52b9c2cbdb18d'
 guidebox.Region = "US"
 tmdb.API_KEY = "f2eee9cde7536b5ef17767e4e9a97239"
 logging.basicConfig(filename='heist.log',level=logging.DEBUG)
 
 
 def test():
-    # getNetflixMovies()
-    # getAmazonMovies()
-    # getHuluMovies()
-    # createGenres()
-    # populateMovieDetails()
+     getNetflixMovies()
+     getAmazonMovies()
+     getHuluMovies()
+     createGenres()
+     populateMovieDetails()
     #getStreamingLinks(identifier=128834)
     #getManualLinks()
-    pass
 
 
 def getNetflixMovies():
