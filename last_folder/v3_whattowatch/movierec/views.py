@@ -215,9 +215,9 @@ def search(request):
             query = query.distinct()
             global paginator
             if len(query) >= 100:
-                paginator = Paginator(list(query), 100)
+                paginator = Paginator(list(query), 20)
             else:
-                paginator = Paginator(list(query), 5)
+                paginator = Paginator(list(query), 20)
             results = paginator.page(1)
         else:
             results = paginator.page(int(request.POST['pageNum']))
