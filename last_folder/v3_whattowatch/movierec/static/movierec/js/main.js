@@ -478,9 +478,10 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 	    	$("#insert").empty();
 	        $("#insert").append(data.split("<!-- END -->")[1]);
 	        modal();
-        	$('html, body').animate({
-    			scrollTop: $("#insert").offset().top - 70
+			$('html, body').animate({
+				scrollTop: $("#insert").offset().top - 70
 			}, 1000);
+
 			$(window).on('scroll', function(){
     			loadOnScroll(1, true, "recommendation", $("#recommendation").find("input[name='csrfmiddlewaretoken']").val());
     		});

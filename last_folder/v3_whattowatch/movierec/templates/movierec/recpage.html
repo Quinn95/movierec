@@ -180,10 +180,11 @@
         </div>
       </div>
       <div class="modal-footer">
-          <div class="rec pull-left">
-            <a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}"></a>
-          </div>
+        <div class="row">
+          <h4>Relevant Links!</h4>
+        </div>
           <div class="stream">
+              <a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}"></a>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>

@@ -240,6 +240,10 @@ a:hover {
   color: #fff;
   font-weight: bold;
 }
+.modal-footer{
+  text-align: center;
+  padding: 0;
+}
 
 .video-container {
   position:relative;
@@ -531,6 +535,11 @@ select::-ms-expand {
 .summary, .stream{
   margin-bottom: 2px;
 }
+.stream{
+  display: inline-block;
+  float: none;
+  margin-bottom: 25px;
+}
 .search_bar{
   background-color: #F4F4F4;
   height: 47%;
@@ -630,12 +639,8 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   -o-object-fit: cover;
      object-fit: cover;
 }
-.rec .imdb_logo{
-  padding: 0;
-  width: 20%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  text-align: left;
+.stream .imdb_logo{
+  margin-right: 8px;
 }
 .col-sm-3, .col-sm-6{
   padding: 0;

@@ -81,7 +81,6 @@ def recView(request):
         profile = None
     if request.method == 'POST':
         if int(request.POST['pageNum']) == 1:
-            print "hello people"
 
             # Form name definitions #
             timerange = (request.POST['from'], request.POST['to'])
@@ -191,7 +190,6 @@ def search(request):
     if request.method == 'POST':
         if int(request.POST['pageNum']) == 1:
             search_query = request.POST['search_text']
-            print search_query
             query = Movie.objects.all()
 
             if len(search_query) != 0:
