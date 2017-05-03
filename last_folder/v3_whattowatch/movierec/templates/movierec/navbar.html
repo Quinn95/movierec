@@ -18,24 +18,24 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{% url 'home' %}">Home</a>
+                        <a href="{% url 'home' %}">HOME</a>
                     </li>
                     <li>
-                      <a href="{% url 'recommendations' %}">Recommendations</a>
+                      <a href="{% url 'recommendations' %}">RECOMMENDATIONS</a>
                     </li>
                     <li>
-                        <a href="{% url 'search' %}">Search</a>
+                        <a href="{% url 'search' %}">SEARCH</a>
                     </li>
                     <li>
                       {% if user.is_authenticated %} 
-                        <a href="{% url 'account_settings' %}">{{user}}</a>
+                        <a href="{% url 'account_settings' %}">{{user|upper}}</a>
                       {% endif %}
                     </li>
                     <li>
                       {% if user.is_authenticated %} 
-                        <a href="{% url 'account_logout' %}">Sign Out</a>
+                        <a href="{% url 'account_logout' %}">SIGN OUT</a>
                       {% else %}
-                        <a href="{% url 'account_login' %}">Sign In</a> 
+                        <a href="{% url 'account_login' %}">SIGN IN</a>
                       {% endif %}
                     </li>
                 </ul>

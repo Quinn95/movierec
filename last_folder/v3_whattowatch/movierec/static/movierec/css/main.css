@@ -1,5 +1,5 @@
 body, body legend{
-  font-family: 'Average Sans', sans-serif;
+  font-family: 'Oswald', sans-serif;
   background-color: #373737;
   color: #DCD0C0;
 }
@@ -18,7 +18,7 @@ body, body legend{
   background-color: black;
 }
 .nav{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 a.active{
   color: #ea372e !important;
@@ -634,7 +634,7 @@ input, select{
   color: black;
 }
 body.account-delete .account-delete, body.account-password .account-password, body.account-settings .account-settings{
-  background-color: orange;
+  background-color: lightslategray;
 }
 
 .imdb_logo {
@@ -693,14 +693,14 @@ body.account-delete .account-delete, body.account-password .account-password, bo
   color: black;
 }
 
-footer{
-  width: 100%;
-  background-color: orange;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 20;
-}
+/*footer{*/
+  /*width: 100%;*/
+  /*!*background-color: orange;*!*/
+  /*!*position: fixed;*!*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*z-index: 20;*/
+/*}*/
 
 @media (max-width: 1199px){
   .text-col{
