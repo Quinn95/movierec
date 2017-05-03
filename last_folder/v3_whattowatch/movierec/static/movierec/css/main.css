@@ -540,9 +540,10 @@ select::-ms-expand {
   margin-bottom: 2px;
 }
 .stream{
-  display: inline-block;
-  float: none;
-  margin-bottom: 25px;
+  text-align: center;
+}
+.stream h4{
+  display: block;
 }
 .search_bar{
   background-color: #F4F4F4;
@@ -622,6 +623,7 @@ select::-ms-expand {
 }
 .row .stream a{
   display: block;
+  margin: 0 auto;
 }
 
 input, select{

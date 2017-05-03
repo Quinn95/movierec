@@ -573,7 +573,7 @@ function arraysEqual(a, b) {
 //loadOnScroll handler
 function loadOnScroll(pageNum, hasNextPage, form, csrf) {
    //If the current scroll position is past out cutoff point...
-    if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 450) {
+    if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 650) {
         // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
         $(window).off("scroll"); 
         // execute the load function below that will visit the JSON feed and stuff data into the HTML
@@ -603,9 +603,9 @@ function loadItems(pageNum, hasNextPage, form, csrf) {
         	if(form === "search-query"){
 	        	$("#search-query").append(data.split("<!-- END -->")[1]);
 	        } else{
-	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
 	        	$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
 	        	modal();
+	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
 	        }
         },
 

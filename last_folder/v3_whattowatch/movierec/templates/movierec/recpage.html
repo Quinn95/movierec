@@ -173,18 +173,8 @@
               {% endfor %}
               </div>
           </div>
-          <div class="likes">
-            <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
-            <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="row">
-          <h4>Relevant Links!</h4>
-        </div>
-          <div class="stream">
-              <a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}"></a>
+            <div class="stream">
+            <h4>Available on:</h4>
             {% if item.netflix_available  %}
               {% if item.netflix is not None %}
             <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
@@ -217,6 +207,11 @@
               {% endif %}
             {% endif %}
             </div>
+          <div class="likes">
+            <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
+            <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -224,14 +219,12 @@
   {% endfor %}
 {% endif %}
 <!--nextModal-->
-</div>
 <!-- END -->
 </div>
 
 <div class="hide_name">
   <input type="hidden" id="hidden_keywords" value="" />
 </div>
-{#{% include 'movierec/footer.html' %}#}
 {% include 'movierec/scripts.html' %}
 <script>
 
