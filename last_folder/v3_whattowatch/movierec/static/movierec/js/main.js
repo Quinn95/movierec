@@ -326,7 +326,7 @@ $( document ).ready(function() {
 	    }
 	    if(do_rec){
 	    	$("#success-ajax").removeClass("hidden");
-	    	recCall($(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
+	    	recCall(0, true, $(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val());
 		}
@@ -387,7 +387,8 @@ $( document ).ready(function() {
         			scrollTop: $("#search-query").offset().top - 70
     			}, 1000);
     			$(window).on('scroll', function(){
-    				loadOnScroll(1, true, "search-query", $("#search-form").find("input[name='csrfmiddlewaretoken']").val());
+    				loadOnScroll(1, true, "search-query", $("#search-form").find("#search_text").val(), search_netflix, search_amazon, 
+    					search_hulu, search_hbo, $("#search-form").find("input[name='csrfmiddlewaretoken']").val());
     			});
 	        },
 
@@ -456,7 +457,14 @@ function backspace(input) {
 		}
 	});
 };
-function recCall(url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf){
+function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf){
+	// If the next page doesn't exist, just quit now 
+    if (hasNext === false) {
+        return false
+    }
+    // Update the page number
+    page = page + 1;
+
 	$.ajax({
 	    url: url,
 	    type: "POST",
@@ -474,29 +482,30 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 	      hulu: hulu,
 	      hbo: hbo,
 	      ip: ip,
-	      pageNum: 1,
+	      pageNum: page,
 	      csrfmiddlewaretoken: csrf},
 
 
 	    // handle a successful response
 	    success: function(data) {
 	    	$("#success-ajax").addClass("hidden");
-	    	$("#insert").empty();
-	        $("#insert").append(data.split("<!-- END -->")[1]);
-	        modal();
-			$('html, body').animate({
-				scrollTop: $("#insert").offset().top - 70
-			}, 1000);
+	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
+	        	$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
+	        	modal();
 
-			$(window).on('scroll', function(){
-
-    			loadOnScroll(1, true, "recommendation", $("#recommendation").find("input[name='csrfmiddlewaretoken']").val());
-    		});
 	    },
 
 	    // handle a non-successful response
 	    error : function(xhr,errmsg,err) {
 	        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+	    }, 
+	    complete :function(){
+	  //   	$('html, body').animate({
+			// 	scrollTop: $("#insert").offset().top - 70
+			// }, 1000);
+			$(window).on('scroll', function(){
+    			recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf);
+    		});
 	    }
 	});
 }
@@ -576,7 +585,18 @@ function arraysEqual(a, b) {
   return true;
 }
 //loadOnScroll handler
-function loadOnScroll(pageNum, hasNextPage, form, csrf) {
+function recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf) {
+   //If the current scroll position is past out cutoff point...
+    if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 650) {
+        // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
+        $(window).off("scroll"); 
+        // execute the load function below that will visit the JSON feed and stuff data into the HTML
+        recCall(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf);
+    }
+};
+
+//loadOnScroll handler
+function loadOnScroll(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo, form, csrf) {
    //If the current scroll position is past out cutoff point...
     if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 650) {
         // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
@@ -586,7 +606,7 @@ function loadOnScroll(pageNum, hasNextPage, form, csrf) {
     }
 };
 
-function loadItems(pageNum, hasNextPage, form, csrf) {
+function loadItems(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo, form, csrf) {
     // If the next page doesn't exist, just quit now 
     if (hasNextPage === false) {
         return false
@@ -599,6 +619,12 @@ function loadItems(pageNum, hasNextPage, form, csrf) {
         type: "POST",
         data: {
           pageNum: pageNum,
+          search_text: text,
+          netflix: netflix,
+          pageNum: pageNum,
+          amazon: amazon,
+          hulu: hulu,
+          hbo: hbo,
           ip: ip,
           csrfmiddlewaretoken: csrf,
       	},
@@ -623,7 +649,7 @@ function loadItems(pageNum, hasNextPage, form, csrf) {
         complete: function(data, textStatus){
             // Turn the scroll monitor back on
             $(window).on('scroll', function(){
-				loadOnScroll(pageNum, hasNextPage, form, csrf);
+				loadOnScroll(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo, form, csrf);
 			});
         }
 
