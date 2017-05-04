@@ -73,7 +73,7 @@ def test(request):
 USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
-Map = {}
+# Map = {}
 def recView(request):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -221,7 +221,7 @@ def search(request):
         if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
         query = query.distinct()
         paginator = Paginator(list(query), 20)
-        results = paginator.page(int(request.POST['pageNum']))
+        results = paginator.page(request.POST['pageNum'])
         #     global Map
         #     ip = request.POST["ip"]
         #     Map[ip] = paginator

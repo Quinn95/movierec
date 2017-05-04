@@ -330,7 +330,7 @@ $( document ).ready(function() {
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val());
 	    	$('html, body').animate({
-				scrollTop: $("#insert").offset().top - 200
+				scrollTop: $("#insert").offset().top - 150
 			}, 1000);
 		}
 	do_rec = false;
@@ -390,8 +390,7 @@ $( document ).ready(function() {
         			scrollTop: $("#search-query").offset().top - 70
     			}, 1000);
     			$(window).on('scroll', function(){
-    				loadOnScroll(1, true, "search-query", $("#search-form").find("#search_text").val(), search_netflix, search_amazon, 
-    					search_hulu, search_hbo, $("#search-form").find("input[name='csrfmiddlewaretoken']").val());
+    				loadOnScroll(1, true);
     			});
 	        },
 
@@ -462,6 +461,7 @@ function backspace(input) {
 };
 function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf){
 	// If the next page doesn't exist, just quit now 
+    $("#success-ajax").removeClass("hidden");
     if (hasNext === false) {
         return false
     }
@@ -507,6 +507,7 @@ function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, peop
 
 	    // handle a non-successful response
 	    error : function(xhr,errmsg,err) {
+	    	$("#success-ajax").addClass("hidden");
 	        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
 	    }, 
 	    complete :function(){
@@ -603,60 +604,59 @@ function recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, 
 };
 
 //loadOnScroll handler
-function loadOnScroll(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo, form, csrf) {
+function loadOnScroll(pageNum, hasNextPage) {
    //If the current scroll position is past out cutoff point...
     if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 650) {
         // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
         $(window).off("scroll"); 
         // execute the load function below that will visit the JSON feed and stuff data into the HTML
-        loadItems(pageNum, hasNextPage, form, csrf);
+        loadItems(pageNum, hasNextPage);
     }
 };
 
-function loadItems(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo, form, csrf) {
+function loadItems(index, hasNextPage) {
     // If the next page doesn't exist, just quit now 
+    $("#success-ajax").removeClass("hidden");
     if (hasNextPage === false) {
         return false
     }
     // Update the page number
-    pageNum = pageNum + 1;
+    index = index + 1;
+    var text = "";
+    if($(this).find("#search_text").val() != undefined){
+    	text = $(this).find("#search_text").val();
+    }
     // Configure the url we're about to hit
 	$.ajax({
-        url: $("#"+form).attr("action"),
+        url: $("#search-form").attr("action"),
         type: "POST",
         data: {
-          pageNum: pageNum,
           search_text: text,
-          netflix: netflix,
-          pageNum: pageNum,
-          amazon: amazon,
-          hulu: hulu,
-          hbo: hbo,
-          ip: ip,
-          csrfmiddlewaretoken: csrf,
+          netflix: $("#ns").is(":checked"),
+          pageNum: index,
+          amazon: $("#as").is(":checked"),
+          hulu: $("#hs").is(":checked"),
+          hbo: $("#hbs").is(":checked"),
+          csrfmiddlewaretoken: $("#search-form").find("input[name='csrfmiddlewaretoken']").val(),
       	},
 
 
         // handle a successful response
         success: function(data) {
-        	if(form === "search-query"){
-	        	$("#search-query").append(data.split("<!-- END -->")[1]);
-	        } else{
-	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
-	        	$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
-	        	modal();
-	        }
+        	$("#success-ajax").addClass("hidden");
+	        $("#search-query").append(data.split("<!-- END -->")[1]);
         },
 
         // handle a non-successful response
         error : function(xhr,errmsg,err) {
             hasNextPage = false;
+            $("#success-ajax").hide();
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         },  
         complete: function(data, textStatus){
             // Turn the scroll monitor back on
             $(window).on('scroll', function(){
-				loadOnScroll(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo, form, csrf);
+				loadOnScroll(index, hasNextPage);
 			});
         }
 
