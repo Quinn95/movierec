@@ -270,7 +270,6 @@ $( document ).ready(function() {
 	    e.preventDefault();
 	    var pep = new Array();
 	    var key = new Array();
-	    $("#insert").empty();
 	    $(".people").children(".tag").each(function(){
 	      pep.push($(this).text());
 	    });
@@ -330,6 +329,9 @@ $( document ).ready(function() {
 	    	recCall(0, true, $(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val());
+	    	$('html, body').animate({
+				scrollTop: $("#insert").offset().top - 200
+			}, 1000);
 		}
 	do_rec = false;
   });
@@ -463,6 +465,9 @@ function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, peop
     if (hasNext === false) {
         return false
     }
+    if(page == 0){
+		$("#insert").empty();
+	}
     // Update the page number
     page = page + 1;
 
@@ -490,9 +495,13 @@ function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, peop
 	    // handle a successful response
 	    success: function(data) {
 	    	$("#success-ajax").addClass("hidden");
-	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
-	        	$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
-	        	modal();
+	    	if(page == 1){
+	    		$("#insert").append(data.split("<!-- END -->")[1]);
+	    	} else{
+        		$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
+        		$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
+        	}
+        	modal();
 
 	    },
 
@@ -501,9 +510,6 @@ function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, peop
 	        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
 	    }, 
 	    complete :function(){
-	  //   	$('html, body').animate({
-			// 	scrollTop: $("#insert").offset().top - 70
-			// }, 1000);
 			$(window).on('scroll', function(){
     			recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf);
     		});
