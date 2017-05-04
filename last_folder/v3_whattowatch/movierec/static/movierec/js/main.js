@@ -508,9 +508,7 @@ function modal(){
   			} else if(iframe_div.find("input").attr("name") === "trailer"){
   				iframe_div.prepend("<iframe id='vid' src='"+youtube+"' allowfullscreen></iframe>");
   			} else if(iframe_div.find("input").attr("name") === "bunny"){
-  				$("<iframe class='ytplayer' id='vid' src='"+youtube+"&autoplay=1' volume='0'></iframe>").insertAfter($("#no-trailer"));
-  				var vid = document.getElementById("vid");
-				vid.volume = 0;
+  				$("<iframe class='ytplayer' id='vid' src='"+youtube+"&autoplay=1' volume='0'></iframe>").insertAfter($(this).find("#no-trailer"));
   			}
 
   			var frame = $(title).find("#vid").width()/100;
@@ -603,9 +601,9 @@ function loadItems(pageNum, hasNextPage, form, csrf) {
         	if(form === "search-query"){
 	        	$("#search-query").append(data.split("<!-- END -->")[1]);
 	        } else{
+	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
 	        	$("#modal-insert").append(data.split("<!--nextModal-->")[1]);
 	        	modal();
-	        	$("#insert .center .row__inner_recommendation").append(data.split("<!--nextPage-->")[1]);
 	        }
         },
 

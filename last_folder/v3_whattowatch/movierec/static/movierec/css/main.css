@@ -177,9 +177,9 @@ a:hover {
   position: absolute;
   bottom: 0;
   padding: 10px;
-  white-space: wrap;
-
+  white-space: pre-line;
 }
+
 /*.row__inner:hover {
   -webkit-transform: translate3d(0px, 0, 10px);
           transform: translate3d(0px, 0, 10px);
