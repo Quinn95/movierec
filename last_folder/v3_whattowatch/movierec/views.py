@@ -158,7 +158,7 @@ def recView(request):
             # Display first 20 results #
             query = query.distinct()
             global paginator
-            paginator = None;
+            paginator = Movie.objects.none()
             paginator = Paginator(list(query), 20)
             results = paginator.page(1)
         else:
@@ -219,7 +219,7 @@ def search(request):
             if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
             query = query.distinct()
             global paginator
-            paginator = None
+            paginator = Movie.objects.none()
             paginator = Paginator(list(query), 20)
             results = paginator.page(1)
         else:
