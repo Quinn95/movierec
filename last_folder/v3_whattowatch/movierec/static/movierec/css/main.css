@@ -178,6 +178,7 @@ a:hover {
   bottom: 0;
   padding: 10px;
   white-space: pre-line;
+  text-align: left;
 }
 
 /*.row__inner:hover {
