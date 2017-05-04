@@ -220,7 +220,7 @@ def search(request):
         # No specific sites selected #
         if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
         query = query.distinct()
-        paginator = Paginator(list(query), 20)
+        paginator = Paginator(list(query), 50)
         results = paginator.page(request.POST['pageNum'])
         #     global Map
         #     ip = request.POST["ip"]

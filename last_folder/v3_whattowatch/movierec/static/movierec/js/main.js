@@ -325,7 +325,7 @@ $( document ).ready(function() {
 	    	do_rec = true;
 	    }
 	    if(do_rec){
-	    	$("#success-ajax").removeClass("hidden");
+	    	$("#success-rec").removeClass("hidden");
 	    	recCall(0, true, $(this).attr("action"), rec_from, rec_to, rec_gen, rec_imdb, rec_rating, 
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val());
@@ -366,7 +366,6 @@ $( document ).ready(function() {
     }
     if(do_search){
     	$("#success-ajax").removeClass("hidden");
-    	console.log(ip);
 	    $.ajax({
 	        url: $(this).attr("action"),
 	        type: "POST",
@@ -377,7 +376,6 @@ $( document ).ready(function() {
 	          amazon: search_amazon,
 	          hulu: search_hulu,
 	          hbo: search_hbo,
-	          ip: ip,
 	          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
 
 
@@ -390,7 +388,7 @@ $( document ).ready(function() {
         			scrollTop: $("#search-query").offset().top - 70
     			}, 1000);
     			$(window).on('scroll', function(){
-    				loadOnScroll(1, true);
+    				loadOnScroll(1, true, search_title, search_netflix, search_amazon, search_hulu, search_hbo);
     			});
 	        },
 
@@ -461,7 +459,7 @@ function backspace(input) {
 };
 function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf){
 	// If the next page doesn't exist, just quit now 
-    $("#success-ajax").removeClass("hidden");
+    $("#success-rec").removeClass("hidden");
     if (hasNext === false) {
         return false
     }
@@ -494,7 +492,7 @@ function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, peop
 
 	    // handle a successful response
 	    success: function(data) {
-	    	$("#success-ajax").addClass("hidden");
+	    	$("#success-rec").addClass("hidden");
 	    	if(page == 1){
 	    		$("#insert").append(data.split("<!-- END -->")[1]);
 	    	} else{
@@ -507,13 +505,16 @@ function recCall(page, hasNext, url, from, to, gen, imdb, rating, language, peop
 
 	    // handle a non-successful response
 	    error : function(xhr,errmsg,err) {
-	    	$("#success-ajax").addClass("hidden");
+	    	$("#success-rec").addClass("hidden");
+	    	hasNext = false;
 	        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
 	    }, 
 	    complete :function(){
-			$(window).on('scroll', function(){
-    			recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf);
-    		});
+	    	if(hasNext){
+				$(window).on('scroll', function(){
+	    			recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, people, keywords, netflix, amazon, hulu, hbo, csrf);
+	    		});
+	    	}
 	    }
 	});
 }
@@ -604,17 +605,17 @@ function recScroller(page, hasNext, url, from, to, gen, imdb, rating, language, 
 };
 
 //loadOnScroll handler
-function loadOnScroll(pageNum, hasNextPage) {
+function loadOnScroll(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo) {
    //If the current scroll position is past out cutoff point...
     if ($(window).scrollTop() + window.innerHeight >= $(document).height() - 650) {
         // temporarily unhook the scroll event watcher so we don't call a bunch of times in a row
         $(window).off("scroll"); 
         // execute the load function below that will visit the JSON feed and stuff data into the HTML
-        loadItems(pageNum, hasNextPage);
+        loadItems(pageNum, hasNextPage, text, netflix, amazon, hulu, hbo);
     }
 };
 
-function loadItems(index, hasNextPage) {
+function loadItems(index, hasNextPage, text, netflix, amazon, hulu, hbo) {
     // If the next page doesn't exist, just quit now 
     $("#success-ajax").removeClass("hidden");
     if (hasNextPage === false) {
@@ -622,21 +623,17 @@ function loadItems(index, hasNextPage) {
     }
     // Update the page number
     index = index + 1;
-    var text = "";
-    if($(this).find("#search_text").val() != undefined){
-    	text = $(this).find("#search_text").val();
-    }
     // Configure the url we're about to hit
 	$.ajax({
         url: $("#search-form").attr("action"),
         type: "POST",
         data: {
           search_text: text,
-          netflix: $("#ns").is(":checked"),
+          netflix: netflix,
           pageNum: index,
-          amazon: $("#as").is(":checked"),
-          hulu: $("#hs").is(":checked"),
-          hbo: $("#hbs").is(":checked"),
+          amazon: amazon,
+          hulu: hulu,
+          hbo: hbo,
           csrfmiddlewaretoken: $("#search-form").find("input[name='csrfmiddlewaretoken']").val(),
       	},
 
@@ -655,9 +652,11 @@ function loadItems(index, hasNextPage) {
         },  
         complete: function(data, textStatus){
             // Turn the scroll monitor back on
-            $(window).on('scroll', function(){
-				loadOnScroll(index, hasNextPage);
-			});
+            if(hasNextPage){
+            	$(window).on('scroll', function(){
+					loadOnScroll(index, hasNextPage, text, netflix, amazon, hulu, hbo);
+				});
+        	}
         }
 
     });
