@@ -73,7 +73,7 @@ def test(request):
 USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
-paginator = None
+Map = {}
 def recView(request):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -157,12 +157,13 @@ def recView(request):
 
             # Display first 20 results #
             query = query.distinct()
-            global paginator
-            paginator = Movie.objects.none()
             paginator = Paginator(list(query), 20)
             results = paginator.page(1)
+            global Map
+            Map[request.POST["ip"]] = paginator
         else:
-            results = paginator.page(int(request.POST['pageNum']))
+            ip = request.POST["ip"]
+            results = Map[ip].page(int(request.POST['pageNum']))
 
         # Return all items #
         return render(request, 'movierec/recpage.html',
@@ -218,12 +219,14 @@ def search(request):
             # No specific sites selected #
             if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
             query = query.distinct()
-            global paginator
-            paginator = Movie.objects.none()
             paginator = Paginator(list(query), 20)
             results = paginator.page(1)
+            global Map
+            ip = request.POST["ip"]
+            Map[ip] = paginator
         else:
-            results = paginator.page(int(request.POST['pageNum']))
+            ip = request.POST["ip"]
+            results = Map[ip].page(int(request.POST['pageNum']))
 
         return render(request, 'movierec/search.html', {'results': results,
                                                         'profile': profile,
@@ -249,4 +252,3 @@ def like_dislike(request):
 
             #like = True
             #dislike = False
-

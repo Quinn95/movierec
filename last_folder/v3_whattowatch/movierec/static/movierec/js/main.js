@@ -249,6 +249,9 @@ $( document ).ready(function() {
 	});
 
 	$(".stream").css({"margin-top": $("#search_img").height()/4});
+	$.getJSON("https://api.ipify.org/?format=json", function(e) {
+		ip = e.ip;
+	});
 
 	var rec_from = "";
 	var rec_to = "";
@@ -360,6 +363,7 @@ $( document ).ready(function() {
     }
     if(do_search){
     	$("#success-ajax").removeClass("hidden");
+    	console.log(ip);
 	    $.ajax({
 	        url: $(this).attr("action"),
 	        type: "POST",
@@ -370,6 +374,7 @@ $( document ).ready(function() {
 	          amazon: search_amazon,
 	          hulu: search_hulu,
 	          hbo: search_hbo,
+	          ip: ip,
 	          csrfmiddlewaretoken: $(this).find("input[name='csrfmiddlewaretoken']").val()},
 
 
@@ -396,7 +401,7 @@ $( document ).ready(function() {
   });
 
 });
-
+var ip;
 function image(input){
     if($('#'+input).css('border') == '0px none rgb(255, 255, 255)'){
     	$('#'+input).css({"border": "2px solid orange"});
@@ -468,6 +473,7 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 	      amazon: amazon,
 	      hulu: hulu,
 	      hbo: hbo,
+	      ip: ip,
 	      pageNum: 1,
 	      csrfmiddlewaretoken: csrf},
 
@@ -483,6 +489,7 @@ function recCall(url, from, to, gen, imdb, rating, language, people, keywords, n
 			}, 1000);
 
 			$(window).on('scroll', function(){
+
     			loadOnScroll(1, true, "recommendation", $("#recommendation").find("input[name='csrfmiddlewaretoken']").val());
     		});
 	    },
@@ -592,7 +599,8 @@ function loadItems(pageNum, hasNextPage, form, csrf) {
         type: "POST",
         data: {
           pageNum: pageNum,
-          csrfmiddlewaretoken: csrf
+          csrfmiddlewaretoken: csrf,
+          ip: ip
       	},
 
 

@@ -286,6 +286,10 @@ a:hover {
   padding-left: 0px !important;
   text-align: center;
 }
+.col-lg-8 h4{
+  margin: 0;
+  margin-bottom: 15px;
+}
 
 .search {
   font-family: 'FontAwesome';
