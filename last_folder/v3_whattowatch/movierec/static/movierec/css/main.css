@@ -17,6 +17,9 @@ body, body legend{
   color: black;
   background-color: black;
 }
+.navbar-inverse .navbar-nav > li > a{
+  color: black;
+}
 .nav{
   font-family: 'Oswald', sans-serif;
 }

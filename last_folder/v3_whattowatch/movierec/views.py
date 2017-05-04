@@ -73,7 +73,7 @@ def test(request):
 USER_RATINGS = {"Any": [0.0, 10.0], "> 8": [8.0, 10.0], "6-8": [6.0, 8.0],
                 "4-6": [4.0, 6.0], "< 4": [0.0, 4.0]}
 
-paginatorRec = None
+paginator = None
 def recView(request):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -157,12 +157,12 @@ def recView(request):
 
             # Display first 20 results #
             query = query.distinct()
-            global paginatorRec
-            paginatorRec = None;
-            paginatorRec = Paginator(list(query), 20)
-            results = paginatorRec.page(1)
+            global paginator
+            paginator = None;
+            paginator = Paginator(list(query), 20)
+            results = paginator.page(1)
         else:
-            results = paginatorRec.page(int(request.POST['pageNum']))
+            results = paginator.page(int(request.POST['pageNum']))
 
         # Return all items #
         return render(request, 'movierec/recpage.html',
@@ -181,7 +181,6 @@ def recView(request):
                   'genres': Genre.objects.all(),
                   'keywords': Keyword.objects.all()})
 
-paginator = None;
 def search(request):
     profile = None
     if request.user.is_authenticated:
