@@ -270,6 +270,7 @@ $( document ).ready(function() {
 	    e.preventDefault();
 	    var pep = new Array();
 	    var key = new Array();
+	    $("#insert").empty();
 	    $(".people").children(".tag").each(function(){
 	      pep.push($(this).text());
 	    });
