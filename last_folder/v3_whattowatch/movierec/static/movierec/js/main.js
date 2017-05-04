@@ -330,7 +330,7 @@ $( document ).ready(function() {
 	    		rec_language, rec_people, rec_keywords, rec_netflix, rec_amazon, rec_hulu, rec_hbo,
 	    		$(this).find("input[name='csrfmiddlewaretoken']").val());
 	    	$('html, body').animate({
-				scrollTop: $("#insert").offset().top - 150
+				scrollTop: $("#insert").offset().top - 100
 			}, 1000);
 		}
 	do_rec = false;
@@ -365,6 +365,7 @@ $( document ).ready(function() {
     	do_search = true;
     }
     if(do_search){
+    	$("#search-query").empty();
     	$("#success-ajax").removeClass("hidden");
 	    $.ajax({
 	        url: $(this).attr("action"),
@@ -382,7 +383,6 @@ $( document ).ready(function() {
 	        // handle a successful response
 	        success: function(data) {
 	        	$("#success-ajax").addClass("hidden");
-	        	$("#search-query").empty();
 		        $("#search-query").append(data.split("<!-- END -->")[1]);
 		    	$('html, body').animate({
         			scrollTop: $("#search-query").offset().top - 70

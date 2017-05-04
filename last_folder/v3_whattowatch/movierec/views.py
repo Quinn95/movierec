@@ -157,7 +157,7 @@ def recView(request):
 
         # Display first 20 results #
         query = query.distinct()
-        paginator = Paginator(list(query), 20)
+        paginator = Paginator(list(query), 50)
         results = paginator.page(int(request.POST['pageNum']))
         # print request.POST['pageNum']
         #     global Map
