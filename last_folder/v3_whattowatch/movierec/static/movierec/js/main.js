@@ -599,8 +599,8 @@ function loadItems(pageNum, hasNextPage, form, csrf) {
         type: "POST",
         data: {
           pageNum: pageNum,
+          ip: ip,
           csrfmiddlewaretoken: csrf,
-          ip: ip
       	},
 
 

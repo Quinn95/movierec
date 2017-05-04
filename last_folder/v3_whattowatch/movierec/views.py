@@ -82,7 +82,7 @@ def recView(request):
     if request.method == 'POST':
         if int(request.POST['pageNum']) == 1:
 
-            # Form name definitions #
+        # Form name definitions #
             timerange = (request.POST['from'], request.POST['to'])
             genre = request.POST['genre']
             imdb = request.POST['imdb']
@@ -158,7 +158,8 @@ def recView(request):
             # Display first 20 results #
             query = query.distinct()
             paginator = Paginator(list(query), 20)
-            results = paginator.page(1)
+            results = paginator.page(int(request.POST['pageNum']))
+        # print request.POST['pageNum']
             global Map
             Map[request.POST["ip"]] = paginator
         else:
@@ -220,7 +221,7 @@ def search(request):
             if anychecked: query = querynetflix | queryamazon | queryhulu | queryhbo
             query = query.distinct()
             paginator = Paginator(list(query), 20)
-            results = paginator.page(1)
+            results = paginator.page(int(request.POST['pageNum']))
             global Map
             ip = request.POST["ip"]
             Map[ip] = paginator
