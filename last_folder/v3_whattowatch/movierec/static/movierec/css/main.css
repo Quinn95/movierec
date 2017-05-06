@@ -361,7 +361,7 @@ select::-ms-expand {
 }
 
 .year select{
-  color:; black;
+  color: black;
 }
 .rec_title{
   margin-top: -10px;
@@ -701,6 +701,18 @@ body.account-delete .account-delete, body.account-password .account-password, bo
 }
 .foot-col h5{
   color: black;
+}
+
+.create-account{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.create-account h5{
+  color: white;
+}
+.create-account h5 a{
+  color: white;
 }
 
 /*footer{*/

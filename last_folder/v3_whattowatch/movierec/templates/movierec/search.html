@@ -32,6 +32,11 @@
 
 <div id="search-query" class="container">
 <!-- END -->
+        {% if not user.is_authenticated %}
+            <div class="create-account">
+                <h5>Create a <a href="{% url 'account_login' %}">free account</a> to get direct links!</h5>
+            </div>
+        {% endif %}
 	{% for result in results %}
 	 <div id="search_results" class="row__inner_recommendation description">
 	 	<div class="row row-eq-height">
@@ -69,18 +74,19 @@
               			<h5 class="search_summary pull-left">Rated: {{result.rating}}</h5>
               		</div>
               		<div class="col-sm-6">
-						<a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}">
+                        <a target="blank" href="http://www.imdb.com/title/{{result.imdb}}"><img class="imdb_logo" src="{% static 'movierec/images/imdb_logo.png' %}"></a>
 					</div>
               	</div>
 			</div>
 			<div class="search_info_right">
 
 				<div class="row stream">
+                {% if user.is_authenticated %}
 		            {% if result.netflix_available  %}
 		              {% if result.netflix is not None %}
 		            <a class="search_logo" target="blank" href="{{result.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
 		              {% else %}
-		            <a class="search_logo" target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a> 
+		            <a class="search_logo" target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
 		              {% endif %}
 		            {% endif %}
 
@@ -107,6 +113,23 @@
 		            <a class="search_logo" target="blank" href="https://www.hbonow.com"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"></a>
 		            {% endif %}
 		            {% endif %}
+                {% else %}
+                    {% if result.netflix_available  %}
+		            <a class="search_logo"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+		            {% endif %}
+
+		            {% if result.amazon_available %}
+		            <a class="search_logo"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+		            {% endif %}
+
+		            {% if result.hulu_available %}
+		            <a class="search_logo"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+		            {% endif %}
+
+		            {% if result.hbo_available %}
+		            <a class="search_logo"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"></a>
+		            {% endif %}
+                {% endif %}
 	            </div>
 			</div>
 		</div>

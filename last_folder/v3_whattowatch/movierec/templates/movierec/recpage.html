@@ -173,38 +173,62 @@
           </div>
             <div class="stream">
             <h4>Available on:</h4>
-            {% if item.netflix_available  %}
-              {% if item.netflix is not None %}
-            <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
-              {% else %}
-            <a target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a> 
-              {% endif %}
-            {% endif %}
+            {% if user.is_authenticated %}
+                {% if item.netflix_available  %}
+                  {% if item.netflix is not None %}
+                <a target="blank" href="{{item.netflix}}"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+                  {% else %}
+                <a target="blank" href="https://www.netflix.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/></a>
+                  {% endif %}
+                {% endif %}
 
-            {% if item.amazon_available %}
-              {% if item.amazon is not None %}
-            <a target="blank" href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
-              {% else %}
-            <a target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
-              {% endif %}
-            {% endif %}
+                {% if item.amazon_available %}
+                  {% if item.amazon is not None %}
+                <a target="blank" href="{{item.amazon}}"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+                  {% else %}
+                <a target="blank" href="https://www.amazon.com/Prime-Video/b?node=2676882011"><img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}"></a>
+                  {% endif %}
+                {% endif %}
 
-            {% if item.hulu_available %}
-              {% if item.amazon is not None %}
-              <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
-              {% else %}
-              <a target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
-              {% endif %}
-            {% endif %}
+                {% if item.hulu_available %}
+                  {% if item.hulu is not None %}
+                  <a target="blank" href="{{item.hulu}}"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+                  {% else %}
+                  <a target="blank" href="https://www.hulu.com"><img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}"></a>
+                  {% endif %}
+                {% endif %}
 
-            {% if item.hbo_available  %}
-              {% if item.hbo is not None %}
-            <a target="blank" href="{{item.hbo}}"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/></a>
-              {% else %}
-            <a target="blank" href="https://www.hbonow.com"><img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/></a> 
-              {% endif %}
+                {% if item.hbo_available  %}
+                  {% if item.hbo is not None %}
+                <a target="blank" href="{{item.hbo}}"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/></a>
+                  {% else %}
+                <a target="blank" href="https://www.hbonow.com"><img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/></a>
+                  {% endif %}
+                {% endif %}
+            {% else %}
+                {% if item.netflix_available  %}
+                    <img id="netflix" class="streaming logo__img" src="{% static 'movierec/images/netflix.png' %}"/>
+                {% endif %}
+
+                {% if item.amazon_available %}
+                    <img id="amazon" class="streaming logo__img" src="{% static 'movierec/images/Amazon-logo.png' %}">
+                {% endif %}
+
+                {% if item.hulu_available %}
+                    <img id="hulu" class="streaming logo__img" src="{% static 'movierec/images/hulu3.png' %}">
+                {% endif %}
+
+                {% if item.hbo_available  %}
+                    <img id="hbo" class="streaming logo__img" src="{% static 'movierec/images/hbo_now_white.png' %}"/>
+                {% endif %}
+
             {% endif %}
             </div>
+        {% if not user.is_authenticated %}
+            <div class="create-account">
+                <h5>Create a <a href="{% url 'account_login' %}">free account</a> to get direct links!</h5>
+            </div>
+        {% endif %}
           <div class="likes">
             <span class="dislike pull-right"><button class="yay down{{item.identifier}}" id="down"><i class="fa fa-thumbs-down"></i></button></span>
             <span class="like pull-right"><button id="up" class="yay up{{item.identifier}}"><i class="fa fa-thumbs-up icon-flipped"></i></button></span>
